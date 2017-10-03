@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C41F838AFE007DAA76 /* AppDelegate.swift */; };
+		671676C71F838AFE007DAA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C61F838AFE007DAA76 /* ViewController.swift */; };
+		671676CA1F838AFE007DAA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676C81F838AFE007DAA76 /* Main.storyboard */; };
+		671676CC1F838AFE007DAA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671676CB1F838AFE007DAA76 /* Assets.xcassets */; };
+		671676CF1F838AFE007DAA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676CD1F838AFE007DAA76 /* LaunchScreen.storyboard */; };
+		671676DA1F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */; };
+		671676E51F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		671676D61F838AFE007DAA76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 671676C01F838AFE007DAA76;
+			remoteInfo = "iOS Sample Kitura Buddy";
+		};
+		671676E11F838AFE007DAA76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 671676C01F838AFE007DAA76;
+			remoteInfo = "iOS Sample Kitura Buddy";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Sample Kitura Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		671676C41F838AFE007DAA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		671676C61F838AFE007DAA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		671676C91F838AFE007DAA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		671676CB1F838AFE007DAA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		671676CE1F838AFE007DAA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		671676D01F838AFE007DAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		671676D51F838AFE007DAA76 /* iOS Sample Kitura BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Sample Kitura BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Sample_Kitura_BuddyTests.swift; sourceTree = "<group>"; };
+		671676DB1F838AFE007DAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		671676E01F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Sample Kitura BuddyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Sample_Kitura_BuddyUITests.swift; sourceTree = "<group>"; };
+		671676E61F838AFE007DAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		671676BE1F838AFE007DAA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671676D21F838AFE007DAA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671676DD1F838AFE007DAA76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		671676B81F838AFE007DAA76 = {
+			isa = PBXGroup;
+			children = (
+				671676C31F838AFE007DAA76 /* iOS Sample Kitura Buddy */,
+				671676D81F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */,
+				671676E31F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests */,
+				671676C21F838AFE007DAA76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		671676C21F838AFE007DAA76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */,
+				671676D51F838AFE007DAA76 /* iOS Sample Kitura BuddyTests.xctest */,
+				671676E01F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		671676C31F838AFE007DAA76 /* iOS Sample Kitura Buddy */ = {
+			isa = PBXGroup;
+			children = (
+				671676C41F838AFE007DAA76 /* AppDelegate.swift */,
+				671676C61F838AFE007DAA76 /* ViewController.swift */,
+				671676C81F838AFE007DAA76 /* Main.storyboard */,
+				671676CB1F838AFE007DAA76 /* Assets.xcassets */,
+				671676CD1F838AFE007DAA76 /* LaunchScreen.storyboard */,
+				671676D01F838AFE007DAA76 /* Info.plist */,
+			);
+			path = "iOS Sample Kitura Buddy";
+			sourceTree = "<group>";
+		};
+		671676D81F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */ = {
+			isa = PBXGroup;
+			children = (
+				671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */,
+				671676DB1F838AFE007DAA76 /* Info.plist */,
+			);
+			path = "iOS Sample Kitura BuddyTests";
+			sourceTree = "<group>";
+		};
+		671676E31F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */,
+				671676E61F838AFE007DAA76 /* Info.plist */,
+			);
+			path = "iOS Sample Kitura BuddyUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura Buddy" */;
+			buildPhases = (
+				671676BD1F838AFE007DAA76 /* Sources */,
+				671676BE1F838AFE007DAA76 /* Frameworks */,
+				671676BF1F838AFE007DAA76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS Sample Kitura Buddy";
+			productName = "iOS Sample Kitura Buddy";
+			productReference = 671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		671676D41F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 671676EC1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura BuddyTests" */;
+			buildPhases = (
+				671676D11F838AFE007DAA76 /* Sources */,
+				671676D21F838AFE007DAA76 /* Frameworks */,
+				671676D31F838AFE007DAA76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				671676D71F838AFE007DAA76 /* PBXTargetDependency */,
+			);
+			name = "iOS Sample Kitura BuddyTests";
+			productName = "iOS Sample Kitura BuddyTests";
+			productReference = 671676D51F838AFE007DAA76 /* iOS Sample Kitura BuddyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		671676DF1F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 671676EF1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura BuddyUITests" */;
+			buildPhases = (
+				671676DC1F838AFE007DAA76 /* Sources */,
+				671676DD1F838AFE007DAA76 /* Frameworks */,
+				671676DE1F838AFE007DAA76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				671676E21F838AFE007DAA76 /* PBXTargetDependency */,
+			);
+			name = "iOS Sample Kitura BuddyUITests";
+			productName = "iOS Sample Kitura BuddyUITests";
+			productReference = 671676E01F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		671676B91F838AFE007DAA76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = IBM;
+				TargetAttributes = {
+					671676C01F838AFE007DAA76 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					671676D41F838AFE007DAA76 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 671676C01F838AFE007DAA76;
+					};
+					671676DF1F838AFE007DAA76 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 671676C01F838AFE007DAA76;
+					};
+				};
+			};
+			buildConfigurationList = 671676BC1F838AFE007DAA76 /* Build configuration list for PBXProject "iOS Sample Kitura Buddy" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 671676B81F838AFE007DAA76;
+			productRefGroup = 671676C21F838AFE007DAA76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */,
+				671676D41F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */,
+				671676DF1F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		671676BF1F838AFE007DAA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671676CF1F838AFE007DAA76 /* LaunchScreen.storyboard in Resources */,
+				671676CC1F838AFE007DAA76 /* Assets.xcassets in Resources */,
+				671676CA1F838AFE007DAA76 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671676D31F838AFE007DAA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671676DE1F838AFE007DAA76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		671676BD1F838AFE007DAA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671676C71F838AFE007DAA76 /* ViewController.swift in Sources */,
+				671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671676D11F838AFE007DAA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671676DA1F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		671676DC1F838AFE007DAA76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671676E51F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		671676D71F838AFE007DAA76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */;
+			targetProxy = 671676D61F838AFE007DAA76 /* PBXContainerItemProxy */;
+		};
+		671676E21F838AFE007DAA76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */;
+			targetProxy = 671676E11F838AFE007DAA76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		671676C81F838AFE007DAA76 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				671676C91F838AFE007DAA76 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		671676CD1F838AFE007DAA76 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				671676CE1F838AFE007DAA76 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		671676E71F838AFE007DAA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		671676E81F838AFE007DAA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		671676EA1F838AFE007DAA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				INFOPLIST_FILE = "iOS Sample Kitura Buddy/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-Buddy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		671676EB1F838AFE007DAA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				INFOPLIST_FILE = "iOS Sample Kitura Buddy/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-Buddy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		671676ED1F838AFE007DAA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				INFOPLIST_FILE = "iOS Sample Kitura BuddyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-BuddyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS Sample Kitura Buddy.app/iOS Sample Kitura Buddy";
+			};
+			name = Debug;
+		};
+		671676EE1F838AFE007DAA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				INFOPLIST_FILE = "iOS Sample Kitura BuddyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-BuddyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS Sample Kitura Buddy.app/iOS Sample Kitura Buddy";
+			};
+			name = Release;
+		};
+		671676F01F838AFE007DAA76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				INFOPLIST_FILE = "iOS Sample Kitura BuddyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-BuddyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "iOS Sample Kitura Buddy";
+			};
+			name = Debug;
+		};
+		671676F11F838AFE007DAA76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				INFOPLIST_FILE = "iOS Sample Kitura BuddyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-BuddyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "iOS Sample Kitura Buddy";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		671676BC1F838AFE007DAA76 /* Build configuration list for PBXProject "iOS Sample Kitura Buddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671676E71F838AFE007DAA76 /* Debug */,
+				671676E81F838AFE007DAA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura Buddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671676EA1F838AFE007DAA76 /* Debug */,
+				671676EB1F838AFE007DAA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		671676EC1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura BuddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671676ED1F838AFE007DAA76 /* Debug */,
+				671676EE1F838AFE007DAA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		671676EF1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura BuddyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671676F01F838AFE007DAA76 /* Debug */,
+				671676F11F838AFE007DAA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 671676B91F838AFE007DAA76 /* Project object */;
+}
