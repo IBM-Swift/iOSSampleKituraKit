@@ -39,10 +39,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 // send to Kitura
                 if let textToSend = field.text {
-                    let employee: Employee = Employee(name: textToSend)
-                    self.employees.append(employee.name)
+                    
+                    self.create(text: textToSend)
+                    
+                    self.employees.append(textToSend)
                     self.tableView.reloadData()
-                    //Employee.create(employee)
                 } else {
                     
                 }
@@ -72,6 +73,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel!.text = "\(employees[indexPath.row])"
         return cell
     }
+    
+    func create(text: String) {
+        let Emp1 = Employee(id: "id", name: text)
+        let Emp2 = try Employee.create(model: Emp1)
+        print(Emp1)
+        print(Emp2)
+    }
 
 }
-
