@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView = UITableView()
+    var employees: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,9 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         self.tableView = UITableView(frame:CGRect(x:0, y:(self.navigationController?.navigationBar.bounds.height)!, width: self.view.bounds.width, height: (self.navigationController?.view.bounds.height)!))
         self.tableView.backgroundColor = UIColor.white
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
     }
 
@@ -32,7 +36,17 @@ class ViewController: UIViewController, UITableViewDelegate {
         let textEntry = UIAlertController(title: "Text", message: "Please input some text to send:", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
             if let field = textEntry.textFields?[0] {
+                
                 // send to Kitura
+                if let textToSend = field.text {
+                    let employee: Employee = Employee(name: textToSend)
+                    self.employees.append(employee.name)
+                    self.tableView.reloadData()
+                    //Employee.create(employee)
+                } else {
+                    
+                }
+                
             } else {
                 
             }
@@ -49,8 +63,14 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.present(textEntry, animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return employees.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        cell.textLabel!.text = "\(employees[indexPath.row])"
+        return cell
     }
 
 }
