@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TypeSafeKituraClient
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -64,6 +65,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.present(textEntry, animated: true, completion: nil)
     }
     
+    // Table View
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employees.count
     }
@@ -74,11 +77,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    // Kitura
+    
     func create(text: String) {
-        let Emp1 = Employee(id: "id", name: text)
+        let Emp1 = Employee(id: "1234", name: text)
         let Emp2 = try Employee.create(model: Emp1)
-        print(Emp1)
-        print(Emp2)
+        
+        // read into table after creating new item:
+        self.read(i: nil)
+    }
+    
+    func read(i: String?) {
+        let Emp1 = try Employee.read(id: i?)
+        employees.append(Emp1)
+        
+        self.tableView.reloadData()
+        
+        // or to read all:
+        // let Emp1 = try Employee.read()
+        // employees = Emp1
+    }
+    
+    func update(i: String, text: String) {
+        let Emp1 = Employee(id: "1234", name: text)
+        let Emp2 = try Employee.update(id: i, model: Emp1)
+        
+        // read into table after updating item:
+        self.read(i: nil)
+    }
+    
+    func delete(i: String?) {
+        try Employee.delete(id: i?)
+        
+        self.tableView.reloadData()
+        
+        // or to delete all:
+        // try Employee.delete()
     }
 
 }

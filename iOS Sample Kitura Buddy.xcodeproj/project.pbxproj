@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C41F838AFE007DAA76 /* AppDelegate.swift */; };
-		671676C71F838AFE007DAA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C61F838AFE007DAA76 /* ViewController.swift */; };
 		671676CA1F838AFE007DAA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676C81F838AFE007DAA76 /* Main.storyboard */; };
 		671676CC1F838AFE007DAA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671676CB1F838AFE007DAA76 /* Assets.xcassets */; };
 		671676CF1F838AFE007DAA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676CD1F838AFE007DAA76 /* LaunchScreen.storyboard */; };
 		671676DA1F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */; };
 		671676E51F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */; };
 		6716770E1F839CE0007DAA76 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6716770D1F839CE0007DAA76 /* Model.swift */; };
+		67C4FC331F83D6ED00667A9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C61F838AFE007DAA76 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,8 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C4FC331F83D6ED00667A9A /* ViewController.swift in Sources */,
 				6716770E1F839CE0007DAA76 /* Model.swift in Sources */,
-				671676C71F838AFE007DAA76 /* ViewController.swift in Sources */,
 				671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
