@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import TypeSafeKituraClient
+import TypeSafeContracts
 
 public struct Employee: Codable {
     public let id: String
@@ -16,8 +18,8 @@ public struct Employee: Codable {
         self.name = name
     }
 }
-
+/*
 extension Employee: Persistable {
-    typealias Model = Employee
-    typealias I = String
+    public typealias Id = Identifier
 }
+*/

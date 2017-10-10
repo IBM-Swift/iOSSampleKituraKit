@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 // send to Kitura
                 if let textToSend = field.text {
                     
-                    self.create(text: textToSend)
+                    //self.create(text: textToSend)
                     
                     self.employees.append(textToSend)
                     self.tableView.reloadData()
@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // Kitura
-    
+    /*
     func create(text: String) {
         let Emp1 = Employee(id: "1234", name: text)
         let Emp2 = try Employee.create(model: Emp1)
@@ -114,5 +114,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // or to delete all:
         // try Employee.delete()
     }
-
+*/
 }
