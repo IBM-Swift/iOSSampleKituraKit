@@ -40,14 +40,13 @@
 		6740A0011F90FF8C00E79C9E /* SafetyContracts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */; };
 		6740A0021F90FF8C00E79C9E /* SafetyContracts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6740A0081F90FF9400E79C9E /* Contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0071F90FF9400E79C9E /* Contracts.swift */; };
-		6740A0231F91002200E79C9E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0221F91002200E79C9E /* Utils.swift */; };
-		6740A03E1F91007D00E79C9E /* KituraBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6740A03C1F91007D00E79C9E /* KituraBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6740A0411F91007D00E79C9E /* KituraBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6740A03A1F91007D00E79C9E /* KituraBuddy.framework */; };
-		6740A0421F91007D00E79C9E /* KituraBuddy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6740A03A1F91007D00E79C9E /* KituraBuddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6740A04A1F91008500E79C9E /* PersistableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0471F91008500E79C9E /* PersistableExtension.swift */; };
-		6740A04B1F91008500E79C9E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0481F91008500E79C9E /* Client.swift */; };
-		6740A04C1F91008500E79C9E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0491F91008500E79C9E /* Utils.swift */; };
-		6740A04D1F9100A500E79C9E /* SafetyContracts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */; };
+		6740A3031F911B1900E79C9E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A3021F911B1900E79C9E /* Utils.swift */; };
+		6740A30D1F911B4700E79C9E /* KituraBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6740A30B1F911B4700E79C9E /* KituraBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6740A3101F911B4700E79C9E /* KituraBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6740A3091F911B4700E79C9E /* KituraBuddy.framework */; };
+		6740A3111F911B4700E79C9E /* KituraBuddy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6740A3091F911B4700E79C9E /* KituraBuddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6740A3191F911B4E00E79C9E /* PersistableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A3161F911B4E00E79C9E /* PersistableExtension.swift */; };
+		6740A31A1F911B4E00E79C9E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A3171F911B4E00E79C9E /* Client.swift */; };
+		6740A31B1F911B4E00E79C9E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A3181F911B4E00E79C9E /* Utils.swift */; };
 		67C4FC331F83D6ED00667A9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C61F838AFE007DAA76 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,11 +93,11 @@
 			remoteGlobalIDString = 67409FF91F90FF8C00E79C9E;
 			remoteInfo = SafetyContracts;
 		};
-		6740A03F1F91007D00E79C9E /* PBXContainerItemProxy */ = {
+		6740A30E1F911B4700E79C9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6740A0391F91007D00E79C9E;
+			remoteGlobalIDString = 6740A3081F911B4700E79C9E;
 			remoteInfo = KituraBuddy;
 		};
 /* End PBXContainerItemProxy section */
@@ -110,7 +109,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6740A0421F91007D00E79C9E /* KituraBuddy.framework in Embed Frameworks */,
+				6740A3111F911B4700E79C9E /* KituraBuddy.framework in Embed Frameworks */,
 				6713B5BE1F8D00F900FE457C /* LoggerAPI.framework in Embed Frameworks */,
 				6713B5DB1F8D014000FE457C /* SwiftyRequest.framework in Embed Frameworks */,
 				6740A0021F90FF8C00E79C9E /* SafetyContracts.framework in Embed Frameworks */,
@@ -172,17 +171,15 @@
 		67409FFC1F90FF8C00E79C9E /* SafetyContracts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafetyContracts.h; sourceTree = "<group>"; };
 		67409FFD1F90FF8C00E79C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6740A0071F90FF9400E79C9E /* Contracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contracts.swift; sourceTree = "<group>"; };
-		6740A00A1F90FFC200E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
-		6740A00B1F90FFC200E79C9E /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		6740A01E1F90FFD300E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
-		6740A01F1F90FFD300E79C9E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		6740A0221F91002200E79C9E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		6740A03A1F91007D00E79C9E /* KituraBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KituraBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6740A03C1F91007D00E79C9E /* KituraBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KituraBuddy.h; sourceTree = "<group>"; };
-		6740A03D1F91007D00E79C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6740A0471F91008500E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
-		6740A0481F91008500E79C9E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		6740A0491F91008500E79C9E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6740A3001F911B0900E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
+		6740A3011F911B0900E79C9E /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		6740A3021F911B1900E79C9E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6740A3091F911B4700E79C9E /* KituraBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KituraBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6740A30B1F911B4700E79C9E /* KituraBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KituraBuddy.h; sourceTree = "<group>"; };
+		6740A30C1F911B4700E79C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6740A3161F911B4E00E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
+		6740A3171F911B4E00E79C9E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		6740A3181F911B4E00E79C9E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6740A0411F91007D00E79C9E /* KituraBuddy.framework in Frameworks */,
+				6740A3101F911B4700E79C9E /* KituraBuddy.framework in Frameworks */,
 				6713B5BD1F8D00F900FE457C /* LoggerAPI.framework in Frameworks */,
 				6713B5DA1F8D014000FE457C /* SwiftyRequest.framework in Frameworks */,
 				6740A0011F90FF8C00E79C9E /* SafetyContracts.framework in Frameworks */,
@@ -242,11 +239,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6740A0361F91007D00E79C9E /* Frameworks */ = {
+		6740A3051F911B4700E79C9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6740A04D1F9100A500E79C9E /* SafetyContracts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +361,7 @@
 				6713B5D41F8D014000FE457C /* SwiftyRequest */,
 				6713B5F91F8D016A00FE457C /* CircuitBreaker */,
 				67409FFB1F90FF8C00E79C9E /* SafetyContracts */,
-				6740A03B1F91007D00E79C9E /* KituraBuddy */,
+				6740A30A1F911B4700E79C9E /* KituraBuddy */,
 				671676C21F838AFE007DAA76 /* Products */,
 				6713B5411F8CF8D700FE457C /* Frameworks */,
 			);
@@ -381,7 +377,7 @@
 				6713B5D31F8D014000FE457C /* SwiftyRequest.framework */,
 				6713B5F81F8D016A00FE457C /* CircuitBreaker.framework */,
 				67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */,
-				6740A03A1F91007D00E79C9E /* KituraBuddy.framework */,
+				6740A3091F911B4700E79C9E /* KituraBuddy.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -396,7 +392,7 @@
 				671676CB1F838AFE007DAA76 /* Assets.xcassets */,
 				671676CD1F838AFE007DAA76 /* LaunchScreen.storyboard */,
 				671676D01F838AFE007DAA76 /* Info.plist */,
-				6740A0091F90FFC200E79C9E /* KituraBuddy */,
+				6740A2FF1F911B0900E79C9E /* KituraBuddy */,
 				67409FF31F90FF8200E79C9E /* SafetyContracts */,
 				6713B5EF1F8D015F00FE457C /* CircuitBreaker */,
 				6713B5C61F8D012000FE457C /* SwiftyRequest */,
@@ -450,42 +446,33 @@
 			name = SafetyContracts;
 			sourceTree = "<group>";
 		};
-		6740A0091F90FFC200E79C9E /* KituraBuddy */ = {
+		6740A2FF1F911B0900E79C9E /* KituraBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				6740A01D1F90FFD300E79C9E /* KituraBuddy */,
-				6740A0461F91008500E79C9E /* KituraBuddy */,
-				6740A00A1F90FFC200E79C9E /* PersistableExtension.swift */,
-				6740A00B1F90FFC200E79C9E /* Client.swift */,
-			);
-			path = KituraBuddy;
-			sourceTree = "<group>";
-		};
-		6740A01D1F90FFD300E79C9E /* KituraBuddy */ = {
-			isa = PBXGroup;
-			children = (
-				6740A01E1F90FFD300E79C9E /* PersistableExtension.swift */,
-				6740A01F1F90FFD300E79C9E /* Client.swift */,
-				6740A0221F91002200E79C9E /* Utils.swift */,
+				6740A3151F911B4E00E79C9E /* KituraBuddy */,
+				6740A3001F911B0900E79C9E /* PersistableExtension.swift */,
+				6740A3011F911B0900E79C9E /* Client.swift */,
+				6740A3021F911B1900E79C9E /* Utils.swift */,
 			);
 			name = KituraBuddy;
-			sourceTree = "<group>";
+			path = ".build/checkouts/KituraBuddy.git-5939336420118925328/Sources/KituraBuddy";
+			sourceTree = SOURCE_ROOT;
 		};
-		6740A03B1F91007D00E79C9E /* KituraBuddy */ = {
+		6740A30A1F911B4700E79C9E /* KituraBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				6740A03C1F91007D00E79C9E /* KituraBuddy.h */,
-				6740A03D1F91007D00E79C9E /* Info.plist */,
+				6740A30B1F911B4700E79C9E /* KituraBuddy.h */,
+				6740A30C1F911B4700E79C9E /* Info.plist */,
 			);
 			path = KituraBuddy;
 			sourceTree = "<group>";
 		};
-		6740A0461F91008500E79C9E /* KituraBuddy */ = {
+		6740A3151F911B4E00E79C9E /* KituraBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				6740A0471F91008500E79C9E /* PersistableExtension.swift */,
-				6740A0481F91008500E79C9E /* Client.swift */,
-				6740A0491F91008500E79C9E /* Utils.swift */,
+				6740A3161F911B4E00E79C9E /* PersistableExtension.swift */,
+				6740A3171F911B4E00E79C9E /* Client.swift */,
+				6740A3181F911B4E00E79C9E /* Utils.swift */,
 			);
 			name = KituraBuddy;
 			sourceTree = "<group>";
@@ -525,11 +512,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6740A0371F91007D00E79C9E /* Headers */ = {
+		6740A3061F911B4700E79C9E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6740A03E1F91007D00E79C9E /* KituraBuddy.h in Headers */,
+				6740A30D1F911B4700E79C9E /* KituraBuddy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +593,7 @@
 				6713B5D91F8D014000FE457C /* PBXTargetDependency */,
 				6713B5FE1F8D016A00FE457C /* PBXTargetDependency */,
 				6740A0001F90FF8C00E79C9E /* PBXTargetDependency */,
-				6740A0401F91007D00E79C9E /* PBXTargetDependency */,
+				6740A30F1F911B4700E79C9E /* PBXTargetDependency */,
 			);
 			name = "iOS Sample Kitura Buddy";
 			productName = "iOS Sample Kitura Buddy";
@@ -667,14 +654,14 @@
 			productReference = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6740A0391F91007D00E79C9E /* KituraBuddy */ = {
+		6740A3081F911B4700E79C9E /* KituraBuddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6740A0431F91007D00E79C9E /* Build configuration list for PBXNativeTarget "KituraBuddy" */;
+			buildConfigurationList = 6740A3121F911B4700E79C9E /* Build configuration list for PBXNativeTarget "KituraBuddy" */;
 			buildPhases = (
-				6740A0351F91007D00E79C9E /* Sources */,
-				6740A0361F91007D00E79C9E /* Frameworks */,
-				6740A0371F91007D00E79C9E /* Headers */,
-				6740A0381F91007D00E79C9E /* Resources */,
+				6740A3041F911B4700E79C9E /* Sources */,
+				6740A3051F911B4700E79C9E /* Frameworks */,
+				6740A3061F911B4700E79C9E /* Headers */,
+				6740A3071F911B4700E79C9E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -682,7 +669,7 @@
 			);
 			name = KituraBuddy;
 			productName = KituraBuddy;
-			productReference = 6740A03A1F91007D00E79C9E /* KituraBuddy.framework */;
+			productReference = 6740A3091F911B4700E79C9E /* KituraBuddy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -725,7 +712,7 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
-					6740A0391F91007D00E79C9E = {
+					6740A3081F911B4700E79C9E = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -751,7 +738,7 @@
 				6713B5D21F8D014000FE457C /* SwiftyRequest */,
 				6713B5F71F8D016A00FE457C /* CircuitBreaker */,
 				67409FF91F90FF8C00E79C9E /* SafetyContracts */,
-				6740A0391F91007D00E79C9E /* KituraBuddy */,
+				6740A3081F911B4700E79C9E /* KituraBuddy */,
 			);
 		};
 /* End PBXProject section */
@@ -809,7 +796,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6740A0381F91007D00E79C9E /* Resources */ = {
+		6740A3071F911B4700E79C9E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -855,10 +842,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6740A0231F91002200E79C9E /* Utils.swift in Sources */,
 				67C4FC331F83D6ED00667A9A /* ViewController.swift in Sources */,
 				6716770E1F839CE0007DAA76 /* Model.swift in Sources */,
 				671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */,
+				6740A3031F911B1900E79C9E /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,13 +873,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6740A0351F91007D00E79C9E /* Sources */ = {
+		6740A3041F911B4700E79C9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6740A04B1F91008500E79C9E /* Client.swift in Sources */,
-				6740A04A1F91008500E79C9E /* PersistableExtension.swift in Sources */,
-				6740A04C1F91008500E79C9E /* Utils.swift in Sources */,
+				6740A31A1F911B4E00E79C9E /* Client.swift in Sources */,
+				6740A3191F911B4E00E79C9E /* PersistableExtension.swift in Sources */,
+				6740A31B1F911B4E00E79C9E /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,10 +916,10 @@
 			target = 67409FF91F90FF8C00E79C9E /* SafetyContracts */;
 			targetProxy = 67409FFF1F90FF8C00E79C9E /* PBXContainerItemProxy */;
 		};
-		6740A0401F91007D00E79C9E /* PBXTargetDependency */ = {
+		6740A30F1F911B4700E79C9E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6740A0391F91007D00E79C9E /* KituraBuddy */;
-			targetProxy = 6740A03F1F91007D00E79C9E /* PBXContainerItemProxy */;
+			target = 6740A3081F911B4700E79C9E /* KituraBuddy */;
+			targetProxy = 6740A30E1F911B4700E79C9E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1355,7 +1342,7 @@
 			};
 			name = Release;
 		};
-		6740A0441F91007D00E79C9E /* Debug */ = {
+		6740A3131F911B4700E79C9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -1379,7 +1366,7 @@
 			};
 			name = Debug;
 		};
-		6740A0451F91007D00E79C9E /* Release */ = {
+		6740A3141F911B4700E79C9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -1478,11 +1465,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6740A0431F91007D00E79C9E /* Build configuration list for PBXNativeTarget "KituraBuddy" */ = {
+		6740A3121F911B4700E79C9E /* Build configuration list for PBXNativeTarget "KituraBuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6740A0441F91007D00E79C9E /* Debug */,
-				6740A0451F91007D00E79C9E /* Release */,
+				6740A3131F911B4700E79C9E /* Debug */,
+				6740A3141F911B4700E79C9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
