@@ -7,16 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6713B5A21F8D00A600FE457C /* TypeSafeKituraClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6713B5A01F8D00A600FE457C /* TypeSafeKituraClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6713B5A51F8D00A600FE457C /* TypeSafeKituraClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B59E1F8D00A600FE457C /* TypeSafeKituraClient.framework */; };
-		6713B5A61F8D00A600FE457C /* TypeSafeKituraClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B59E1F8D00A600FE457C /* TypeSafeKituraClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6713B5AD1F8D00B100FE457C /* PersistableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B5AB1F8D00B100FE457C /* PersistableExtension.swift */; };
-		6713B5AE1F8D00B100FE457C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B5AC1F8D00B100FE457C /* Client.swift */; };
 		6713B5BA1F8D00F900FE457C /* LoggerAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6713B5B81F8D00F900FE457C /* LoggerAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6713B5BD1F8D00F900FE457C /* LoggerAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5B61F8D00F900FE457C /* LoggerAPI.framework */; };
 		6713B5BE1F8D00F900FE457C /* LoggerAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5B61F8D00F900FE457C /* LoggerAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6713B5C41F8D010100FE457C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B5C31F8D010100FE457C /* Logger.swift */; };
-		6713B5C51F8D010A00FE457C /* LoggerAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5B61F8D00F900FE457C /* LoggerAPI.framework */; };
 		6713B5D71F8D014000FE457C /* SwiftyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6713B5D51F8D014000FE457C /* SwiftyRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6713B5DA1F8D014000FE457C /* SwiftyRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5D31F8D014000FE457C /* SwiftyRequest.framework */; };
 		6713B5DB1F8D014000FE457C /* SwiftyRequest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5D31F8D014000FE457C /* SwiftyRequest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -27,7 +21,6 @@
 		6713B5EB1F8D014800FE457C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B5E41F8D014800FE457C /* StringExtensions.swift */; };
 		6713B5EC1F8D014800FE457C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B5E51F8D014800FE457C /* JSON.swift */; };
 		6713B5ED1F8D014800FE457C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B5E61F8D014800FE457C /* HTTPMethod.swift */; };
-		6713B5EE1F8D014F00FE457C /* SwiftyRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5D31F8D014000FE457C /* SwiftyRequest.framework */; };
 		6713B5FC1F8D016A00FE457C /* CircuitBreaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 6713B5FA1F8D016A00FE457C /* CircuitBreaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6713B5FF1F8D016A00FE457C /* CircuitBreaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5F81F8D016A00FE457C /* CircuitBreaker.framework */; };
 		6713B6001F8D016A00FE457C /* CircuitBreaker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5F81F8D016A00FE457C /* CircuitBreaker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -36,11 +29,6 @@
 		6713B60A1F8D017200FE457C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B6071F8D017200FE457C /* Utils.swift */; };
 		6713B60B1F8D017800FE457C /* CircuitBreaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5F81F8D016A00FE457C /* CircuitBreaker.framework */; };
 		6713B60C1F8D018700FE457C /* LoggerAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B5B61F8D00F900FE457C /* LoggerAPI.framework */; };
-		6713B6181F8D01A900FE457C /* TypeSafeContracts.h in Headers */ = {isa = PBXBuildFile; fileRef = 6713B6161F8D01A900FE457C /* TypeSafeContracts.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6713B61B1F8D01A900FE457C /* TypeSafeContracts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B6141F8D01A900FE457C /* TypeSafeContracts.framework */; };
-		6713B61C1F8D01A900FE457C /* TypeSafeContracts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B6141F8D01A900FE457C /* TypeSafeContracts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6713B6221F8D01B300FE457C /* TypeSafeContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713B6211F8D01B300FE457C /* TypeSafeContracts.swift */; };
-		6713B6231F8D01BA00FE457C /* TypeSafeContracts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6713B6141F8D01A900FE457C /* TypeSafeContracts.framework */; };
 		671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C41F838AFE007DAA76 /* AppDelegate.swift */; };
 		671676CA1F838AFE007DAA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676C81F838AFE007DAA76 /* Main.storyboard */; };
 		671676CC1F838AFE007DAA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671676CB1F838AFE007DAA76 /* Assets.xcassets */; };
@@ -48,17 +36,22 @@
 		671676DA1F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */; };
 		671676E51F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */; };
 		6716770E1F839CE0007DAA76 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6716770D1F839CE0007DAA76 /* Model.swift */; };
+		67409FFE1F90FF8C00E79C9E /* SafetyContracts.h in Headers */ = {isa = PBXBuildFile; fileRef = 67409FFC1F90FF8C00E79C9E /* SafetyContracts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6740A0011F90FF8C00E79C9E /* SafetyContracts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */; };
+		6740A0021F90FF8C00E79C9E /* SafetyContracts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6740A0081F90FF9400E79C9E /* Contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0071F90FF9400E79C9E /* Contracts.swift */; };
+		6740A0231F91002200E79C9E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0221F91002200E79C9E /* Utils.swift */; };
+		6740A03E1F91007D00E79C9E /* KituraBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6740A03C1F91007D00E79C9E /* KituraBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6740A0411F91007D00E79C9E /* KituraBuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6740A03A1F91007D00E79C9E /* KituraBuddy.framework */; };
+		6740A0421F91007D00E79C9E /* KituraBuddy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6740A03A1F91007D00E79C9E /* KituraBuddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6740A04A1F91008500E79C9E /* PersistableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0471F91008500E79C9E /* PersistableExtension.swift */; };
+		6740A04B1F91008500E79C9E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0481F91008500E79C9E /* Client.swift */; };
+		6740A04C1F91008500E79C9E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740A0491F91008500E79C9E /* Utils.swift */; };
+		6740A04D1F9100A500E79C9E /* SafetyContracts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */; };
 		67C4FC331F83D6ED00667A9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C61F838AFE007DAA76 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6713B5A31F8D00A600FE457C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6713B59D1F8D00A600FE457C;
-			remoteInfo = TypeSafeKituraClient;
-		};
 		6713B5BB1F8D00F900FE457C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
@@ -80,13 +73,6 @@
 			remoteGlobalIDString = 6713B5F71F8D016A00FE457C;
 			remoteInfo = CircuitBreaker;
 		};
-		6713B6191F8D01A900FE457C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6713B6131F8D01A900FE457C;
-			remoteInfo = TypeSafeContracts;
-		};
 		671676D61F838AFE007DAA76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
@@ -101,6 +87,20 @@
 			remoteGlobalIDString = 671676C01F838AFE007DAA76;
 			remoteInfo = "iOS Sample Kitura Buddy";
 		};
+		67409FFF1F90FF8C00E79C9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67409FF91F90FF8C00E79C9E;
+			remoteInfo = SafetyContracts;
+		};
+		6740A03F1F91007D00E79C9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6740A0391F91007D00E79C9E;
+			remoteInfo = KituraBuddy;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,10 +110,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6713B5A61F8D00A600FE457C /* TypeSafeKituraClient.framework in Embed Frameworks */,
+				6740A0421F91007D00E79C9E /* KituraBuddy.framework in Embed Frameworks */,
 				6713B5BE1F8D00F900FE457C /* LoggerAPI.framework in Embed Frameworks */,
-				6713B61C1F8D01A900FE457C /* TypeSafeContracts.framework in Embed Frameworks */,
 				6713B5DB1F8D014000FE457C /* SwiftyRequest.framework in Embed Frameworks */,
+				6740A0021F90FF8C00E79C9E /* SafetyContracts.framework in Embed Frameworks */,
 				6713B6001F8D016A00FE457C /* CircuitBreaker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -122,13 +122,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6713B5971F8D009400FE457C /* PersistableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
-		6713B5981F8D009400FE457C /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		6713B59E1F8D00A600FE457C /* TypeSafeKituraClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TypeSafeKituraClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6713B5A01F8D00A600FE457C /* TypeSafeKituraClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeSafeKituraClient.h; sourceTree = "<group>"; };
-		6713B5A11F8D00A600FE457C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6713B5AB1F8D00B100FE457C /* PersistableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
-		6713B5AC1F8D00B100FE457C /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		6713B5B01F8D00EE00FE457C /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		6713B5B61F8D00F900FE457C /* LoggerAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggerAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6713B5B81F8D00F900FE457C /* LoggerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggerAPI.h; sourceTree = "<group>"; };
@@ -160,11 +153,6 @@
 		6713B6051F8D017200FE457C /* CircuitBreaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitBreaker.swift; sourceTree = "<group>"; };
 		6713B6061F8D017200FE457C /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		6713B6071F8D017200FE457C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		6713B60E1F8D019D00FE457C /* TypeSafeContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSafeContracts.swift; sourceTree = "<group>"; };
-		6713B6141F8D01A900FE457C /* TypeSafeContracts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TypeSafeContracts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6713B6161F8D01A900FE457C /* TypeSafeContracts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeSafeContracts.h; sourceTree = "<group>"; };
-		6713B6171F8D01A900FE457C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6713B6211F8D01B300FE457C /* TypeSafeContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSafeContracts.swift; sourceTree = "<group>"; };
 		671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Sample Kitura Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		671676C41F838AFE007DAA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		671676C61F838AFE007DAA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,19 +167,25 @@
 		671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Sample_Kitura_BuddyUITests.swift; sourceTree = "<group>"; };
 		671676E61F838AFE007DAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6716770D1F839CE0007DAA76 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		67409FF41F90FF8200E79C9E /* Contracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contracts.swift; sourceTree = "<group>"; };
+		67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SafetyContracts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67409FFC1F90FF8C00E79C9E /* SafetyContracts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafetyContracts.h; sourceTree = "<group>"; };
+		67409FFD1F90FF8C00E79C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6740A0071F90FF9400E79C9E /* Contracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contracts.swift; sourceTree = "<group>"; };
+		6740A00A1F90FFC200E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
+		6740A00B1F90FFC200E79C9E /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		6740A01E1F90FFD300E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
+		6740A01F1F90FFD300E79C9E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		6740A0221F91002200E79C9E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6740A03A1F91007D00E79C9E /* KituraBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KituraBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6740A03C1F91007D00E79C9E /* KituraBuddy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KituraBuddy.h; sourceTree = "<group>"; };
+		6740A03D1F91007D00E79C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6740A0471F91008500E79C9E /* PersistableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableExtension.swift; sourceTree = "<group>"; };
+		6740A0481F91008500E79C9E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		6740A0491F91008500E79C9E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6713B59A1F8D00A600FE457C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6713B6231F8D01BA00FE457C /* TypeSafeContracts.framework in Frameworks */,
-				6713B5EE1F8D014F00FE457C /* SwiftyRequest.framework in Frameworks */,
-				6713B5C51F8D010A00FE457C /* LoggerAPI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6713B5B21F8D00F900FE457C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,21 +209,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6713B6101F8D01A900FE457C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		671676BE1F838AFE007DAA76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6713B5A51F8D00A600FE457C /* TypeSafeKituraClient.framework in Frameworks */,
+				6740A0411F91007D00E79C9E /* KituraBuddy.framework in Frameworks */,
 				6713B5BD1F8D00F900FE457C /* LoggerAPI.framework in Frameworks */,
-				6713B61B1F8D01A900FE457C /* TypeSafeContracts.framework in Frameworks */,
 				6713B5DA1F8D014000FE457C /* SwiftyRequest.framework in Frameworks */,
+				6740A0011F90FF8C00E79C9E /* SafetyContracts.framework in Frameworks */,
 				6713B5FF1F8D016A00FE457C /* CircuitBreaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +235,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67409FF61F90FF8C00E79C9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6740A0361F91007D00E79C9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6740A04D1F9100A500E79C9E /* SafetyContracts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -256,34 +258,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6713B5961F8D009400FE457C /* TypeSafeKituraClient */ = {
-			isa = PBXGroup;
-			children = (
-				6713B5AA1F8D00B100FE457C /* TypeSafeKituraClient */,
-				6713B5971F8D009400FE457C /* PersistableExtension.swift */,
-				6713B5981F8D009400FE457C /* Client.swift */,
-			);
-			path = TypeSafeKituraClient;
-			sourceTree = "<group>";
-		};
-		6713B59F1F8D00A600FE457C /* TypeSafeKituraClient */ = {
-			isa = PBXGroup;
-			children = (
-				6713B5A01F8D00A600FE457C /* TypeSafeKituraClient.h */,
-				6713B5A11F8D00A600FE457C /* Info.plist */,
-			);
-			path = TypeSafeKituraClient;
-			sourceTree = "<group>";
-		};
-		6713B5AA1F8D00B100FE457C /* TypeSafeKituraClient */ = {
-			isa = PBXGroup;
-			children = (
-				6713B5AB1F8D00B100FE457C /* PersistableExtension.swift */,
-				6713B5AC1F8D00B100FE457C /* Client.swift */,
-			);
-			name = TypeSafeKituraClient;
 			sourceTree = "<group>";
 		};
 		6713B5AF1F8D00EE00FE457C /* LoggerAPI */ = {
@@ -381,43 +355,17 @@
 			name = CircuitBreaker;
 			sourceTree = "<group>";
 		};
-		6713B60D1F8D019D00FE457C /* TypeSafeContracts */ = {
-			isa = PBXGroup;
-			children = (
-				6713B6201F8D01B300FE457C /* TypeSafeContracts */,
-				6713B60E1F8D019D00FE457C /* TypeSafeContracts.swift */,
-			);
-			path = TypeSafeContracts;
-			sourceTree = "<group>";
-		};
-		6713B6151F8D01A900FE457C /* TypeSafeContracts */ = {
-			isa = PBXGroup;
-			children = (
-				6713B6161F8D01A900FE457C /* TypeSafeContracts.h */,
-				6713B6171F8D01A900FE457C /* Info.plist */,
-			);
-			path = TypeSafeContracts;
-			sourceTree = "<group>";
-		};
-		6713B6201F8D01B300FE457C /* TypeSafeContracts */ = {
-			isa = PBXGroup;
-			children = (
-				6713B6211F8D01B300FE457C /* TypeSafeContracts.swift */,
-			);
-			name = TypeSafeContracts;
-			sourceTree = "<group>";
-		};
 		671676B81F838AFE007DAA76 = {
 			isa = PBXGroup;
 			children = (
 				671676C31F838AFE007DAA76 /* iOS Sample Kitura Buddy */,
 				671676D81F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */,
 				671676E31F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests */,
-				6713B59F1F8D00A600FE457C /* TypeSafeKituraClient */,
 				6713B5B71F8D00F900FE457C /* LoggerAPI */,
 				6713B5D41F8D014000FE457C /* SwiftyRequest */,
 				6713B5F91F8D016A00FE457C /* CircuitBreaker */,
-				6713B6151F8D01A900FE457C /* TypeSafeContracts */,
+				67409FFB1F90FF8C00E79C9E /* SafetyContracts */,
+				6740A03B1F91007D00E79C9E /* KituraBuddy */,
 				671676C21F838AFE007DAA76 /* Products */,
 				6713B5411F8CF8D700FE457C /* Frameworks */,
 			);
@@ -429,11 +377,11 @@
 				671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */,
 				671676D51F838AFE007DAA76 /* iOS Sample Kitura BuddyTests.xctest */,
 				671676E01F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests.xctest */,
-				6713B59E1F8D00A600FE457C /* TypeSafeKituraClient.framework */,
 				6713B5B61F8D00F900FE457C /* LoggerAPI.framework */,
 				6713B5D31F8D014000FE457C /* SwiftyRequest.framework */,
 				6713B5F81F8D016A00FE457C /* CircuitBreaker.framework */,
-				6713B6141F8D01A900FE457C /* TypeSafeContracts.framework */,
+				67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */,
+				6740A03A1F91007D00E79C9E /* KituraBuddy.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,11 +396,11 @@
 				671676CB1F838AFE007DAA76 /* Assets.xcassets */,
 				671676CD1F838AFE007DAA76 /* LaunchScreen.storyboard */,
 				671676D01F838AFE007DAA76 /* Info.plist */,
-				6713B60D1F8D019D00FE457C /* TypeSafeContracts */,
+				6740A0091F90FFC200E79C9E /* KituraBuddy */,
+				67409FF31F90FF8200E79C9E /* SafetyContracts */,
 				6713B5EF1F8D015F00FE457C /* CircuitBreaker */,
 				6713B5C61F8D012000FE457C /* SwiftyRequest */,
 				6713B5AF1F8D00EE00FE457C /* LoggerAPI */,
-				6713B5961F8D009400FE457C /* TypeSafeKituraClient */,
 			);
 			path = "iOS Sample Kitura Buddy";
 			sourceTree = "<group>";
@@ -475,17 +423,76 @@
 			path = "iOS Sample Kitura BuddyUITests";
 			sourceTree = "<group>";
 		};
+		67409FF31F90FF8200E79C9E /* SafetyContracts */ = {
+			isa = PBXGroup;
+			children = (
+				6740A0061F90FF9400E79C9E /* SafetyContracts */,
+				67409FF41F90FF8200E79C9E /* Contracts.swift */,
+			);
+			name = SafetyContracts;
+			path = ".build/checkouts/SafetyContracts.git-8240730877527910603/Sources/SafetyContracts";
+			sourceTree = SOURCE_ROOT;
+		};
+		67409FFB1F90FF8C00E79C9E /* SafetyContracts */ = {
+			isa = PBXGroup;
+			children = (
+				67409FFC1F90FF8C00E79C9E /* SafetyContracts.h */,
+				67409FFD1F90FF8C00E79C9E /* Info.plist */,
+			);
+			path = SafetyContracts;
+			sourceTree = "<group>";
+		};
+		6740A0061F90FF9400E79C9E /* SafetyContracts */ = {
+			isa = PBXGroup;
+			children = (
+				6740A0071F90FF9400E79C9E /* Contracts.swift */,
+			);
+			name = SafetyContracts;
+			sourceTree = "<group>";
+		};
+		6740A0091F90FFC200E79C9E /* KituraBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				6740A01D1F90FFD300E79C9E /* KituraBuddy */,
+				6740A0461F91008500E79C9E /* KituraBuddy */,
+				6740A00A1F90FFC200E79C9E /* PersistableExtension.swift */,
+				6740A00B1F90FFC200E79C9E /* Client.swift */,
+			);
+			path = KituraBuddy;
+			sourceTree = "<group>";
+		};
+		6740A01D1F90FFD300E79C9E /* KituraBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				6740A01E1F90FFD300E79C9E /* PersistableExtension.swift */,
+				6740A01F1F90FFD300E79C9E /* Client.swift */,
+				6740A0221F91002200E79C9E /* Utils.swift */,
+			);
+			name = KituraBuddy;
+			sourceTree = "<group>";
+		};
+		6740A03B1F91007D00E79C9E /* KituraBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				6740A03C1F91007D00E79C9E /* KituraBuddy.h */,
+				6740A03D1F91007D00E79C9E /* Info.plist */,
+			);
+			path = KituraBuddy;
+			sourceTree = "<group>";
+		};
+		6740A0461F91008500E79C9E /* KituraBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				6740A0471F91008500E79C9E /* PersistableExtension.swift */,
+				6740A0481F91008500E79C9E /* Client.swift */,
+				6740A0491F91008500E79C9E /* Utils.swift */,
+			);
+			name = KituraBuddy;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6713B59B1F8D00A600FE457C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6713B5A21F8D00A600FE457C /* TypeSafeKituraClient.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6713B5B31F8D00F900FE457C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -510,35 +517,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6713B6111F8D01A900FE457C /* Headers */ = {
+		67409FF71F90FF8C00E79C9E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6713B6181F8D01A900FE457C /* TypeSafeContracts.h in Headers */,
+				67409FFE1F90FF8C00E79C9E /* SafetyContracts.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6740A0371F91007D00E79C9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6740A03E1F91007D00E79C9E /* KituraBuddy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6713B59D1F8D00A600FE457C /* TypeSafeKituraClient */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6713B5A71F8D00A600FE457C /* Build configuration list for PBXNativeTarget "TypeSafeKituraClient" */;
-			buildPhases = (
-				6713B5991F8D00A600FE457C /* Sources */,
-				6713B59A1F8D00A600FE457C /* Frameworks */,
-				6713B59B1F8D00A600FE457C /* Headers */,
-				6713B59C1F8D00A600FE457C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TypeSafeKituraClient;
-			productName = TypeSafeKituraClient;
-			productReference = 6713B59E1F8D00A600FE457C /* TypeSafeKituraClient.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		6713B5B51F8D00F900FE457C /* LoggerAPI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6713B5BF1F8D00F900FE457C /* Build configuration list for PBXNativeTarget "LoggerAPI" */;
@@ -593,24 +590,6 @@
 			productReference = 6713B5F81F8D016A00FE457C /* CircuitBreaker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6713B6131F8D01A900FE457C /* TypeSafeContracts */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6713B61D1F8D01A900FE457C /* Build configuration list for PBXNativeTarget "TypeSafeContracts" */;
-			buildPhases = (
-				6713B60F1F8D01A900FE457C /* Sources */,
-				6713B6101F8D01A900FE457C /* Frameworks */,
-				6713B6111F8D01A900FE457C /* Headers */,
-				6713B6121F8D01A900FE457C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TypeSafeContracts;
-			productName = TypeSafeContracts;
-			productReference = 6713B6141F8D01A900FE457C /* TypeSafeContracts.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura Buddy" */;
@@ -623,11 +602,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				6713B5A41F8D00A600FE457C /* PBXTargetDependency */,
 				6713B5BC1F8D00F900FE457C /* PBXTargetDependency */,
 				6713B5D91F8D014000FE457C /* PBXTargetDependency */,
 				6713B5FE1F8D016A00FE457C /* PBXTargetDependency */,
-				6713B61A1F8D01A900FE457C /* PBXTargetDependency */,
+				6740A0001F90FF8C00E79C9E /* PBXTargetDependency */,
+				6740A0401F91007D00E79C9E /* PBXTargetDependency */,
 			);
 			name = "iOS Sample Kitura Buddy";
 			productName = "iOS Sample Kitura Buddy";
@@ -670,6 +649,42 @@
 			productReference = 671676E01F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		67409FF91F90FF8C00E79C9E /* SafetyContracts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6740A0031F90FF8C00E79C9E /* Build configuration list for PBXNativeTarget "SafetyContracts" */;
+			buildPhases = (
+				67409FF51F90FF8C00E79C9E /* Sources */,
+				67409FF61F90FF8C00E79C9E /* Frameworks */,
+				67409FF71F90FF8C00E79C9E /* Headers */,
+				67409FF81F90FF8C00E79C9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SafetyContracts;
+			productName = SafetyContracts;
+			productReference = 67409FFA1F90FF8C00E79C9E /* SafetyContracts.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6740A0391F91007D00E79C9E /* KituraBuddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6740A0431F91007D00E79C9E /* Build configuration list for PBXNativeTarget "KituraBuddy" */;
+			buildPhases = (
+				6740A0351F91007D00E79C9E /* Sources */,
+				6740A0361F91007D00E79C9E /* Frameworks */,
+				6740A0371F91007D00E79C9E /* Headers */,
+				6740A0381F91007D00E79C9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KituraBuddy;
+			productName = KituraBuddy;
+			productReference = 6740A03A1F91007D00E79C9E /* KituraBuddy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -680,10 +695,6 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = IBM;
 				TargetAttributes = {
-					6713B59D1F8D00A600FE457C = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
-					};
 					6713B5B51F8D00F900FE457C = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -693,10 +704,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					6713B5F71F8D016A00FE457C = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
-					};
-					6713B6131F8D01A900FE457C = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -713,6 +720,14 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 671676C01F838AFE007DAA76;
+					};
+					67409FF91F90FF8C00E79C9E = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					6740A0391F91007D00E79C9E = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -732,23 +747,16 @@
 				671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */,
 				671676D41F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */,
 				671676DF1F838AFE007DAA76 /* iOS Sample Kitura BuddyUITests */,
-				6713B59D1F8D00A600FE457C /* TypeSafeKituraClient */,
 				6713B5B51F8D00F900FE457C /* LoggerAPI */,
 				6713B5D21F8D014000FE457C /* SwiftyRequest */,
 				6713B5F71F8D016A00FE457C /* CircuitBreaker */,
-				6713B6131F8D01A900FE457C /* TypeSafeContracts */,
+				67409FF91F90FF8C00E79C9E /* SafetyContracts */,
+				6740A0391F91007D00E79C9E /* KituraBuddy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6713B59C1F8D00A600FE457C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6713B5B41F8D00F900FE457C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -764,13 +772,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6713B5F61F8D016A00FE457C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6713B6121F8D01A900FE457C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -801,18 +802,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		6713B5991F8D00A600FE457C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		67409FF81F90FF8C00E79C9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6713B5AE1F8D00B100FE457C /* Client.swift in Sources */,
-				6713B5AD1F8D00B100FE457C /* PersistableExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6740A0381F91007D00E79C9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		6713B5B11F8D00F900FE457C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -845,18 +851,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6713B60F1F8D01A900FE457C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6713B6221F8D01B300FE457C /* TypeSafeContracts.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		671676BD1F838AFE007DAA76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6740A0231F91002200E79C9E /* Utils.swift in Sources */,
 				67C4FC331F83D6ED00667A9A /* ViewController.swift in Sources */,
 				6716770E1F839CE0007DAA76 /* Model.swift in Sources */,
 				671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */,
@@ -879,14 +878,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67409FF51F90FF8C00E79C9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6740A0081F90FF9400E79C9E /* Contracts.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6740A0351F91007D00E79C9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6740A04B1F91008500E79C9E /* Client.swift in Sources */,
+				6740A04A1F91008500E79C9E /* PersistableExtension.swift in Sources */,
+				6740A04C1F91008500E79C9E /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6713B5A41F8D00A600FE457C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6713B59D1F8D00A600FE457C /* TypeSafeKituraClient */;
-			targetProxy = 6713B5A31F8D00A600FE457C /* PBXContainerItemProxy */;
-		};
 		6713B5BC1F8D00F900FE457C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6713B5B51F8D00F900FE457C /* LoggerAPI */;
@@ -902,11 +914,6 @@
 			target = 6713B5F71F8D016A00FE457C /* CircuitBreaker */;
 			targetProxy = 6713B5FD1F8D016A00FE457C /* PBXContainerItemProxy */;
 		};
-		6713B61A1F8D01A900FE457C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6713B6131F8D01A900FE457C /* TypeSafeContracts */;
-			targetProxy = 6713B6191F8D01A900FE457C /* PBXContainerItemProxy */;
-		};
 		671676D71F838AFE007DAA76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */;
@@ -916,6 +923,16 @@
 			isa = PBXTargetDependency;
 			target = 671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */;
 			targetProxy = 671676E11F838AFE007DAA76 /* PBXContainerItemProxy */;
+		};
+		6740A0001F90FF8C00E79C9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67409FF91F90FF8C00E79C9E /* SafetyContracts */;
+			targetProxy = 67409FFF1F90FF8C00E79C9E /* PBXContainerItemProxy */;
+		};
+		6740A0401F91007D00E79C9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6740A0391F91007D00E79C9E /* KituraBuddy */;
+			targetProxy = 6740A03F1F91007D00E79C9E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -939,54 +956,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6713B5A81F8D00A600FE457C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Q7W47GFKL3;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TypeSafeKituraClient/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.TypeSafeKituraClient;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6713B5A91F8D00A600FE457C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Q7W47GFKL3;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TypeSafeKituraClient/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.TypeSafeKituraClient;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		6713B5C01F8D00F900FE457C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1131,54 +1100,6 @@
 			};
 			name = Release;
 		};
-		6713B61E1F8D01A900FE457C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Q7W47GFKL3;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TypeSafeContracts/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.TypeSafeContracts;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6713B61F1F8D01A900FE457C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Q7W47GFKL3;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TypeSafeContracts/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.TypeSafeContracts;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		671676E71F838AFE007DAA76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1297,6 +1218,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1313,6 +1235,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IBM.iOS-Sample-Kitura-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1384,18 +1307,105 @@
 			};
 			name = Release;
 		};
+		6740A0041F90FF8C00E79C9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SafetyContracts/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.SafetyContracts;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6740A0051F90FF8C00E79C9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SafetyContracts/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.SafetyContracts;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6740A0441F91007D00E79C9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KituraBuddy/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.KituraBuddy;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6740A0451F91007D00E79C9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KituraBuddy/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.KituraBuddy;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6713B5A71F8D00A600FE457C /* Build configuration list for PBXNativeTarget "TypeSafeKituraClient" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6713B5A81F8D00A600FE457C /* Debug */,
-				6713B5A91F8D00A600FE457C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		6713B5BF1F8D00F900FE457C /* Build configuration list for PBXNativeTarget "LoggerAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1419,15 +1429,6 @@
 			buildConfigurations = (
 				6713B6021F8D016A00FE457C /* Debug */,
 				6713B6031F8D016A00FE457C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6713B61D1F8D01A900FE457C /* Build configuration list for PBXNativeTarget "TypeSafeContracts" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6713B61E1F8D01A900FE457C /* Debug */,
-				6713B61F1F8D01A900FE457C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1464,6 +1465,24 @@
 			buildConfigurations = (
 				671676F01F838AFE007DAA76 /* Debug */,
 				671676F11F838AFE007DAA76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6740A0031F90FF8C00E79C9E /* Build configuration list for PBXNativeTarget "SafetyContracts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6740A0041F90FF8C00E79C9E /* Debug */,
+				6740A0051F90FF8C00E79C9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6740A0431F91007D00E79C9E /* Build configuration list for PBXNativeTarget "KituraBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6740A0441F91007D00E79C9E /* Debug */,
+				6740A0451F91007D00E79C9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

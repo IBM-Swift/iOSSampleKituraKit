@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CCurl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>CCurlLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>14</integer>
+		</dict>
+		<key>CHTTPParser.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>CHTTPParserLib.xcscheme</key>
 		<dict>
@@ -17,17 +27,32 @@
 		<key>CircuitBreaker.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>4</integer>
 		</dict>
 		<key>CircuitBreakerLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>Kitura.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>KituraBuddy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>KituraLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>KituraNet.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>KituraNetLib.xcscheme</key>
 		<dict>
@@ -42,17 +67,32 @@
 		<key>LoggerAPI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>3</integer>
 		</dict>
 		<key>LoggerAPILib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>SSLService.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>SSLServiceLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>SafetyContracts.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Socket.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>SocketLib.xcscheme</key>
 		<dict>
@@ -72,7 +112,7 @@
 		<key>SwiftyRequest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>2</integer>
 		</dict>
 		<key>SwiftyRequestLib.xcscheme</key>
 		<dict>
@@ -82,7 +122,7 @@
 		<key>TypeSafeContracts.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>6</integer>
 		</dict>
 		<key>TypeSafeContractsLib.xcscheme</key>
 		<dict>
@@ -92,7 +132,7 @@
 		<key>TypeSafeKituraClient.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>1</integer>
 		</dict>
 		<key>TypeSafeKituraClientLib.xcscheme</key>
 		<dict>
@@ -102,7 +142,7 @@
 		<key>iOS Sample Kitura Buddy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>

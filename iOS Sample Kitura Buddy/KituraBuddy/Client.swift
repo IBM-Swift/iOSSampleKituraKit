@@ -17,31 +17,31 @@
 import Foundation
 import LoggerAPI
 import SwiftyRequest
-import TypeSafeContracts
+import SafetyContracts
 
-public class Client {
-
-    public typealias VoidClosure = (Error?) -> Void
+public class KituraBuddy {
+    
+    public typealias SimpleClosure = (Error?) -> Void
     public typealias CodableClosure<O: Codable> = (O?, Error?) -> Void
     public typealias ArrayCodableClosure<O: Codable> = ([O]?, Error?) -> Void
-
+    
     public static var defaultBaseURL: String = "http://localhost:8080"
-    public static var `default`: Client {
+    public static var `default`: KituraBuddy {
         get {
-            return Client(baseURL: defaultBaseURL)
+            return KituraBuddy(baseURL: defaultBaseURL)
         }
     }
-
+    
     // Instance variables
     public let baseURL: String
-
-    // Initializers   
+    
+    // Initializers
     public init(baseURL: String) {
         self.baseURL = baseURL
     }
-
+    
     // HTTP verb/action methods (basic type safe routing)
-
+    
     // GET - basic type safe routing
     public func get<O: Codable>(_ route: String, resultHandler: @escaping ArrayCodableClosure<O>) {
         let url: String = baseURL + route
@@ -53,35 +53,37 @@ public class Client {
                 resultHandler(items, nil)
             case .failure(let error):
                 Log.error("GET failure: \(error)")
-                resultHandler(nil, error)
+                let err = self.process(error: error)
+                resultHandler(nil, err)
             }
         }
     }
-
+    
     // GET single - basic type safe routing
-    public func get<O: Codable>(_ route: String, identifier: String, resultHandler: @escaping CodableClosure<O>) {
+    public func get<O: Codable>(_ route: String, identifier: Identifier, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let request = RestRequest(url: url)
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
                 let items: O? = try? JSONDecoder().decode(O.self, from: data)
                 resultHandler(items, nil)
             case .failure(let error):
-                Log.error("GET failure: \(error)")
-                resultHandler(nil, error)
+                Log.error("GET (single) failure: \(error)")
+                let err = self.process(error: error)
+                resultHandler(nil, err)
             }
         }
     }
-
+    
     // POST - basic type safe routing
     public func post<I: Codable, O: Codable>(_ route: String, data: I, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .post, url: url)
         request.messageBody = encoded
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
@@ -89,18 +91,19 @@ public class Client {
                 resultHandler(item, nil)
             case .failure(let error):
                 Log.error("POST failure: \(error)")
-                resultHandler(nil, error)
+                let err = self.process(error: error)
+                resultHandler(nil, err)
             }
         }
     }
-
+    
     // PUT - basic type safe routing
-    public func put<I: Codable, O: Codable>(_ route: String, identifier: String, data: I, resultHandler: @escaping CodableClosure<O>) {
+    public func put<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .put, url: url)
         request.messageBody = encoded
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
@@ -108,18 +111,19 @@ public class Client {
                 resultHandler(item, nil)
             case .failure(let error):
                 Log.error("PUT failure: \(error)")
-                resultHandler(nil, error)
+                let err = self.process(error: error)
+                resultHandler(nil, err)
             }
         }
     }
-
+    
     // PATCH - basic type safe routing
-    public func patch<I: Codable, O: Codable>(_ route: String, identifier: String, data: I, resultHandler: @escaping CodableClosure<O>) {
+    public func patch<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .patch, url: url)
         request.messageBody = encoded
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
@@ -127,13 +131,14 @@ public class Client {
                 resultHandler(item, nil)
             case .failure(let error):
                 Log.error("PATCH failure: \(error)")
-                resultHandler(nil, error)
+                let err = self.process(error: error)
+                resultHandler(nil, err)
             }
         }
     }
-
+    
     // DELETE - basic type safe routing
-    public func delete(_ route: String, resultHandler: @escaping VoidClosure) {
+    public func delete(_ route: String, resultHandler: @escaping SimpleClosure) {
         let url: String = baseURL + route
         let request = RestRequest(method: .delete, url: url)
         request.responseData { response in
@@ -142,13 +147,14 @@ public class Client {
                 resultHandler(nil)
             case .failure(let error):
                 Log.error("DELETE failure: \(error)")
-                resultHandler(error)
+                let err = self.process(error: error)
+                resultHandler(err)
             }
         }
     }
-
+    
     // DELETE single - basic type safe routing
-    public func delete(_ route: String, identifier: String, resultHandler: @escaping VoidClosure) {
+    public func delete(_ route: String, identifier: Identifier, resultHandler: @escaping SimpleClosure) {
         let url: String = baseURL + route + "/\(identifier)"
         let request = RestRequest(method: .delete, url: url)
         request.responseData { response in
@@ -157,12 +163,19 @@ public class Client {
                 resultHandler(nil)
             case .failure(let error):
                 Log.error("DELETE failure: \(error)")
-                resultHandler(error)
+                let err = self.process(error: error)
+                resultHandler(err)
             }
         }
     }
-
-    // TODO - Once we have completed basic type safe routing on the client, 
-    // we will start tackling the CRUD API (which uses the Persistable protocol)
-
+    
+    private func process(error: Error) -> Error {
+        if let rhError = RouteHandlerError(error) {
+            return rhError
+        } else {
+            return error
+        }
+    }
+    
 }
+

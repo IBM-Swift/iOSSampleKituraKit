@@ -65,6 +65,15 @@
         }
       },
       {
+        "package": "SafetyContracts",
+        "repositoryURL": "https://github.com/IBM-Swift/SafetyContracts.git",
+        "state": {
+          "branch": null,
+          "revision": "1364e36f6bb17a2a7612f933a7e002a57223efe8",
+          "version": "0.0.7"
+        }
+      },
+      {
         "package": "Socket",
         "repositoryURL": "https://github.com/IBM-Swift/BlueSocket.git",
         "state": {
