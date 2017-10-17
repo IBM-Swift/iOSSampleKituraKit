@@ -1,3 +1,3 @@
 # KituraServer
 
-A description of this package.
+A server for the iOS app to communicate with.
