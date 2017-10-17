@@ -24,5 +24,5 @@ before install:
 - git clone https://github.com/IBM-Swift/Package-Builder.git
 
 script:
-- if [[ "$COMPONENT" == "server" ]]; then cd KituraServer && "./Package-Builder/build-package.sh -projectDir $TRAVIS_BUILD_DIR
+# - if [[ "$COMPONENT" == "server" ]]; then cd KituraServer && "./Package-Builder/build-package.sh -projectDir $TRAVIS_BUILD_DIR
 - if [[ "$COMPONENT" == "iOS" ]]; then cd $TRAVIS_BUILD_DIR/KituraiOS; xcodebuild  -sdk iphonesimulator11.0  -configuration Release clean; xcodebuild  -sdk iphonesimulator11.0  -configuration Release build -target LoggerAPI -target CircuitBreaker -target SwiftyRequest -target SafetyContracts; xcodebuild -project iOS\ Sample\ Kitura\ Buddy.xcodeproj/ -target iOS\ Sample\ Kitura\ Buddy -sdk iphonesimulator11.0 ONLY_ACTIVE_ARCH=NO -quiet; fi
