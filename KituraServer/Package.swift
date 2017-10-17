@@ -36,7 +36,7 @@ let package = Package(
         ),
         .target(
             name: "Controller",
-            dependencies: ["Kitura", "Models"]
+            dependencies: ["Kitura", "Models", "SafetyContracts"]
         ),
         .target(
         name: "Models",

@@ -17,6 +17,7 @@
 import Kitura
 import Foundation
 import Models
+import SafetyContracts
 
 public class Controller {
     
@@ -40,8 +41,20 @@ public class Controller {
     
     private func setupRoutes() {
         // users routes
-        router.get("/users", handler: getUsers)
+        router.get("/users") { (resondWith: ([User]?, ProcessHandlerError?) -> Void) in
+            let users = self.userStore.map({ $0.value })
+            resondWith(users, nil)
+        }
+        
         router.get("/users/:id", handler: getUser)
+//        ) { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
+//            guard let user = self.userStore[String(id)] else {
+//                resondWith(nil, .notFound)
+//                return
+//            }
+//            resondWith(user, nil)
+//        }
+//
         router.post("/users", handler: addUser)
         router.put("/users/:id", handler: addUser)
         router.patch("/users/:id", handler: updateUser)
@@ -57,11 +70,6 @@ public class Controller {
         router.delete("/employees", handler: deleteAllEmployees)
     }
     
-    public func getUsers(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        let users = userStore.map { $1 }
-        try response.status(.OK).send(data: encoder.encode(users)).end()
-    }
-    
     public func getUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
         defer {
             next()
@@ -70,12 +78,12 @@ public class Controller {
             response.status(.badRequest)
             return
         }
-        
+
         guard let user = userStore[id] else {
             response.status(.badRequest)
             return
         }
-        
+
         try response.status(.OK).send(data: encoder.encode(user))
     }
     
