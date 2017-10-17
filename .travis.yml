@@ -1,23 +1,23 @@
 # Travis CI build file for iOSSampleKituraBuddy.
 
 branches:
-only:
-- master
-- travisSupport
+  only:
+    - master
+    - travisSupport
 
 matrix:
-include:
-- os: linux
-  dist: trusty
-  sudo: required
-  env: COMPONENT=server
-- os: osx
-  osx_image: xcode9
-  sudo: required
-  env: COMPONENT=server
-- os: osx
-  osx_image: xcode9
-  env: COMPONENT=iOS
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: COMPONENT=server
+    - os: osx
+      osx_image: xcode9
+      sudo: required
+      env: COMPONENT=server
+    - os: osx
+      osx_image: xcode9
+    env: COMPONENT=iOS
 
 before install:
 - git clone https://github.com/IBM-Swift/Package-Builder.git ToDoServer/Package-Builder
