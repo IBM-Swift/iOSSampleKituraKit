@@ -23,7 +23,7 @@ let package = Package(
     name: "KituraServer",
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/IBM-Swift/SwiftyRequest.git", .upToNextMajor(from: "0.0.5")),
+        .package(url: "https://github.com/IBM-Swift/SwiftyRequest.git", .upToNextMajor(from: "0.0.4")),
         .package(url: "https://github.com/IBM-Swift/Kitura.git", .branch("issue.swift4")),
         .package(url: "https://github.com/IBM-Swift/SafetyContracts.git", .exact("0.0.8"))
     ],
