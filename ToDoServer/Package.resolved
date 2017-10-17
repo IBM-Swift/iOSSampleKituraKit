@@ -1,0 +1,124 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CCurl",
+        "repositoryURL": "https://github.com/IBM-Swift/CCurl.git",
+        "state": {
+          "branch": null,
+          "revision": "f481bd86e58787824cc1c1ec1786e03b67831f38",
+          "version": "0.4.1"
+        }
+      },
+      {
+        "package": "CEpoll",
+        "repositoryURL": "https://github.com/IBM-Swift/CEpoll.git",
+        "state": {
+          "branch": null,
+          "revision": "7b65f0adfe5a1f36fc16b16760f5f99cfd3a4e1a",
+          "version": "0.1.1"
+        }
+      },
+      {
+        "package": "CircuitBreaker",
+        "repositoryURL": "https://github.com/IBM-Swift/CircuitBreaker.git",
+        "state": {
+          "branch": null,
+          "revision": "7f6fe4ced83ddea67ac59f86724638d4e1619039",
+          "version": "2.0.1"
+        }
+      },
+      {
+        "package": "Kitura",
+        "repositoryURL": "https://github.com/IBM-Swift/Kitura.git",
+        "state": {
+          "branch": "issue.swift4",
+          "revision": "9d5045eb7af4ffc637f0d3e999442fd1f47e924a",
+          "version": null
+        }
+      },
+      {
+        "package": "Kitura-net",
+        "repositoryURL": "https://github.com/IBM-Swift/Kitura-net.git",
+        "state": {
+          "branch": null,
+          "revision": "e04ee59e93b72ffb19c730d80dac4e15d060a5da",
+          "version": "1.7.18"
+        }
+      },
+      {
+        "package": "Kitura-TemplateEngine",
+        "repositoryURL": "https://github.com/IBM-Swift/Kitura-TemplateEngine.git",
+        "state": {
+          "branch": null,
+          "revision": "8e75a213bf4dd7b5effd03848335e344535969aa",
+          "version": "1.7.2"
+        }
+      },
+      {
+        "package": "LoggerAPI",
+        "repositoryURL": "https://github.com/IBM-Swift/LoggerAPI.git",
+        "state": {
+          "branch": null,
+          "revision": "6b62fe66da9b8794d6581e5c341710eea3173cd4",
+          "version": "1.7.1"
+        }
+      },
+      {
+        "package": "OpenSSL",
+        "repositoryURL": "https://github.com/IBM-Swift/OpenSSL.git",
+        "state": {
+          "branch": null,
+          "revision": "95c405c18a071a1c13616e984ba1b3c6091ca6ca",
+          "version": "0.3.7"
+        }
+      },
+      {
+        "package": "SafetyContracts",
+        "repositoryURL": "https://github.com/IBM-Swift/SafetyContracts.git",
+        "state": {
+          "branch": null,
+          "revision": "ffcd34c7f5c30f5dbcc6a03bd20895e71b2c2067",
+          "version": "0.0.9"
+        }
+      },
+      {
+        "package": "Signals",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueSignals.git",
+        "state": {
+          "branch": null,
+          "revision": "0fab5a9f166e96f17bb9646dc56cd22a6f3c3757",
+          "version": "0.9.50"
+        }
+      },
+      {
+        "package": "Socket",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueSocket.git",
+        "state": {
+          "branch": null,
+          "revision": "badbf15cb8ea1ca6df5458f1472d84f1e070f7a7",
+          "version": "0.12.74"
+        }
+      },
+      {
+        "package": "SSLService",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueSSLService.git",
+        "state": {
+          "branch": null,
+          "revision": "40e5da2ce74a50faeebd45e2dcf83972b6718623",
+          "version": "0.12.62"
+        }
+      },
+      {
+        "package": "SwiftyRequest",
+        "repositoryURL": "https://github.com/IBM-Swift/SwiftyRequest.git",
+        "state": {
+          "branch": null,
+          "revision": "bcfe1ca04d291034dae47a2ec2613c6488c5dc69",
+          "version": "0.0.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

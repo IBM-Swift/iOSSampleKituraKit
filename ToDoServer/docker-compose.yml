@@ -1,0 +1,7 @@
+app:
+  image: ibmcom/swift-ubuntu:4.0
+  ports:
+    - "8080:8080"
+  volumes:
+    - .:/ToDoServer
+  command: bash -c "cd /ToDoServer && swift package --build-path .build-ubuntu clean && swift build --build-path .build-ubuntu"
