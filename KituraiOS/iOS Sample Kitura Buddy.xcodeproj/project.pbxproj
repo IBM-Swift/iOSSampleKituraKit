@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3E35CA1F960E7C008830AE /* CircuitBreaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3E35C81F960E7C008830AE /* CircuitBreaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A3E35CD1F960E7C008830AE /* CircuitBreaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3E35C61F960E7C008830AE /* CircuitBreaker.framework */; };
+		4A3E35CE1F960E7C008830AE /* CircuitBreaker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3E35C61F960E7C008830AE /* CircuitBreaker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4A3E35D61F960E94008830AE /* CircuitBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E35D31F960E93008830AE /* CircuitBreaker.swift */; };
+		4A3E35D71F960E94008830AE /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E35D41F960E93008830AE /* Stats.swift */; };
+		4A3E35D81F960E94008830AE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E35D51F960E93008830AE /* Utils.swift */; };
+		4A3E35E41F960EEC008830AE /* LoggerAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3E35E21F960EEC008830AE /* LoggerAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A3E35E71F960EEC008830AE /* LoggerAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3E35E01F960EEC008830AE /* LoggerAPI.framework */; };
+		4A3E35E81F960EEC008830AE /* LoggerAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3E35E01F960EEC008830AE /* LoggerAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4A3E35EE1F960EF5008830AE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E35ED1F960EF5008830AE /* Logger.swift */; };
 		671676C51F838AFE007DAA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676C41F838AFE007DAA76 /* AppDelegate.swift */; };
 		671676CA1F838AFE007DAA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676C81F838AFE007DAA76 /* Main.storyboard */; };
 		671676CC1F838AFE007DAA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671676CB1F838AFE007DAA76 /* Assets.xcassets */; };
@@ -45,6 +55,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4A3E35CB1F960E7C008830AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A3E35C51F960E7C008830AE;
+			remoteInfo = CircuitBreaker;
+		};
+		4A3E35E51F960EEC008830AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A3E35DF1F960EEC008830AE;
+			remoteInfo = LoggerAPI;
+		};
 		671676D61F838AFE007DAA76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 671676B91F838AFE007DAA76 /* Project object */;
@@ -120,6 +144,8 @@
 				671990E91F94F2EE0081CFD1 /* KituraBuddy.framework in Embed Frameworks */,
 				6719914E1F94F3D60081CFD1 /* SwiftyRequest.framework in Embed Frameworks */,
 				671991921F94F4360081CFD1 /* SafetyContracts.framework in Embed Frameworks */,
+				4A3E35E81F960EEC008830AE /* LoggerAPI.framework in Embed Frameworks */,
+				4A3E35CE1F960E7C008830AE /* CircuitBreaker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +153,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A3E35B91F960E6D008830AE /* CircuitBreaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitBreaker.swift; sourceTree = "<group>"; };
+		4A3E35BA1F960E6D008830AE /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		4A3E35BB1F960E6D008830AE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4A3E35C61F960E7C008830AE /* CircuitBreaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CircuitBreaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3E35C81F960E7C008830AE /* CircuitBreaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircuitBreaker.h; sourceTree = "<group>"; };
+		4A3E35C91F960E7C008830AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A3E35D31F960E93008830AE /* CircuitBreaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitBreaker.swift; sourceTree = "<group>"; };
+		4A3E35D41F960E93008830AE /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		4A3E35D51F960E93008830AE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4A3E35DA1F960EDE008830AE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		4A3E35E01F960EEC008830AE /* LoggerAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggerAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3E35E21F960EEC008830AE /* LoggerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggerAPI.h; sourceTree = "<group>"; };
+		4A3E35E31F960EEC008830AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A3E35ED1F960EF5008830AE /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Sample Kitura Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		671676C41F838AFE007DAA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		671676C61F838AFE007DAA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -737,6 +777,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A3E35C21F960E7C008830AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A3E35DC1F960EEC008830AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		671676BE1F838AFE007DAA76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -744,6 +798,8 @@
 				671990E81F94F2EE0081CFD1 /* KituraBuddy.framework in Frameworks */,
 				6719914D1F94F3D60081CFD1 /* SwiftyRequest.framework in Frameworks */,
 				671991911F94F4360081CFD1 /* SafetyContracts.framework in Frameworks */,
+				4A3E35E71F960EEC008830AE /* LoggerAPI.framework in Frameworks */,
+				4A3E35CD1F960E7C008830AE /* CircuitBreaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +836,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A3E35B81F960E6D008830AE /* CircuitBreaker */ = {
+			isa = PBXGroup;
+			children = (
+				4A3E35D21F960E93008830AE /* CircuitBreaker */,
+				4A3E35B91F960E6D008830AE /* CircuitBreaker.swift */,
+				4A3E35BA1F960E6D008830AE /* Stats.swift */,
+				4A3E35BB1F960E6D008830AE /* Utils.swift */,
+			);
+			name = CircuitBreaker;
+			path = "../KituraServer/.build/checkouts/CircuitBreaker.git-2769702059765205370/Sources/CircuitBreaker";
+			sourceTree = "<group>";
+		};
+		4A3E35C71F960E7C008830AE /* CircuitBreaker */ = {
+			isa = PBXGroup;
+			children = (
+				4A3E35C81F960E7C008830AE /* CircuitBreaker.h */,
+				4A3E35C91F960E7C008830AE /* Info.plist */,
+			);
+			path = CircuitBreaker;
+			sourceTree = "<group>";
+		};
+		4A3E35D21F960E93008830AE /* CircuitBreaker */ = {
+			isa = PBXGroup;
+			children = (
+				4A3E35D31F960E93008830AE /* CircuitBreaker.swift */,
+				4A3E35D41F960E93008830AE /* Stats.swift */,
+				4A3E35D51F960E93008830AE /* Utils.swift */,
+			);
+			name = CircuitBreaker;
+			sourceTree = "<group>";
+		};
+		4A3E35D91F960EDE008830AE /* LoggerAPI */ = {
+			isa = PBXGroup;
+			children = (
+				4A3E35EC1F960EF5008830AE /* LoggerAPI */,
+				4A3E35DA1F960EDE008830AE /* Logger.swift */,
+			);
+			name = LoggerAPI;
+			path = "../KituraServer/.build/checkouts/LoggerAPI.git--6449715459278086880/Sources/LoggerAPI";
+			sourceTree = "<group>";
+		};
+		4A3E35E11F960EEC008830AE /* LoggerAPI */ = {
+			isa = PBXGroup;
+			children = (
+				4A3E35E21F960EEC008830AE /* LoggerAPI.h */,
+				4A3E35E31F960EEC008830AE /* Info.plist */,
+			);
+			path = LoggerAPI;
+			sourceTree = "<group>";
+		};
+		4A3E35EC1F960EF5008830AE /* LoggerAPI */ = {
+			isa = PBXGroup;
+			children = (
+				4A3E35ED1F960EF5008830AE /* Logger.swift */,
+			);
+			name = LoggerAPI;
+			sourceTree = "<group>";
+		};
 		6713B5411F8CF8D700FE457C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,6 +905,8 @@
 		671676B81F838AFE007DAA76 = {
 			isa = PBXGroup;
 			children = (
+				4A3E35D91F960EDE008830AE /* LoggerAPI */,
+				4A3E35B81F960E6D008830AE /* CircuitBreaker */,
 				671991831F94F42D0081CFD1 /* SafetyContracts */,
 				671991391F94F3CC0081CFD1 /* SwiftyRequest */,
 				671990D31F94F2E60081CFD1 /* KituraBuddy */,
@@ -800,6 +916,8 @@
 				671990E21F94F2EE0081CFD1 /* KituraBuddy */,
 				671991471F94F3D60081CFD1 /* SwiftyRequest */,
 				6719918B1F94F4360081CFD1 /* SafetyContracts */,
+				4A3E35C71F960E7C008830AE /* CircuitBreaker */,
+				4A3E35E11F960EEC008830AE /* LoggerAPI */,
 				671676C21F838AFE007DAA76 /* Products */,
 				6713B5411F8CF8D700FE457C /* Frameworks */,
 			);
@@ -813,6 +931,8 @@
 				671990E11F94F2EE0081CFD1 /* KituraBuddy.framework */,
 				671991461F94F3D50081CFD1 /* SwiftyRequest.framework */,
 				6719918A1F94F4350081CFD1 /* SafetyContracts.framework */,
+				4A3E35C61F960E7C008830AE /* CircuitBreaker.framework */,
+				4A3E35E01F960EEC008830AE /* LoggerAPI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2944,6 +3064,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		4A3E35C31F960E7C008830AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A3E35CA1F960E7C008830AE /* CircuitBreaker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A3E35DD1F960EEC008830AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A3E35E41F960EEC008830AE /* LoggerAPI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		671990DE1F94F2EE0081CFD1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2974,6 +3110,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4A3E35C51F960E7C008830AE /* CircuitBreaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A3E35CF1F960E7C008830AE /* Build configuration list for PBXNativeTarget "CircuitBreaker" */;
+			buildPhases = (
+				4A3E35C11F960E7C008830AE /* Sources */,
+				4A3E35C21F960E7C008830AE /* Frameworks */,
+				4A3E35C31F960E7C008830AE /* Headers */,
+				4A3E35C41F960E7C008830AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CircuitBreaker;
+			productName = CircuitBreaker;
+			productReference = 4A3E35C61F960E7C008830AE /* CircuitBreaker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4A3E35DF1F960EEC008830AE /* LoggerAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A3E35E91F960EEC008830AE /* Build configuration list for PBXNativeTarget "LoggerAPI" */;
+			buildPhases = (
+				4A3E35DB1F960EEC008830AE /* Sources */,
+				4A3E35DC1F960EEC008830AE /* Frameworks */,
+				4A3E35DD1F960EEC008830AE /* Headers */,
+				4A3E35DE1F960EEC008830AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoggerAPI;
+			productName = LoggerAPI;
+			productReference = 4A3E35E01F960EEC008830AE /* LoggerAPI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura Buddy" */;
@@ -2989,6 +3161,8 @@
 				671990E71F94F2EE0081CFD1 /* PBXTargetDependency */,
 				6719914C1F94F3D60081CFD1 /* PBXTargetDependency */,
 				671991901F94F4360081CFD1 /* PBXTargetDependency */,
+				4A3E35CC1F960E7C008830AE /* PBXTargetDependency */,
+				4A3E35E61F960EEC008830AE /* PBXTargetDependency */,
 			);
 			name = "iOS Sample Kitura Buddy";
 			productName = "iOS Sample Kitura Buddy";
@@ -3077,6 +3251,14 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = IBM;
 				TargetAttributes = {
+					4A3E35C51F960E7C008830AE = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					4A3E35DF1F960EEC008830AE = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 					671676C01F838AFE007DAA76 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -3128,6 +3310,8 @@
 				671990E01F94F2EE0081CFD1 /* KituraBuddy */,
 				671991451F94F3D50081CFD1 /* SwiftyRequest */,
 				671991891F94F4350081CFD1 /* SafetyContracts */,
+				4A3E35C51F960E7C008830AE /* CircuitBreaker */,
+				4A3E35DF1F960EEC008830AE /* LoggerAPI */,
 			);
 		};
 /* End PBXProject section */
@@ -3171,6 +3355,20 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A3E35C41F960E7C008830AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A3E35DE1F960EEC008830AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		671676BF1F838AFE007DAA76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3215,6 +3413,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A3E35C11F960E7C008830AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A3E35D61F960E94008830AE /* CircuitBreaker.swift in Sources */,
+				4A3E35D71F960E94008830AE /* Stats.swift in Sources */,
+				4A3E35D81F960E94008830AE /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A3E35DB1F960EEC008830AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A3E35EE1F960EF5008830AE /* Logger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		671676BD1F838AFE007DAA76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3268,6 +3484,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4A3E35CC1F960E7C008830AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A3E35C51F960E7C008830AE /* CircuitBreaker */;
+			targetProxy = 4A3E35CB1F960E7C008830AE /* PBXContainerItemProxy */;
+		};
+		4A3E35E61F960EEC008830AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A3E35DF1F960EEC008830AE /* LoggerAPI */;
+			targetProxy = 4A3E35E51F960EEC008830AE /* PBXContainerItemProxy */;
+		};
 		671676D71F838AFE007DAA76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */;
@@ -3310,6 +3536,102 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4A3E35D01F960E7C008830AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CircuitBreaker/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyemaloy.CircuitBreaker;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A3E35D11F960E7C008830AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CircuitBreaker/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyemaloy.CircuitBreaker;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4A3E35EA1F960EEC008830AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LoggerAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyemaloy.LoggerAPI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A3E35EB1F960EEC008830AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7W47GFKL3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LoggerAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyemaloy.LoggerAPI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		671676E71F838AFE007DAA76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3638,6 +3960,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A3E35CF1F960E7C008830AE /* Build configuration list for PBXNativeTarget "CircuitBreaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A3E35D01F960E7C008830AE /* Debug */,
+				4A3E35D11F960E7C008830AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A3E35E91F960EEC008830AE /* Build configuration list for PBXNativeTarget "LoggerAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A3E35EA1F960EEC008830AE /* Debug */,
+				4A3E35EB1F960EEC008830AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		671676BC1F838AFE007DAA76 /* Build configuration list for PBXProject "iOS Sample Kitura Buddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
