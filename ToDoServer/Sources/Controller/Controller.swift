@@ -25,49 +25,39 @@ public class Controller {
     
     public let router: Router
     
-    private var userStore: [Key: User] = [:]
-    private var employeeStore: [Key: Employee] = [:]
+    private var taskStore: [Key: Task] = [:]
     
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
-    public init(userStore: [Key: User] = [:], employeeStore: [Key: Employee] = [:]) {
-        self.userStore = userStore
-        self.employeeStore = employeeStore
+    public init(taskStore: [Key: Task] = [:]) {
+        self.taskStore = taskStore
         router = Router()
         setupRoutes()
 
     }
     
     private func setupRoutes() {
-        // users routes
-        router.get("/users") { (resondWith: ([User]?, ProcessHandlerError?) -> Void) in
-            let users = self.userStore.map({ $0.value })
-            resondWith(users, nil)
+        // tasks routes
+        router.get("/tasks") { (resondWith: ([Task]?, ProcessHandlerError?) -> Void) in
+            let tasks = self.taskStore.map({ $0.value })
+            resondWith(tasks, nil)
         }
         
-        router.get("/users/:id", handler: getUser)
+        router.get("/tasks/:id", handler: getUser)
 //        ) { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
-//            guard let user = self.userStore[String(id)] else {
+//            guard let user = self.taskStore[String(id)] else {
 //                resondWith(nil, .notFound)
 //                return
 //            }
 //            resondWith(user, nil)
 //        }
 //
-        router.post("/users", handler: addUser)
-        router.put("/users/:id", handler: addUser)
-        router.patch("/users/:id", handler: updateUser)
-        router.delete("/users/:id", handler: deleteUser)
-        router.delete("/users", handler: deleteAll)
-        // employees routes
-        router.get("/employees", handler: getEmployees)
-        router.get("/employees/:id", handler: getEmployee)
-        router.post("/employees", handler: addEmployee)
-        router.put("/employees/:id", handler: addEmployee)
-        router.patch("/employees/:id", handler: updateEmployee)
-        router.delete("/employees/:id", handler: deleteEmployee)
-        router.delete("/employees", handler: deleteAllEmployees)
+        router.post("/tasks", handler: addUser)
+        router.put("/tasks/:id", handler: addUser)
+        router.patch("/tasks/:id", handler: updateUser)
+        router.delete("/tasks/:id", handler: deleteUser)
+        router.delete("/tasks", handler: deleteAll)
     }
     
     public func getUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
@@ -79,7 +69,7 @@ public class Controller {
             return
         }
 
-        guard let user = userStore[id] else {
+        guard let user = taskStore[id] else {
             response.status(.badRequest)
             return
         }
@@ -94,8 +84,8 @@ public class Controller {
         do {
             var data = Data()
             _ = try request.read(into: &data)
-            let user = try decoder.decode(User.self, from: data)
-            userStore[String(user.id)] = user
+            let user = try decoder.decode(Task.self, from: data)
+            taskStore[String(user.id)] = user
             response.status(.OK).send(data: data)
         } catch {
             response.status(.unprocessableEntity)
@@ -113,8 +103,8 @@ public class Controller {
         do {
             var data = Data()
             _ = try request.read(into: &data)
-            let user = try decoder.decode(User.self, from: data)
-            userStore[id] = user
+            let user = try decoder.decode(Task.self, from: data)
+            taskStore[id] = user
             response.status(.OK).send(data: data)
         } catch {
             response.status(.unprocessableEntity)
@@ -122,7 +112,7 @@ public class Controller {
     }
     
     public func deleteAll(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        userStore = [:]
+        taskStore = [:]
         response.status(.OK)
     }
     
@@ -136,97 +126,7 @@ public class Controller {
             return
         }
         
-        userStore[id] = nil
-        response.status(.OK)
-    }
-    
-    public func getEmployees(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        let employees = employeeStore.map { $1 }
-        try response.status(.OK).send(data: encoder.encode(employees)).end()
-    }
-    
-    public func getEmployee(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        guard let id = request.parameters["id"] else {
-            response.status(.badRequest)
-            return
-        }
-        
-        print("EMPSTORE - \(employeeStore)")
-        
-        guard let employee = employeeStore[id] else {
-            response.status(.badRequest)
-            return
-        }
-        
-        try response.status(.OK).send(data: encoder.encode(employee))
-    }
-    
-    public func addEmployee(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        do {
-            var data = Data()
-            _ = try request.read(into: &data)
-            let employee = try decoder.decode(Employee.self, from: data)
-            
-            let employees = employeeStore.map({ $0.value })
-            
-            for current in employees {
-                if current == employee {
-                    response.status(.conflict)
-                    return
-                }
-            }
-            employeeStore[String(employee.id)] = employee
-            
-            response.status(.OK).send(data: data)
-        } catch {
-            response.status(.unprocessableEntity)
-        }
-    }
-    
-    public func updateEmployee(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        guard let id = request.parameters["id"] else {
-            response.status(.badRequest)
-            return
-        }
-        do {
-            var data = Data()
-            _ = try request.read(into: &data)
-            let employee = try decoder.decode(Employee.self, from: data)
-            employeeStore[id] = employee
-            response.status(.OK).send(data: data)
-        } catch {
-            response.status(.unprocessableEntity)
-        }
-    }
-    
-    public func deleteAllEmployees(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        employeeStore = [:]
-        try response.status(.OK).end()
-    }
-    
-    public func deleteEmployee(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        guard let id = request.parameters["id"] else {
-            response.status(.badRequest)
-            return
-        }
-        
-        guard let _ = employeeStore[id] else {
-            response.status(.notFound)
-            return
-        }
-        employeeStore.removeValue(forKey: id)
+        taskStore[id] = nil
         response.status(.OK)
     }
 }

@@ -17,40 +17,23 @@
 import Foundation
 
 // Models/entities (application/use case specific)
-public struct User: Codable, Equatable {
+public struct Task: Codable, Equatable {
     public let id: UInt
-    public let name: String
-    public init(id: UInt, name: String) {
+    public let task: String
+    public init(id: UInt, task: String) {
         self.id = id
-        self.name = name
+        self.task = task
     }
     
-    public static func ==(lhs: User, rhs: User) -> Bool {
-        return (lhs.id == rhs.id) && (lhs.name == rhs.name)
+    public static func ==(lhs: Task, rhs: Task) -> Bool {
+        return (lhs.id == rhs.id) && (lhs.task == rhs.task)
     }
     
-}
-
-public struct Employee: Codable, Equatable {
-    public let id: String
-    public let name: String
-    
-    public static func ==(lhs: Employee, rhs: Employee) -> Bool {
-        return (lhs.id == rhs.id) && (lhs.name == rhs.name)
-    }
 }
 
 let initialStore = [
-    "1": User(id: 1, name: "Mike"),
-    "2": User(id: 2, name: "Chris"),
-    "3": User(id: 3, name: "Ricardo"),
-    "4": User(id: 4, name: "Aaron")
+    "1": Task(id: 1, task: "Bring milk and bread"),
+    "2": Task(id: 2, task: "Mow the lawn"),
+    "3": Task(id: 3, task: "File taxes"),
+    "4": Task(id: 4, task: "Clean the garage")
 ]
-
-let initialStoreEmployee = [
-    "1": Employee(id: "1", name: "Mike"),
-    "2": Employee(id: "2", name: "Chris"),
-    "3": Employee(id: "3", name: "Ricardo"),
-    "4": Employee(id: "4", name: "Aaron")
-]
-
