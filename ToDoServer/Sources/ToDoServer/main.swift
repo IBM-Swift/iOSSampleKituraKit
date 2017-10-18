@@ -18,8 +18,11 @@ import Kitura
 import Foundation
 
 import Controller
+import ControllerToDo
 
-let controller = Controller()
+//let controller = Controller()
 
-Kitura.addHTTPServer(onPort: 8080, with: controller.router )
-Kitura.run()
+//When ControllerToDo is done, use this version to pass ToDo backend tests
+let controller = ControllerToDo()
+
+controller.run()

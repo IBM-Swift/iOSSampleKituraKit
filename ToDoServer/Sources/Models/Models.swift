@@ -15,11 +15,36 @@
  */
 
 import Foundation
+import SafetyContracts
 
 // Models/entities (application/use case specific)
+public struct ToDo: Codable {
+    public var user: String?
+    public var title: String?
+    public var order: Int?
+    public var completed: Bool?
+    public var url: String?
+    
+}
+
+public struct Item: Identifier {
+    public var value: String
+    public let id: Int
+    
+    public init(value: String) throws {
+        if let id = Int(value) {
+            self.id = id
+            self.value = value
+        } else {
+            throw IdentifierError.invalidValue
+        }
+    }
+}
+
 public struct Task: Codable, Equatable {
     public let id: UInt
     public let task: String
+    
     public init(id: UInt, task: String) {
         self.id = id
         self.task = task
@@ -28,7 +53,6 @@ public struct Task: Codable, Equatable {
     public static func ==(lhs: Task, rhs: Task) -> Bool {
         return (lhs.id == rhs.id) && (lhs.task == rhs.task)
     }
-    
 }
 
 public struct TaskOptional: Codable, Equatable {

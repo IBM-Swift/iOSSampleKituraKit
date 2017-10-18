@@ -40,9 +40,13 @@ let package = Package(
             dependencies: ["Kitura", "Models", "SafetyContracts", "KituraCORS"]
         ),
         .target(
-        name: "Models",
-        dependencies: []
+            name: "ControllerToDo",
+            dependencies: ["SafetyContracts", "Kitura", "Models", "KituraCORS"]
         ),
+        .target(
+        name: "Models",
+        dependencies: ["SafetyContracts"]
+        )
         ]
 )
 
