@@ -143,14 +143,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("basic")
         let textEntry = UIAlertController(title: "Text", message: "Please input some text to send:", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
-            
             // send to Kitura
             guard let idToSend = textEntry.textFields?[0].text else {return}
             guard let nameToSend = textEntry.textFields?[1].text else {return}
-            
+            print("idToSend: \(idToSend) nameToSend \(nameToSend)")
             self.employeesId.append(idToSend)
             self.employeesName.append(nameToSend)
-            
+            print("employeeID: \(self.employeesId) employeesName \(self.employeesName)")
             self.create(textID: idToSend, textName: nameToSend)
             
             self.tableView.reloadData()
@@ -171,20 +170,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func create(textID: String, textName: String) {
-        
-        let newUser = User(id: Int(textID)!, name: textName)
+        print("create function called")
+        guard let userID = UInt(textID) else {
+            print("\(textID) is not a valid ID. Must be a positive Integer")
+            return
+        }
+        let newUser = User(id: userID, name: textName)
+        print("user created: \(newUser)")
         self.client.post("/users", data: newUser) { (user: User?, error: Error?) -> Void in
             guard let _ = user else {
+                print("Error in creating user. error code \(String(describing:error)) (user might already exists)")
                 return
             }
         }
-        
+        print("create function reached read()")
         self.read()
     }
     
     func read() {
         self.client.get("/users") { (users: [User]?, error: Error?) -> Void in
             guard let _ = users else {
+                print("Error in reading user. error code \(String(describing:error))")
                 return
             }
             
@@ -193,17 +199,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func update(textID: String, textName: String) {
-        let expectedUser = User(id: Int(textID)!, name: textName)
-        print(Int(textID)!)
+        guard let userID = UInt(textID) else {
+            print("\(textID) is not a valid ID. Must be a positive Integer")
+            return
+        }
+        let expectedUser = User(id: userID, name: textName)
+        print("userID: \(userID)")
         client.put("/users", identifier: String(expectedUser.id), data: expectedUser) { (user: User?, error: Error?) -> Void in
             guard let _ = user else {
+                print("Error in updating user. (user might not exists)")
                 return
             }
         }
     }
     
     func delete(textID: String) {
-        client.delete("/users", identifier: Int(textID)!) { error in
+        guard let _ = UInt(textID) else {
+            print("\(textID) is not a valid ID. Must be a positive Integer")
+            return
+        }
+        guard let userID = Int(textID) else {
+            return
+        }
+        client.delete("/users", identifier: userID) { error in
             guard error == nil else {
                 return
             }

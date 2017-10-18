@@ -18,9 +18,9 @@ import Foundation
 
 // Models/entities (application/use case specific)
 public struct User: Codable, Equatable {
-    public let id: Int
+    public let id: UInt
     public let name: String
-    public init(id: Int, name: String) {
+    public init(id: UInt, name: String) {
         self.id = id
         self.name = name
     }
