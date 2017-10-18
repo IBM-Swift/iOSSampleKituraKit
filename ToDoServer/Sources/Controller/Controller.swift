@@ -38,21 +38,28 @@ public class Controller {
     }
     
     private func setupRoutes() {
-        // tasks routes
-        router.get("/tasks") { (resondWith: ([Task]?, ProcessHandlerError?) -> Void) in
-            let tasks = self.taskStore.map({ $0.value })
-            resondWith(tasks, nil)
+        
+        // task routes
+        router.get("/tasks") { (resondWith: ([User]?, ProcessHandlerError?) -> Void) in
+            let users = self.taskStore.map({ $0.value })
+            resondWith(users, nil)
         }
         
-        router.get("/tasks/:id", handler: getUser)
-//        ) { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
-//            guard let user = self.taskStore[String(id)] else {
-//                resondWith(nil, .notFound)
-//                return
-//            }
-//            resondWith(user, nil)
-//        }
-//
+        router.get("/tasks") { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
+            guard let user = self.taskStore[String(id)] else {
+                resondWith(nil, .notFound)
+                return
+            }
+            resondWith(user, nil)
+        }
+        
+        router.post("/tasks") { (user: User?, respondWith: (User?, ProcessHandlerError?) -> Void) in
+            guard let user = user else {
+                respondWith(nil, .unprocessableEntity)
+                return
+            }
+            respondWith(user, nil)
+        }
         router.post("/tasks", handler: addUser)
         router.put("/tasks/:id", handler: addUser)
         router.patch("/tasks/:id", handler: updateUser)
@@ -60,22 +67,6 @@ public class Controller {
         router.delete("/tasks", handler: deleteAll)
     }
     
-    public func getUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        guard let id = request.parameters["id"] else {
-            response.status(.badRequest)
-            return
-        }
-
-        guard let user = taskStore[id] else {
-            response.status(.badRequest)
-            return
-        }
-
-        try response.status(.OK).send(data: encoder.encode(user))
-    }
     
     public func addUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
         defer {
