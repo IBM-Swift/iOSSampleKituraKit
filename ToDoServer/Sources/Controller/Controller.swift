@@ -41,12 +41,12 @@ public class Controller {
     
     private func setupRoutes() {
         // users routes
-        router.get("/users") { (resondWith: ([User]?, ProcessHandlerError?) -> Void) in
+        router.get("/tasks") { (resondWith: ([User]?, ProcessHandlerError?) -> Void) in
             let users = self.userStore.map({ $0.value })
             resondWith(users, nil)
         }
         
-        router.get("/users") { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
+        router.get("/tasks") { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
             guard let user = self.userStore[String(id)] else {
                 resondWith(nil, .notFound)
                 return
@@ -54,19 +54,19 @@ public class Controller {
             resondWith(user, nil)
         }
 
-        router.post("/users", handler: addUser)
-        router.put("/users/:id", handler: addUser)
-        router.patch("/users/:id", handler: updateUser)
-        router.delete("/users/:id", handler: deleteUser)
-        router.delete("/users", handler: deleteAll)
-        // employees routes
-        router.get("/employees", handler: getEmployees)
-        router.get("/employees/:id", handler: getEmployee)
-        router.post("/employees", handler: addEmployee)
-        router.put("/employees/:id", handler: addEmployee)
-        router.patch("/employees/:id", handler: updateEmployee)
-        router.delete("/employees/:id", handler: deleteEmployee)
-        router.delete("/employees", handler: deleteAllEmployees)
+        router.post("/tasks") { (user: User?, respondWith: (User?, ProcessHandlerError?) -> Void) in
+            guard let user = user else {
+                respondWith(nil, .unprocessableEntity)
+                return
+            }
+            respondWith(user, nil)
+        }
+        
+        router.put("/tasks/:id", handler: addUser)
+        router.patch("/tasks/:id", handler: updateUser)
+        router.delete("/tasks/:id", handler: deleteUser)
+        router.delete("/tasks", handler: deleteAll)
+
     }
     
     
