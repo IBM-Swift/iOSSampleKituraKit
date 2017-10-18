@@ -46,15 +46,14 @@ public class Controller {
             resondWith(users, nil)
         }
         
-        router.get("/users/:id", handler: getUser)
-//        ) { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
-//            guard let user = self.userStore[String(id)] else {
-//                resondWith(nil, .notFound)
-//                return
-//            }
-//            resondWith(user, nil)
-//        }
-//
+        router.get("/users") { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
+            guard let user = self.userStore[String(id)] else {
+                resondWith(nil, .notFound)
+                return
+            }
+            resondWith(user, nil)
+        }
+
         router.post("/users", handler: addUser)
         router.put("/users/:id", handler: addUser)
         router.patch("/users/:id", handler: updateUser)
@@ -70,22 +69,6 @@ public class Controller {
         router.delete("/employees", handler: deleteAllEmployees)
     }
     
-    public func getUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        guard let id = request.parameters["id"] else {
-            response.status(.badRequest)
-            return
-        }
-
-        guard let user = userStore[id] else {
-            response.status(.badRequest)
-            return
-        }
-
-        try response.status(.OK).send(data: encoder.encode(user))
-    }
     
     public func addUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
         defer {
