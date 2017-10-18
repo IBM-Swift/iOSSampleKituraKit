@@ -16,20 +16,19 @@ extension ViewController {
             print("\(textID) is not a valid ID. Must be a positive Integer")
             return
         }
-        let newUser = Task(id: userID, task: textName)
-        print("user created: \(newUser)")
-        self.client.post("/users", data: newUser) { (user: Task?, error: Error?) -> Void in
-            guard let _ = user else {
-                print("Error in creating user. error code \(String(describing:error)) (user might already exists)")
+        let newTask = Task(id: userID, task: textName)
+        print("task created: \(newTask)")
+        self.client.post("/tasks", data: newTask) { (task: Task?, error: Error?) -> Void in
+            print(String(describing: task))
+            guard let task = task else {
+                print("Error in creating task. error code \(String(describing:error)) (task might already exists)")
                 return
             }
         }
-        print("create function reached read()")
-        //self.read()
     }
     
     func read() {
-        self.client.get("/users") { (users: [Task]?, error: Error?) -> Void in
+        self.client.get("/tasks") { (users: [Task]?, error: Error?) -> Void in
             guard let _ = users else {
                 print("Error in reading user. error code \(String(describing:error))")
                 return
@@ -40,13 +39,14 @@ extension ViewController {
     }
     
     func update(textID: String, textName: String) {
+        print("Update called \(textID), \(textName)")
         guard let userID = UInt(textID) else {
             print("\(textID) is not a valid ID. Must be a positive Integer")
             return
         }
         let expectedUser = Task(id: userID, task: textName)
         print("userID: \(userID)")
-        client.put("/users", identifier: String(expectedUser.id), data: expectedUser) { (user: Task?, error: Error?) -> Void in
+        client.put("/tasks", identifier: String(expectedUser.id), data: expectedUser) { (user: Task?, error: Error?) -> Void in
             guard let _ = user else {
                 print("Error in updating user. (user might not exists)")
                 return
@@ -62,7 +62,7 @@ extension ViewController {
         guard let userID = Int(textID) else {
             return
         }
-        client.delete("/users", identifier: userID) { error in
+        client.delete("/tasks", identifier: userID) { error in
             guard error == nil else {
                 return
             }
