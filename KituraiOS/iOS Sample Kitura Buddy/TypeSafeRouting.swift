@@ -1,12 +1,21 @@
-//
-//  TypeSafeRouting.swift
-//  iOS Sample Kitura Buddy
-//
-//  Created by Shibab Mehboob on 18/10/2017.
-//  Copyright © 2017 IBM. All rights reserved.
-//
+/*
+ * Copyright IBM Corporation 2017
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import Foundation
+import UIKit
 
 extension ViewController {
     
@@ -20,21 +29,46 @@ extension ViewController {
         print("task created: \(newTask)")
         self.client.post("/tasks", data: newTask) { (task: Task?, error: Error?) -> Void in
             print(String(describing: task))
-            guard let task = task else {
+            guard task != nil else {
                 print("Error in creating task. error code \(String(describing:error)) (task might already exists)")
                 return
+            }
+            self.readAll()
+        }
+    }
+    
+    func readAll() {
+        self.client.get("/tasks") { (users: [Task]?, error: Error?) -> Void in
+            guard let users = users else {
+                print("Error in reading user. error code \(String(describing:error))")
+                return
+            }
+            self.employeesId = []
+            self.employeesName = []
+            for item in users {
+                self.employeesId.append(String(item.id))
+                self.employeesName.append(item.task)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }
     
-    func read() {
-        self.client.get("/tasks") { (users: [Task]?, error: Error?) -> Void in
+    func read(textID: String) {
+        self.client.get("/tasks", identifier: textID) { (users: Task?, error: Error?) -> Void in
             guard let _ = users else {
                 print("Error in reading user. error code \(String(describing:error))")
+                let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
-            
-            self.tableView.reloadData()
+            if let users = users {
+                let alert = UIAlertController(title: "Search result", message: "\(users.task)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -51,6 +85,16 @@ extension ViewController {
                 print("Error in updating user. (user might not exists)")
                 return
             }
+            self.readAll()
+        }
+    }
+    
+    func deleteAll() {
+        client.delete("/tasks") { error in
+            guard error == nil else {
+                return
+            }
+            self.readAll()
         }
     }
     
@@ -66,7 +110,9 @@ extension ViewController {
             guard error == nil else {
                 return
             }
+            self.readAll()
         }
     }
     
 }
+

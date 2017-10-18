@@ -30,6 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.white
         self.title = "To Do List Type Safe Routing"
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
         self.tableView = UITableView(frame:CGRect(x:0, y:(self.navigationController?.navigationBar.bounds.height)!, width: self.view.bounds.width, height: (self.navigationController?.view.bounds.height)!))
@@ -38,6 +39,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
+        
+        self.readAll()
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,19 +102,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             
             self.delete(textID: self.employeesId[indexPath.row])
-            
             self.employeesId.remove(at: indexPath.row)
             self.employeesName.remove(at: indexPath.row)
-            
             self.tableView.reloadData()
             
         }
+    }
+    
+    @objc func searchTapped(button: UIButton) {
+        let textEntry = UIAlertController(title: "Text", message: "Search:", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            
+            // send to Kitura
+            guard let idToSend = textEntry.textFields?[0].text else {return}
+            self.read(textID: idToSend)
+            
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        textEntry.addTextField { (textField) in
+            textField.placeholder = "ID..."
+        }
+        textEntry.addAction(confirm)
+        textEntry.addAction(cancel)
+        
+        self.present(textEntry, animated: true, completion: nil)
     }
     
     @objc func addTapped(button: UIButton) {
         print("basic")
         let textEntry = UIAlertController(title: "Text", message: "Please input a new task:", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            
             // send to Kitura
             guard let idToSend = textEntry.textFields?[0].text else {return}
             guard let nameToSend = textEntry.textFields?[1].text else {return}
@@ -120,8 +142,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.employeesName.append(nameToSend)
             print("employeeID: \(self.employeesId) employeesName \(self.employeesName)")
             self.create(textID: idToSend, textName: nameToSend)
-            
-            self.tableView.reloadData()
             
         }
         
