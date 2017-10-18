@@ -15,6 +15,7 @@
  */
 
 import Kitura
+import KituraCORS
 import Foundation
 import Models
 import SafetyContracts
@@ -38,6 +39,10 @@ public class Controller {
     }
     
     private func setupRoutes() {
+        
+        let options = Options(allowedOrigin: .all)
+        let cors = CORS(options: options)
+        router.all("/*", middleware: cors)
         
         // task routes
         router.get("/tasks") { (resondWith: ([Task]?, ProcessHandlerError?) -> Void) in
