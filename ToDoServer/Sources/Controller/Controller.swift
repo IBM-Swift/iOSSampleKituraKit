@@ -40,12 +40,12 @@ public class Controller {
     private func setupRoutes() {
         
         // task routes
-        router.get("/tasks") { (resondWith: ([User]?, ProcessHandlerError?) -> Void) in
+        router.get("/tasks") { (resondWith: ([Task]?, ProcessHandlerError?) -> Void) in
             let users = self.taskStore.map({ $0.value })
             resondWith(users, nil)
         }
         
-        router.get("/tasks") { (id: Int, resondWith: (User?, ProcessHandlerError?) -> Void) in
+        router.get("/tasks") { (id: Int, resondWith: (Task?, ProcessHandlerError?) -> Void) in
             guard let user = self.taskStore[String(id)] else {
                 resondWith(nil, .notFound)
                 return
@@ -53,7 +53,7 @@ public class Controller {
             resondWith(user, nil)
         }
         
-        router.post("/tasks") { (user: User?, respondWith: (User?, ProcessHandlerError?) -> Void) in
+        router.post("/tasks") { (user: Task?, respondWith: (Task?, ProcessHandlerError?) -> Void) in
             guard let user = user else {
                 respondWith(nil, .unprocessableEntity)
                 return
