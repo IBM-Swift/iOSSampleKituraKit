@@ -22,24 +22,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var tableView = UITableView()
     var employeesId: [String] = []
     var employeesName: [String] = []
-    var chosenSegment = 0
     
-    //let controller = Controller(userStore: initialStore)
     let client = KituraBuddy(baseURL: "http://localhost:8080")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        self.title = "Kitura Buddy"
+        self.title = "To Do List Type Safe Routing"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        
-        let segment: UISegmentedControl = UISegmentedControl(items: ["Basic Type Safe Routing", "CRUD API Routing"])
-        segment.sizeToFit()
-        segment.tintColor = UIColor.blue
-        segment.selectedSegmentIndex = 0
-        segment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-        self.navigationItem.titleView = segment
         
         self.tableView = UITableView(frame:CGRect(x:0, y:(self.navigationController?.navigationBar.bounds.height)!, width: self.view.bounds.width, height: (self.navigationController?.view.bounds.height)!))
         self.tableView.backgroundColor = UIColor.white
@@ -47,18 +38,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
-    }
-    
-    @objc func segmentedControlValueChanged(segment: UISegmentedControl) {
-        if (segment.selectedSegmentIndex) == 0 {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-            self.read()
-            self.chosenSegment = 0
-        } else if (segment.selectedSegmentIndex) == 1 {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTappedCRUD))
-            self.readCRUD()
-            self.chosenSegment = 1
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let textEntry = UIAlertController(title: "Text", message: "Please input the new name for ID \(self.employeesId[indexPath.row]):", preferredStyle: .alert)
+        let textEntry = UIAlertController(title: "Text", message: "Please input the new task for ID \(self.employeesId[indexPath.row]):", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
             
             // send to Kitura
@@ -103,7 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         
         textEntry.addTextField { (textField) in
-            textField.placeholder = "Name..."
+            textField.placeholder = "Task..."
         }
         
         textEntry.addAction(confirm)
@@ -118,30 +97,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
-            if self.chosenSegment == 0 {
-                self.delete(textID: self.employeesId[indexPath.row])
-                
-                self.employeesId.remove(at: indexPath.row)
-                self.employeesName.remove(at: indexPath.row)
-                
-                self.tableView.reloadData()
-            } else if self.chosenSegment == 1 {
-                
-                self.deleteCRUD(textID: self.employeesId[indexPath.row])
-                
-                self.employeesId.remove(at: indexPath.row)
-                self.employeesName.remove(at: indexPath.row)
-                
-                self.tableView.reloadData()
-            }
+            
+            self.delete(textID: self.employeesId[indexPath.row])
+            
+            self.employeesId.remove(at: indexPath.row)
+            self.employeesName.remove(at: indexPath.row)
+            
+            self.tableView.reloadData()
+            
         }
     }
     
-    // Basic Type Safe Routing Methods
-    
     @objc func addTapped(button: UIButton) {
         print("basic")
-        let textEntry = UIAlertController(title: "Text", message: "Please input some text to send:", preferredStyle: .alert)
+        let textEntry = UIAlertController(title: "Text", message: "Please input a new task:", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
             // send to Kitura
             guard let idToSend = textEntry.textFields?[0].text else {return}
@@ -161,143 +130,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             textField.placeholder = "ID..."
         }
         textEntry.addTextField { (textField) in
-            textField.placeholder = "Name..."
+            textField.placeholder = "Task..."
         }
         textEntry.addAction(confirm)
         textEntry.addAction(cancel)
         
         self.present(textEntry, animated: true, completion: nil)
     }
-    
-    func create(textID: String, textName: String) {
-        print("create function called")
-        guard let userID = UInt(textID) else {
-            print("\(textID) is not a valid ID. Must be a positive Integer")
-            return
-        }
-        let newUser = User(id: userID, name: textName)
-        print("user created: \(newUser)")
-        self.client.post("/users", data: newUser) { (user: User?, error: Error?) -> Void in
-            guard let _ = user else {
-                print("Error in creating user. error code \(String(describing:error)) (user might already exists)")
-                return
-            }
-        }
-        print("create function reached read()")
-        self.read()
-    }
-    
-    func read() {
-        self.client.get("/users") { (users: [User]?, error: Error?) -> Void in
-            guard let _ = users else {
-                print("Error in reading user. error code \(String(describing:error))")
-                return
-            }
-            
-            self.tableView.reloadData()
-        }
-    }
-    
-    func update(textID: String, textName: String) {
-        guard let userID = UInt(textID) else {
-            print("\(textID) is not a valid ID. Must be a positive Integer")
-            return
-        }
-        let expectedUser = User(id: userID, name: textName)
-        print("userID: \(userID)")
-        client.put("/users", identifier: String(expectedUser.id), data: expectedUser) { (user: User?, error: Error?) -> Void in
-            guard let _ = user else {
-                print("Error in updating user. (user might not exists)")
-                return
-            }
-        }
-    }
-    
-    func delete(textID: String) {
-        guard let _ = UInt(textID) else {
-            print("\(textID) is not a valid ID. Must be a positive Integer")
-            return
-        }
-        guard let userID = Int(textID) else {
-            return
-        }
-        client.delete("/users", identifier: userID) { error in
-            guard error == nil else {
-                return
-            }
-        }
-    }
-    
-    // CRUD API Routing Methods
-    
-    @objc func addTappedCRUD(button: UIButton) {
-        print("CRUD")
-        let textEntry = UIAlertController(title: "Text", message: "Please input some text to send:", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
-            
-            // send to Kitura
-            guard let idToSend = textEntry.textFields?[0].text else {return}
-            guard let nameToSend = textEntry.textFields?[1].text else {return}
-            
-            self.createCRUD(textID: idToSend, textName: nameToSend)
-            
-            self.employeesId.append(idToSend)
-            self.employeesName.append(nameToSend)
-            self.tableView.reloadData()
-            
-        }
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        textEntry.addTextField { (textField) in
-            textField.placeholder = "ID..."
-        }
-        textEntry.addTextField { (textField) in
-            textField.placeholder = "Name..."
-        }
-        textEntry.addAction(confirm)
-        textEntry.addAction(cancel)
-        
-        self.present(textEntry, animated: true, completion: nil)
-    }
-    
-    func createCRUD(textID: String, textName: String) {
-        /*
-         let newEmployee = Employee(id: textID, name: textName)
-         let Emp2 = try Employee.create(model: newEmployee) { (emp: Employee?, error: Error?) -> Void in
-         if error != nil {
-         XCTFail("Failed to create employee! \(error!)")
-         return
-         }
-         guard let emp = emp else {
-         XCTFail("Failed to create employee! \(error!)")
-         return
-         }
-         }
-         */
-        self.readCRUD()
-    }
-    
-    func readCRUD() {
-        /*
-         let Emp1 = try Employee.read()
-         employees = Emp1
-         self.tableView.reloadData()
-         */
-    }
-    
-    func updateCRUD(textID: String, textName: String) {
-        /*
-         let Emp1 = Employee(id: textId, name: textName)
-         let Emp2 = try Employee.update(id: i, model: Emp1)
-         */
-        self.readCRUD()
-    }
-    
-    func deleteCRUD(textID: String) {
-        /*
-         try Employee.delete(id: Int(textID)!)
-         self.tableView.reloadData()
-         */
-    }
-    
 }
