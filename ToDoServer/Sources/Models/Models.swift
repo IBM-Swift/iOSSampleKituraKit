@@ -31,6 +31,20 @@ public struct Task: Codable, Equatable {
     
 }
 
+public struct TaskOptional: Codable, Equatable {
+    public let id: UInt?
+    public let task: String?
+    
+    public init(id: UInt, task: String) {
+        self.id = id
+        self.task = task
+    }
+    
+    public static func ==(lhs: TaskOptional, rhs: TaskOptional) -> Bool {
+        return (lhs.id == rhs.id) && (lhs.task == rhs.task)
+    }
+}
+
 let initialStore = [
     "1": Task(id: 1, task: "Bring milk and bread"),
     "2": Task(id: 2, task: "Mow the lawn"),

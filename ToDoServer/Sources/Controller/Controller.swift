@@ -34,90 +34,65 @@ public class Controller {
         self.taskStore = taskStore
         router = Router()
         setupRoutes()
-
+        
     }
     
     private func setupRoutes() {
         
         // task routes
         router.get("/tasks") { (resondWith: ([Task]?, ProcessHandlerError?) -> Void) in
-            let users = self.taskStore.map({ $0.value })
-            resondWith(users, nil)
+            let tasks = self.taskStore.map({ $0.value })
+            resondWith(tasks, nil)
         }
         
         router.get("/tasks") { (id: Int, resondWith: (Task?, ProcessHandlerError?) -> Void) in
-            guard let user = self.taskStore[String(id)] else {
+            guard let task = self.taskStore[String(id)] else {
                 resondWith(nil, .notFound)
                 return
             }
-            resondWith(user, nil)
+            resondWith(task, nil)
         }
         
-        router.post("/tasks") { (user: Task?, respondWith: (Task?, ProcessHandlerError?) -> Void) in
-            guard let user = user else {
-                respondWith(nil, .unprocessableEntity)
+        router.post("/tasks") { (task: Task?, respondWith: (Task?, ProcessHandlerError?) -> Void) in
+            guard let task = task else {
+                respondWith(nil, .badRequest)
                 return
             }
-            respondWith(user, nil)
-        }
-        router.post("/tasks", handler: addUser)
-        router.put("/tasks/:id", handler: addUser)
-        router.patch("/tasks/:id", handler: updateUser)
-        router.delete("/tasks/:id", handler: deleteUser)
-        router.delete("/tasks", handler: deleteAll)
-    }
-    
-    
-    public func addUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        do {
-            var data = Data()
-            _ = try request.read(into: &data)
-            let user = try decoder.decode(Task.self, from: data)
-            taskStore[String(user.id)] = user
-            response.status(.OK).send(data: data)
-        } catch {
-            response.status(.unprocessableEntity)
-        }
-    }
-    
-    public func updateUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
-        }
-        guard let id = request.parameters["id"] else {
-            response.status(.badRequest)
-            return
-        }
-        do {
-            var data = Data()
-            _ = try request.read(into: &data)
-            let user = try decoder.decode(Task.self, from: data)
-            taskStore[id] = user
-            response.status(.OK).send(data: data)
-        } catch {
-            response.status(.unprocessableEntity)
-        }
-    }
-    
-    public func deleteAll(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        taskStore = [:]
-        response.status(.OK)
-    }
-    
-    public func deleteUser(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        defer {
-            next()
+            self.taskStore[String(task.id)] = task
+            respondWith(task, nil)
         }
         
-        guard let id = request.parameters["id"] else {
-            response.status(.badRequest)
-            return
+        router.put("/tasks") { (id: Int, task: Task?, respondWith: (Task?, ProcessHandlerError?) -> Void) in
+            self.taskStore[String(id)] = task
+            respondWith(task, nil)
         }
         
-        taskStore[id] = nil
-        response.status(.OK)
+        router.patch("/tasks") { (id: Int, task: TaskOptional?, respondWith: (Task?, ProcessHandlerError?) -> Void) in
+            guard let exisitingTask = self.taskStore[id.value] else {
+                respondWith(nil, .notFound)
+                return
+            }
+            if let taskName = task?.task {
+                let updatedTask = Task(id: UInt(id), task: taskName)
+                self.taskStore[id.value] = updatedTask
+                respondWith(updatedTask, nil)
+            } else {
+                respondWith(exisitingTask, nil)
+            }
+        }
+        router.delete("/tasks") { (id: Int, respondWith: (ProcessHandlerError?) -> Void) in
+            guard let _ = self.taskStore.removeValue(forKey: id.value) else {
+                respondWith(.notFound)
+                return
+            }
+            respondWith(nil)
+        }
+        
+        router.delete("/tasks") { (respondWith: (ProcessHandlerError?) -> Void) in
+            self.taskStore.removeAll()
+            respondWith(nil)
+        }
     }
+    
+    
 }
