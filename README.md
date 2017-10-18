@@ -6,14 +6,15 @@ Under construction... stay tuned!
 
 ## Installation
 
-1) Clone repo onto local machine
+### Run ToDoServer
 
-2) `cd KituraServer` -> `swift build`
+1) `cd ../ToDoServer`
+2) Run `swift build`
+3) Type `.build/x86_64-apple-macosx10.10/debug/KituraServer` to start the server running (this window will never return, CTRL+C to stop the server).
 
-3) `cd ../KituraiOS` -> open xcode project
 
-4) Clean LoggerAPI, CircuitBreaker and SwiftyRequest (select scheme next to Run button and COMMAND+SHIFT+K)
+### Run iOS App
 
-5) Build LoggerAPI then CircuitBreaker then SwiftyRequest (same again but COMMAND+B)
-
-6) Run app on iPhone Simulator
+1) Clone repo onto local machine.
+2) `cd ../KituraiOS` -> open the .xcodeproj
+3) Run app on iPhone Simulator
