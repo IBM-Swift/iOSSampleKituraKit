@@ -26,7 +26,7 @@ let package = Package(
         .package(url: "https://github.com/IBM-Swift/HeliumLogger.git", .upToNextMinor(from: "1.7.1")),
         .package(url: "https://github.com/IBM-Swift/CloudEnvironment.git", .upToNextMinor(from: "4.0.5")),
         .package(url: "https://github.com/IBM-Swift/Configuration.git", .upToNextMinor(from: "1.0.0")),
-        .package(url: "https://github.com/RuntimeTools/SwiftMetrics.git", from: "1.0.0"),
+        .package(url: "https://github.com/RuntimeTools/SwiftMetrics.git", .branch("swift4")),
         .package(url: "https://github.com/IBM-Swift/Health.git", from: "0.0.0"),
         .package(url: "https://github.com/IBM-Swift/SafetyContracts.git", .exact("0.0.9")),
         .package(url: "https://github.com/IBM-Swift/Kitura-CORS", .upToNextMinor(from: "1.7.0")),
