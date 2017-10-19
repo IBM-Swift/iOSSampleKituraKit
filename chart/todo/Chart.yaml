@@ -1,4 +1,0 @@
-apiVersion: v1
-description: A Helm chart for Kubernetes
-name: todo
-version: 1.0.0
