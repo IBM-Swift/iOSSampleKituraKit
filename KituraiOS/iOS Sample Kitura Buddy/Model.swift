@@ -17,23 +17,45 @@
 import Foundation
 
 // Models/entities (application/use case specific)
-public struct Task: Codable, Equatable {
-    public let id: UInt
-    public let task: String
-    public init(id: UInt, task: String) {
-        self.id = id
-        self.task = task
+//public struct Task: Codable, Equatable {
+//    public let id: UInt
+//    public let task: String
+//    public init(id: UInt, task: String) {
+//        self.id = id
+//        self.task = task
+//    }
+//
+//    public static func ==(lhs: Task, rhs: Task) -> Bool {
+//        return (lhs.id == rhs.id) && (lhs.task == rhs.task)
+//    }
+//
+//}
+
+public struct ToDo: Codable, Equatable {
+    public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
+        return (lhs.id == rhs.id) && (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
     }
-    
-    public static func ==(lhs: Task, rhs: Task) -> Bool {
-        return (lhs.id == rhs.id) && (lhs.task == rhs.task)
+    public let id: UInt
+    public let title: String?
+    public let user: String?
+    public let order: Int?
+    public let completed: Bool?
+    public let url: String?
+    public init(id: UInt, title: String?, user: String?, order: Int?, completed: Bool?) {
+        self.id = id
+        self.title = title
+        self.user = user
+        self.order = order
+        self.completed = completed
+        self.url = nil
     }
     
 }
 
+
 let initialStore = [
-    "1": Task(id: 1, task: "Bring milk and bread"),
-    "2": Task(id: 2, task: "Mow the lawn"),
-    "3": Task(id: 3, task: "File taxes"),
-    "4": Task(id: 4, task: "Clean the garage")
+    "1": ToDo(id: 1, title: "Bring milk and bread", user: "Andy", order: 2, completed: false),
+    "2": ToDo(id: 2, title: "Mow the lawn", user: "Kye", order: 1, completed: false),
+    "3": ToDo(id: 3, title: "File taxes", user: "Shihab", order: 4, completed: false),
+    "4": ToDo(id: 4, title: "Clean the garage", user: "Andy", order: 3, completed: false)
 ]
