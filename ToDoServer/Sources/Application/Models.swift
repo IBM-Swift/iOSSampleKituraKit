@@ -17,13 +17,24 @@
 import Foundation
 import SafetyContracts
 
-// Models/entities (application/use case specific)
-public struct ToDo: Codable {
-    public var user: String?
+public struct ToDo: Codable, Equatable {
+    public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
+        return (lhs.id == rhs.id) && (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
+    }
+    public var id: Int
     public var title: String?
+    public var user: String?
     public var order: Int?
     public var completed: Bool?
     public var url: String?
+    public init(id: Int, title: String?, user: String?, order: Int?, completed: Bool?) {
+        self.id = id
+        self.title = title
+        self.user = user
+        self.order = order
+        self.completed = completed
+        self.url = nil
+    }
     
 }
 
