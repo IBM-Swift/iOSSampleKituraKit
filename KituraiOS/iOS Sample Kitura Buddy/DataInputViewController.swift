@@ -21,9 +21,29 @@ class DataInputViewController: ViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
-        
+        hideKeyboard()
     }
     
+    @IBAction func pressedDone(_ sender: UIButton) {
+        tableView.reloadData()
+        self.performSegue(withIdentifier: "unwindToList", sender: self)
+    }
     
+}
+
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
     
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }

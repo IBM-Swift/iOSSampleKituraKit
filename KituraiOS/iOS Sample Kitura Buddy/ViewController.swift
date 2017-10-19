@@ -17,149 +17,17 @@
 import UIKit
 import KituraBuddy
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var tableView = UITableView()
-    var employeesId: [String] = []
-    var employeesName: [String] = []
+class ViewController: UIViewController {
     
     let client = KituraBuddy(baseURL: "http://localhost:8080")
+    @IBOutlet public weak var tableView: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        self.title = "To Do List Type Safe Routing"
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        
-        self.tableView = UITableView(frame:CGRect(x:0, y:(self.navigationController?.navigationBar.bounds.height)!, width: self.view.bounds.width, height: (self.navigationController?.view.bounds.height)!))
-        self.tableView.backgroundColor = UIColor.white
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.view.addSubview(self.tableView)
-        
-        self.readAll()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    @IBAction func unwindToList(segue: UIStoryboardSegue){
+        
     }
     
-    // Table View
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employeesId.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell") else {
-                // Never fails:
-                return UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "UITableViewCell")
-            }
-            return cell
-        }()
-        
-        cell.textLabel?.text = self.employeesName[indexPath.row]
-        cell.detailTextLabel?.text = self.employeesId[indexPath.row]
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let textEntry = UIAlertController(title: "Text", message: "Please input the new task for ID \(self.employeesId[indexPath.row]):", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
-            
-            // send to Kitura
-            let idToSend = self.employeesId[indexPath.row]
-            guard let nameToSend = textEntry.textFields?[0].text else {return}
-            
-            self.update(textID: idToSend, textName: nameToSend)
-            
-            self.tableView.reloadData()
-            
-        }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        
-        textEntry.addTextField { (textField) in
-            textField.placeholder = "Task..."
-        }
-        
-        textEntry.addAction(confirm)
-        textEntry.addAction(cancel)
-        
-        self.present(textEntry, animated: true, completion: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            
-            self.delete(textID: self.employeesId[indexPath.row])
-            self.employeesId.remove(at: indexPath.row)
-            self.employeesName.remove(at: indexPath.row)
-            self.tableView.reloadData()
-            
-        }
-    }
-    
-    @objc func searchTapped(button: UIButton) {
-        let textEntry = UIAlertController(title: "Text", message: "Search:", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
-            
-            // send to Kitura
-            guard let idToSend = textEntry.textFields?[0].text else {return}
-            self.read(textID: idToSend)
-            
-        }
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        textEntry.addTextField { (textField) in
-            textField.placeholder = "ID..."
-        }
-        textEntry.addAction(confirm)
-        textEntry.addAction(cancel)
-        
-        self.present(textEntry, animated: true, completion: nil)
-    }
-    
-    @objc func addTapped(button: UIButton) {
-        print("basic")
-        let textEntry = UIAlertController(title: "Text", message: "Please input a new task:", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
-
-            // send to Kitura
-            guard let idToSend = textEntry.textFields?[0].text else {return}
-            guard let nameToSend = textEntry.textFields?[1].text else {return}
-            print("idToSend: \(idToSend) nameToSend \(nameToSend)")
-            self.employeesId.append(idToSend)
-            self.employeesName.append(nameToSend)
-            print("employeeID: \(self.employeesId) employeesName \(self.employeesName)")
-            self.create(textID: idToSend, textName: nameToSend)
-
-        }
-
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        textEntry.addTextField { (textField) in
-            textField.placeholder = "ID..."
-        }
-        textEntry.addTextField { (textField) in
-            textField.placeholder = "Task..."
-        }
-        textEntry.addAction(confirm)
-        textEntry.addAction(cancel)
-
-        self.present(textEntry, animated: true, completion: nil)
-        
-//        let vc: DataInputViewController = DataInputViewController()
-//        vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        self.present(vc, animated: true, completion: nil)
-    }
-
 }
