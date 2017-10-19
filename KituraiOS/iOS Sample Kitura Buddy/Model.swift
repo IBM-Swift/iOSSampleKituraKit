@@ -35,13 +35,13 @@ public struct ToDo: Codable, Equatable {
     public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
         return (lhs.id == rhs.id) && (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
     }
-    public let id: UInt
+    public let id: Int
     public let title: String?
     public let user: String?
     public let order: Int?
     public let completed: Bool?
     public let url: String?
-    public init(id: UInt, title: String?, user: String?, order: Int?, completed: Bool?) {
+    public init(id: Int, title: String?, user: String?, order: Int?, completed: Bool?) {
         self.id = id
         self.title = title
         self.user = user

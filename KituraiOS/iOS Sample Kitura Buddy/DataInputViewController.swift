@@ -13,21 +13,34 @@ import UIKit
 
 class DataInputViewController: ViewController {
     
+    @IBOutlet weak var idField: UITextField!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var userField: UITextField!
-    @IBOutlet weak var completedToggle: UISwitch!
     @IBOutlet weak var orderField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         hideKeyboard()
     }
     
     @IBAction func pressedDone(_ sender: UIButton) {
-        tableView.reloadData()
+        guard let id = idField.text, let title = titleField.text, let user = userField.text, let order = orderField.text else{
+            let alert = UIAlertController(title: "Could Not Save", message: "One or more fields are not completed", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        guard let idAsInt = Int(id), let orderAsInt = Int(order) else{
+            let alert = UIAlertController(title: "Not a number", message: "ID or Order were not numbers", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        create(id: idAsInt, title: title, user: user, order: orderAsInt)
         self.performSegue(withIdentifier: "unwindToList", sender: self)
     }
+    
+    
     
 }
 

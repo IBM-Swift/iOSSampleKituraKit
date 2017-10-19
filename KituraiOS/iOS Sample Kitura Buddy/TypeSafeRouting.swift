@@ -19,15 +19,11 @@ import UIKit
 
 extension ViewController {
 
-    func create(id: String, title: String, user: String, order: Int) {
+    func create(id: Int, title: String, user: String, order: Int) {
         print("create function called")
-        guard let toDoId = UInt(id) else {
-            print("\(id) is not a valid ID. Must be a positive Integer")
-            return
-        }
-        let newToDo = ToDo(id: toDoId, title: title, user: user, order: order, completed: false)
+        let newToDo = ToDo(id: id, title: title, user: user, order: order, completed: false)
         print("ToDo created: \(newToDo)")
-        self.client.post("/tasks", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
+        self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
             print(String(describing: returnedItem))
             guard returnedItem != nil else {
                 print("Error in creating ToDo. error code \(String(describing:error))")
@@ -38,7 +34,7 @@ extension ViewController {
     }
 
     func readAll() {
-        self.client.get("/tasks") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
+        self.client.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
             guard let allToDoItems = allToDoItems else {
                 print("Error in reading user. error code \(String(describing:error))")
                 return
@@ -63,7 +59,7 @@ extension ViewController {
     }
 
     func read(Id: String) {
-        self.client.get("/tasks", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        self.client.get("/", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 print("Error in reading user. error code \(String(describing:error))")
                 let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
@@ -79,17 +75,13 @@ extension ViewController {
         }
     }
 
-    func update(id: String, title: String?, user: String?, order: Int?, completed: Bool?) {
+    func update(id: Int, title: String?, user: String?, order: Int?, completed: Bool?) {
         print("""
             Update called \(id),  \(String(describing:title)),
             \(String(describing:user)), \(String(describing:order)), \(String(describing:completed))
             """)
-        guard let toDoId = UInt(id) else {
-            print("\(id) is not a valid ID. Must be a positive Integer")
-            return
-        }
-        let newToDo = ToDo(id: toDoId, title: title, user: user, order: order, completed: completed)
-        self.client.patch("/tasks", identifier: id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        let newToDo = ToDo(id: id, title: title, user: user, order: order, completed: completed)
+        self.client.patch("/", identifier: id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 print("Error in patching ToDo. error code \(String(describing:error))")
                 return
@@ -100,7 +92,7 @@ extension ViewController {
 
 
     func deleteAll() {
-        client.delete("/tasks") { error in
+        client.delete("/") { error in
             guard error == nil else {
                 return
             }
@@ -108,15 +100,8 @@ extension ViewController {
         }
     }
 
-    func delete(id: String) {
-        guard let _ = UInt(id) else {
-            print("\(id) is not a valid ID. Must be a positive Integer")
-            return
-        }
-        guard let toDoId = Int(id) else {
-            return
-        }
-        client.delete("/tasks", identifier: toDoId) { error in
+    func delete(id: Int) {
+        client.delete("/", identifier: id) { error in
             guard error == nil else {
                 return
             }
