@@ -4,3 +4,7 @@
 Package.resolved
 xcuserdata
 .DS_Store
+/Packages
+/config.json
+/spec.json
+./config/localdev-config.json

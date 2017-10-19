@@ -17,20 +17,32 @@
 import Kitura
 import KituraCORS
 import Foundation
-import Models
 import SafetyContracts
+import LoggerAPI
+import Configuration
+import CloudEnvironment
+import Health
 
+public let projectPath = ConfigurationManager.BasePath.project.path
+public let health = Health()
 public var port: Int = 8080
 
-public class ControllerToDo {
+public class Application {
     
     let router = Router()
+    let cloudEnv = CloudEnv()
     var todoStore = [ToDo]()
     
-    func setup() {
+    func postInit() throws{
+        // Capabilities
+        initializeMetrics(app: self)
+        
         let options = Options(allowedOrigin: .all)
         let cors = CORS(options: options)
         router.all("/*", middleware: cors)
+        
+        // Endpoints
+        initializeHealthRoutes(app: self)
         
         // ToDoListBackend Routes
         router.post("/", handler: createHandler)
@@ -44,12 +56,13 @@ public class ControllerToDo {
     }
     
     
-    public init() {
-
+    public init() throws {
+        // Configuration
+        port = cloudEnv.port
     }
     
-    public func run() {
-        setup()
+    public func run() throws{
+        try postInit()
         Kitura.addHTTPServer(onPort: port, with: router)
         Kitura.run()
     }

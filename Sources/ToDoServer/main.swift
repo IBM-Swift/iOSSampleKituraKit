@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-import Kitura
 import Foundation
+import Kitura
+import LoggerAPI
+import HeliumLogger
+import Application
 
-import Controller
-import ControllerToDo
-
-//let controller = Controller()
-
-//When ControllerToDo is done, use this version to pass ToDo backend tests
-let controller = ControllerToDo()
-
-controller.run()
+do {
+    
+    HeliumLogger.use(LoggerMessageType.info)
+    
+    let app = try Application()
+    try app.run()
+    
+} catch let error {
+    Log.error(error.localizedDescription)
+}
