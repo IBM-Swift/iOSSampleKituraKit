@@ -1,4 +1,6 @@
 .build/*
+/ToDoServer/.build/*
+ToDoServer/ToDoServer.xcodeproj/*
 .build-ubuntu/*
 *.xcodeproj/*
 Package.resolved
