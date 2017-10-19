@@ -133,7 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("basic")
         let textEntry = UIAlertController(title: "Text", message: "Please input a new task:", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
-            
+
             // send to Kitura
             guard let idToSend = textEntry.textFields?[0].text else {return}
             guard let nameToSend = textEntry.textFields?[1].text else {return}
@@ -142,9 +142,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.employeesName.append(nameToSend)
             print("employeeID: \(self.employeesId) employeesName \(self.employeesName)")
             self.create(textID: idToSend, textName: nameToSend)
-            
+
         }
-        
+
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         textEntry.addTextField { (textField) in
             textField.placeholder = "ID..."
@@ -154,7 +154,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         textEntry.addAction(confirm)
         textEntry.addAction(cancel)
-        
+
         self.present(textEntry, animated: true, completion: nil)
+        
+//        let vc: DataInputViewController = DataInputViewController()
+//        vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        self.present(vc, animated: true, completion: nil)
     }
+
 }
