@@ -22,7 +22,6 @@ extension ViewController {
     func create(title: String, user: String, order: Int) {
         print("create function called")
         let newToDo = ToDo(title: title, user: user, order: order, completed: false)
-        print("ToDo created: \(newToDo)")
         self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
             print(String(describing: returnedItem))
             guard returnedItem != nil else {
@@ -30,7 +29,6 @@ extension ViewController {
                 return
             }
             
-            self.readAll()
         }
     }
     
@@ -41,9 +39,8 @@ extension ViewController {
                 return
             }
             DispatchQueue.main.async {
-                self.localToDoStore = allToDoItems
-                print("LOCALSTORE NOW: \(self.localToDoStore)")
-                
+                localToDo.localToDoStore = allToDoItems
+                self.tableView.reloadData()
             }
         }
     }
@@ -51,37 +48,45 @@ extension ViewController {
     func read(Id: String) {
         self.client.get("/", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
+                
+                DispatchQueue.main.async {
                 print("Error in reading user. error code \(String(describing:error))")
                 let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                }
+                
                 return
             }
             if let returnedToDo = returnedToDo {
+                
+                DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Search result", message: "\(String(describing: returnedToDo.title))", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                }
+                
             }
         }
     }
     
-    func update(title: String?, user: String?, order: Int?, completed: Bool?) {
+    func update(title: String?, user: String?, order: Int?, completed: Bool?, url: String) {
         
-        guard let order = order else {
-            print("No order number present!")
-            return
-        }
-        
+        let urlArray = url.split(separator: "/")
+        guard let urlEndOfArray = urlArray.last else {return}
+        let urlToSend = String(urlEndOfArray)
+        print("url to send: \(urlToSend)")
         let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
-        self.client.patch("/", identifier: order, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        print("updateToDo: \(newToDo)")
+        self.client.patch("/", identifier: urlToSend, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 print("Error in patching ToDo. error code \(String(describing:error))")
                 return
             }
+            print("reached patch response: \(returnedToDo)")
             self.readAll()
         }
     }
-    
     
     func deleteAll() {
         self.client.delete("/") { error in
@@ -92,8 +97,12 @@ extension ViewController {
         }
     }
     
-    func delete(order: Int) {
-        self.client.delete("/", identifier: order) { error in
+    func delete(url: String) {
+        let urlArray = url.split(separator: "/")
+        guard let urlEndOfArray = urlArray.last else {return}
+        let urlToSend = String(urlEndOfArray)
+        print("url to delete \(urlToSend)")
+        self.client.delete("/", identifier: urlToSend) { error in
             guard error == nil else {
                 return
             }

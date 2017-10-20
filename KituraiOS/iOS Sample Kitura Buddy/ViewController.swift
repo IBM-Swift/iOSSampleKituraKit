@@ -17,18 +17,108 @@
 import UIKit
 import KituraBuddy
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    public var localToDoStore = [ToDo]()
     let client = KituraBuddy(baseURL: "http://localhost:8080")
-    @IBOutlet public weak var tableView: UITableView!
+    public var tableView: UITableView = UITableView()
+    lazy var searchBar:UISearchBar = UISearchBar()
     
     override func viewDidLoad() {
+        self.tableView = UITableView(frame:CGRect(x:0, y:(self.navigationController?.navigationBar.bounds.height)!, width: self.view.bounds.width, height: (self.navigationController?.view.bounds.height)!))
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
+        
+        searchBar.frame = CGRect(x: 0, y: 64, width: self.view.bounds.width, height: searchBar.bounds.height)
+        searchBar.searchBarStyle = UISearchBarStyle.prominent
+        searchBar.placeholder = " Search..."
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
     }
     
-    @IBAction func unwindToList(segue: UIStoryboardSegue){
+    override func viewDidAppear(_ animated: Bool) {
+        self.readAll()
+        self.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("search")
+        guard let searchString = searchBar.text else {
+            return
+        }
+        self.read(Id: searchString)
+    }
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {
         
     }
     
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return localToDo.localToDoStore.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        
+        guard let title = localToDo.localToDoStore[indexPath.row].title else {return cell}
+        guard let user = localToDo.localToDoStore[indexPath.row].user else {return cell}
+        guard let order = localToDo.localToDoStore[indexPath.row].order else {return cell}
+        guard let textLabel = cell.textLabel else {return cell}
+        textLabel.text = "\(order) - \(title) by \(user)"
+        return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
+        
+        let textEntry = UIAlertController(title: "Text", message: "Please input new data", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            
+            var orderToSend : Int? = nil
+            if let order = textEntry.textFields?[2].text, let orderToInt = Int(order){orderToSend = orderToInt}
+            print("pre update values \(String(describing: textEntry.textFields?[0].text)), \(String(describing:textEntry.textFields?[1].text)),\(String(describing:orderToSend)), \(String(describing:url))")
+            self.update(title: textEntry.textFields?[0].text, user: textEntry.textFields?[1].text, order: orderToSend, completed: nil, url: url)
+            
+            self.tableView.reloadData()
+            
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        textEntry.addTextField { (textField) in
+            textField.placeholder = "Title..."
+        }
+        textEntry.addTextField { (textField) in
+            textField.placeholder = "User..."
+        }
+        textEntry.addTextField { (textField) in
+            textField.placeholder = "Order..."
+        }
+        
+        textEntry.addAction(confirm)
+        textEntry.addAction(cancel)
+        
+        self.present(textEntry, animated: true, completion: nil)
+        
+    }
+    
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
+                self.delete(url: url)
+                localToDo.localToDoStore.remove(at: indexPath.row)
+                self.tableView.reloadData()
+            
+        }
+    }
     
 }

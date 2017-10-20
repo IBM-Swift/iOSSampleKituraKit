@@ -16,21 +16,6 @@
 
 import Foundation
 
-// Models/entities (application/use case specific)
-//public struct Task: Codable, Equatable {
-//    public let id: UInt
-//    public let task: String
-//    public init(id: UInt, task: String) {
-//        self.id = id
-//        self.task = task
-//    }
-//
-//    public static func ==(lhs: Task, rhs: Task) -> Bool {
-//        return (lhs.id == rhs.id) && (lhs.task == rhs.task)
-//    }
-//
-//}
-
 public struct ToDo: Codable, Equatable {
     public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
         return (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
@@ -50,6 +35,9 @@ public struct ToDo: Codable, Equatable {
     
 }
 
+public struct localToDo {
+    static var localToDoStore = [ToDo]()
+}
 
 let initialStore = [
     "1": ToDo(title: "Bring milk and bread", user: "Andy", order: 2, completed: false),

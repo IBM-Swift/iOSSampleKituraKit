@@ -156,9 +156,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="TGG-8K-bbV" id="4Ew-Al-Yof"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoP-9e-B7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,7 +191,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsw-Fr-kBE">
-                                <rect key="frame" x="162" y="534" width="50" height="40"/>
+                                <rect key="frame" x="162" y="320" width="50" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Save"/>
@@ -202,20 +199,12 @@
                                     <action selector="pressedDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rW0-7g-H7r"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pL-CP-Bls">
-                                <rect key="frame" x="16" y="126" width="342" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="dsw-Fr-kBE" id="jMd-8w-zRE"/>
-                        <outlet property="idField" destination="3pL-CP-Bls" id="m05-kT-za6"/>
                         <outlet property="orderField" destination="INf-by-svK" id="05f-Qc-6Fi"/>
                         <outlet property="titleField" destination="0Fa-bi-gi2" id="2bm-cG-IZ5"/>
                         <outlet property="userField" destination="RES-rH-170" id="Wnu-vX-eHb"/>
