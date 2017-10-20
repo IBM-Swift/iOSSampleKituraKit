@@ -1,6 +1,7 @@
 .build/*
 /ToDoServer/.build/*
 ToDoServer/ToDoServer.xcodeproj/*
+.../UserInterfaceState.xcuserstate
 .build-ubuntu/*
 *.xcodeproj/*
 Package.resolved

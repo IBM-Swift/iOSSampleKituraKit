@@ -83,7 +83,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             var orderToSend : Int? = nil
             if let order = textEntry.textFields?[2].text, let orderToInt = Int(order){orderToSend = orderToInt}
             print("pre update values \(String(describing: textEntry.textFields?[0].text)), \(String(describing:textEntry.textFields?[1].text)),\(String(describing:orderToSend)), \(String(describing:url))")
-            self.update(title: textEntry.textFields?[0].text, user: textEntry.textFields?[1].text, order: orderToSend, completed: nil, url: url)
+            var titleToSend :String? = textEntry.textFields?[0].text
+            var userToSend :String? = textEntry.textFields?[1].text
+            if titleToSend == "" {titleToSend = nil}
+            if userToSend == "" {userToSend = nil}
+            self.update(title: titleToSend, user: userToSend, order: orderToSend, completed: nil, url: url)
             
             self.tableView.reloadData()
             

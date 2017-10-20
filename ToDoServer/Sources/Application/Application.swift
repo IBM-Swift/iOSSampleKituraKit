@@ -99,7 +99,7 @@ public class Application {
     func updateHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
         var current = todoStore[id]
         current.user = new.user ?? current.user
-        current.order = new.order ?? new.order
+        current.order = new.order ?? current.order
         current.title = new.title ?? current.title
         current.completed = new.completed ?? current.completed
         todoStore[id] = current

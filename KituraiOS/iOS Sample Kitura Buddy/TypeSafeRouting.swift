@@ -46,14 +46,14 @@ extension ViewController {
     }
     
     func read(Id: String) {
-        self.client.get("/", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 
                 DispatchQueue.main.async {
-                print("Error in reading user. error code \(String(describing:error))")
-                let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                    print("Error in reading user. error code \(String(describing:error))")
+                    let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
                 
                 return
@@ -61,9 +61,9 @@ extension ViewController {
             if let returnedToDo = returnedToDo {
                 
                 DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Search result", message: "\(String(describing: returnedToDo.title))", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                    let alert = UIAlertController(title: "Search result", message: "\(String(describing: returnedToDo.title))", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
                 
             }
@@ -74,22 +74,22 @@ extension ViewController {
         
         let urlArray = url.split(separator: "/")
         guard let urlEndOfArray = urlArray.last else {return}
-        let urlToSend = String(urlEndOfArray)
-        print("url to send: \(urlToSend)")
+        guard let urlToSend = Int(urlEndOfArray) else{return}
+        print("url to send: \(String(describing:urlToSend))")
         let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
         print("updateToDo: \(newToDo)")
-        self.client.patch("/", identifier: urlToSend, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        self.client.patch("", identifier: urlToSend, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 print("Error in patching ToDo. error code \(String(describing:error))")
                 return
             }
-            print("reached patch response: \(returnedToDo)")
+            print("reached patch response: \(String(describing:returnedToDo))")
             self.readAll()
         }
     }
     
     func deleteAll() {
-        self.client.delete("/") { error in
+        self.client.delete("") { error in
             guard error == nil else {
                 return
             }
@@ -100,10 +100,11 @@ extension ViewController {
     func delete(url: String) {
         let urlArray = url.split(separator: "/")
         guard let urlEndOfArray = urlArray.last else {return}
-        let urlToSend = String(urlEndOfArray)
+        guard let urlToSend = Int(urlEndOfArray) else{return}
         print("url to delete \(urlToSend)")
-        self.client.delete("/", identifier: urlToSend) { error in
+        self.client.delete("", identifier: urlToSend) { error in
             guard error == nil else {
+                print("delete error: \(String(describing : error))")
                 return
             }
             self.readAll()
