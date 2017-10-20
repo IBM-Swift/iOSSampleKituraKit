@@ -61,7 +61,8 @@ extension ViewController {
             if let returnedToDo = returnedToDo {
                 
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Search result", message: "\(String(describing: returnedToDo.title))", preferredStyle: UIAlertControllerStyle.alert)
+                    guard let title = returnedToDo.title else {return}
+                    let alert = UIAlertController(title: "Search result", message: title, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
