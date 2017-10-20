@@ -33,16 +33,14 @@ import Foundation
 
 public struct ToDo: Codable, Equatable {
     public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
-        return (lhs.id == rhs.id) && (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
+        return (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
     }
-    public let id: Int
     public let title: String?
     public let user: String?
     public let order: Int?
     public let completed: Bool?
     public let url: String?
-    public init(id: Int, title: String?, user: String?, order: Int?, completed: Bool?) {
-        self.id = id
+    public init(title: String?, user: String?, order: Int?, completed: Bool?) {
         self.title = title
         self.user = user
         self.order = order
@@ -54,8 +52,8 @@ public struct ToDo: Codable, Equatable {
 
 
 let initialStore = [
-    "1": ToDo(id: 1, title: "Bring milk and bread", user: "Andy", order: 2, completed: false),
-    "2": ToDo(id: 2, title: "Mow the lawn", user: "Kye", order: 1, completed: false),
-    "3": ToDo(id: 3, title: "File taxes", user: "Shihab", order: 4, completed: false),
-    "4": ToDo(id: 4, title: "Clean the garage", user: "Andy", order: 3, completed: false)
+    "1": ToDo(title: "Bring milk and bread", user: "Andy", order: 2, completed: false),
+    "2": ToDo(title: "Mow the lawn", user: "Kye", order: 1, completed: false),
+    "3": ToDo(title: "File taxes", user: "Shihab", order: 4, completed: false),
+    "4": ToDo(title: "Clean the garage", user: "Andy", order: 3, completed: false)
 ]

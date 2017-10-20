@@ -19,12 +19,7 @@ import KituraBuddy
 
 class ViewController: UIViewController {
     
-    var toDoId : [String] = []
-    var toDoTitle : [String] = []
-    var toDoUser : [String] = []
-    var toDoOrder : [String] = []
-    var toDoCompleted : [String] = []
-    
+    public var localToDoStore = [ToDo]()
     let client = KituraBuddy(baseURL: "http://localhost:8080")
     @IBOutlet public weak var tableView: UITableView!
     

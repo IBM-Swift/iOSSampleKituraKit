@@ -52,7 +52,7 @@ public class Application {
         router.delete("/", handler: deleteOneHandler)
         router.patch("/", handler: updateHandler)
         //No need for a put, as we have all the bases covered with these.
-
+        
     }
     
     
@@ -82,8 +82,8 @@ public class Application {
         completion(todoStore, nil)
     }
     
-    func getOneHandler(id: Item, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
-        completion(todoStore[id.id], nil)
+    func getOneHandler(id: Int, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
+        completion(todoStore[id], nil)
     }
     
     func deleteAllHandler(completion: (ProcessHandlerError?) -> Void ) -> Void {
@@ -91,19 +91,20 @@ public class Application {
         completion(nil)
     }
     
-    func deleteOneHandler(id: Item, completion: (ProcessHandlerError?) -> Void ) -> Void {
-        todoStore.remove(at: id.id)
+    func deleteOneHandler(id: Int, completion: (ProcessHandlerError?) -> Void ) -> Void {
+        todoStore.remove(at: id)
         completion(nil)
     }
     
-    func updateHandler(id: Item, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
-        var current = todoStore[id.id]
+    func updateHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
+        var current = todoStore[id]
         current.user = new.user ?? current.user
         current.order = new.order ?? new.order
         current.title = new.title ?? current.title
         current.completed = new.completed ?? current.completed
-        todoStore[id.id] = current
-        completion(todoStore[id.id], nil)
+        todoStore[id] = current
+        completion(todoStore[id], nil)
     }
     
 }
+

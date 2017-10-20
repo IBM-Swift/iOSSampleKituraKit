@@ -24,19 +24,19 @@ class DataInputViewController: ViewController {
     }
     
     @IBAction func pressedDone(_ sender: UIButton) {
-        guard let id = idField.text, let title = titleField.text, let user = userField.text, let order = orderField.text else{
+        guard let title = titleField.text, let user = userField.text, let order = orderField.text, title != "", user != "",order != "" else{
             let alert = UIAlertController(title: "Could Not Save", message: "One or more fields are not completed", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
-        guard let idAsInt = Int(id), let orderAsInt = Int(order) else{
-            let alert = UIAlertController(title: "Not a number", message: "ID or Order were not numbers", preferredStyle: UIAlertControllerStyle.alert)
+        guard let orderAsInt = Int(order) else{
+            let alert = UIAlertController(title: "Not a number", message: "Order was not a number", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
-        create(id: idAsInt, title: title, user: user, order: orderAsInt)
+        create(title: title, user: user, order: orderAsInt)
         self.performSegue(withIdentifier: "unwindToList", sender: self)
     }
     

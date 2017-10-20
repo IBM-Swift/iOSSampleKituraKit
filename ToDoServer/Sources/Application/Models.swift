@@ -19,16 +19,14 @@ import SafetyContracts
 
 public struct ToDo: Codable, Equatable {
     public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
-        return (lhs.id == rhs.id) && (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
+        return (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
     }
-    public var id: Int
     public var title: String?
     public var user: String?
     public var order: Int?
     public var completed: Bool?
     public var url: String?
-    public init(id: Int, title: String?, user: String?, order: Int?, completed: Bool?) {
-        self.id = id
+    public init(title: String?, user: String?, order: Int?, completed: Bool?) {
         self.title = title
         self.user = user
         self.order = order
@@ -36,20 +34,6 @@ public struct ToDo: Codable, Equatable {
         self.url = nil
     }
     
-}
-
-public struct Item: Identifier {
-    public var value: String
-    public let id: Int
-    
-    public init(value: String) throws {
-        if let id = Int(value) {
-            self.id = id
-            self.value = value
-        } else {
-            throw IdentifierError.invalidValue
-        }
-    }
 }
 
 public struct Task: Codable, Equatable {
@@ -86,3 +70,4 @@ let initialStore = [
     "3": Task(id: 3, task: "File taxes"),
     "4": Task(id: 4, task: "Clean the garage")
 ]
+

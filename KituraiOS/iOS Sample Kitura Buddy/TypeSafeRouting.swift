@@ -18,10 +18,10 @@ import Foundation
 import UIKit
 
 extension ViewController {
-
-    func create(id: Int, title: String, user: String, order: Int) {
+    
+    func create(title: String, user: String, order: Int) {
         print("create function called")
-        let newToDo = ToDo(id: id, title: title, user: user, order: order, completed: false)
+        let newToDo = ToDo(title: title, user: user, order: order, completed: false)
         print("ToDo created: \(newToDo)")
         self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
             print(String(describing: returnedItem))
@@ -29,35 +29,25 @@ extension ViewController {
                 print("Error in creating ToDo. error code \(String(describing:error))")
                 return
             }
+            
             self.readAll()
         }
     }
-
+    
     func readAll() {
         self.client.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
             guard let allToDoItems = allToDoItems else {
                 print("Error in reading user. error code \(String(describing:error))")
                 return
             }
-            self.toDoId = []
-            self.toDoTitle = []
-            self.toDoUser = []
-            self.toDoOrder = []
-            self.toDoCompleted = []
-
-            for item in allToDoItems {
-                self.toDoId.append(String(item.id))
-                self.toDoTitle.append(String(describing: item.title))
-                self.toDoUser.append(String(describing: item.user))
-                self.toDoOrder.append(String(describing: item.order))
-                self.toDoCompleted.append(String(describing: item.completed))
-            }
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.localToDoStore = allToDoItems
+                print("LOCALSTORE NOW: \(self.localToDoStore)")
+                
             }
         }
     }
-
+    
     func read(Id: String) {
         self.client.get("/", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
@@ -74,14 +64,16 @@ extension ViewController {
             }
         }
     }
-
-    func update(id: Int, title: String?, user: String?, order: Int?, completed: Bool?) {
-        print("""
-            Update called \(id),  \(String(describing:title)),
-            \(String(describing:user)), \(String(describing:order)), \(String(describing:completed))
-            """)
-        let newToDo = ToDo(id: id, title: title, user: user, order: order, completed: completed)
-        self.client.patch("/", identifier: id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+    
+    func update(title: String?, user: String?, order: Int?, completed: Bool?) {
+        
+        guard let order = order else {
+            print("No order number present!")
+            return
+        }
+        
+        let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
+        self.client.patch("/", identifier: order, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 print("Error in patching ToDo. error code \(String(describing:error))")
                 return
@@ -89,26 +81,26 @@ extension ViewController {
             self.readAll()
         }
     }
-
-
+    
+    
     func deleteAll() {
-        client.delete("/") { error in
+        self.client.delete("/") { error in
             guard error == nil else {
                 return
             }
             self.readAll()
         }
     }
-
-    func delete(id: Int) {
-        client.delete("/", identifier: id) { error in
+    
+    func delete(order: Int) {
+        self.client.delete("/", identifier: order) { error in
             guard error == nil else {
                 return
             }
             self.readAll()
         }
     }
-
+    
 }
 
 
