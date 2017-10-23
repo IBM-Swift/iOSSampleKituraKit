@@ -49,8 +49,6 @@ class DataInputViewController: ViewController {
         self.performSegue(withIdentifier: "unwindToList", sender: self)
     }
     
-    
-    
 }
 
 extension UIViewController

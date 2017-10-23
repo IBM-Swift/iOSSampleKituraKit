@@ -46,7 +46,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         guard let searchString = searchBar.text else {
             return
         }
@@ -54,9 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return
         }
         let searchIntChanged = searchInt - 1
-        
         let searchStringToSend = String(searchIntChanged)
-        
         self.read(Id: searchStringToSend)
     }
     
@@ -70,13 +67,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-        /*var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: "Cell")
-        }*/
         
         guard let title = localToDo.localToDoStore[indexPath.row].title else {return cell}
-        guard let user = localToDo.localToDoStore[indexPath.row].user else {return cell}
+        let user = localToDo.localToDoStore[indexPath.row].user ?? "Test User"
         guard let order = localToDo.localToDoStore[indexPath.row].order else {return cell}
         guard let textLabel = cell.textLabel else {return cell}
         textLabel.text = "\(order) - \(title) by \(user)"
@@ -89,7 +82,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.deselectRow(at: indexPath, animated: true)
         
         guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
-        
         let textEntry = UIAlertController(title: "Text", message: "Please input new data", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
             
@@ -99,7 +91,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if titleToSend == "" {titleToSend = nil}
             if userToSend == "" {userToSend = nil}
             self.update(title: titleToSend, user: userToSend, order: orderToSend, completed: nil, url: url)
-            
             self.tableView.reloadData()
             
         }
@@ -129,7 +120,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.delete(url: url)
                 localToDo.localToDoStore.remove(at: indexPath.row)
                 self.tableView.reloadData()
-            
         }
     }
     

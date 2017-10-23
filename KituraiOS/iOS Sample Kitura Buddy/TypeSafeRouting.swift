@@ -28,7 +28,6 @@ extension ViewController {
                 print("Error in creating ToDo. error code \(String(describing:error))")
                 return
             }
-            
         }
     }
     
@@ -48,31 +47,26 @@ extension ViewController {
     func read(Id: String) {
         self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
-                
                 DispatchQueue.main.async {
                     print("Error in reading user. error code \(String(describing:error))")
                     let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
-                
                 return
             }
             if let returnedToDo = returnedToDo {
-                
                 DispatchQueue.main.async {
                     guard let title = returnedToDo.title else {return}
                     let alert = UIAlertController(title: "Search result", message: title, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
-                
             }
         }
     }
     
     func update(title: String?, user: String?, order: Int?, completed: Bool?, url: String) {
-        
         let urlArray = url.split(separator: "/")
         guard let urlEndOfArray = urlArray.last else {return}
         guard let urlToSend = Int(urlEndOfArray) else{return}
