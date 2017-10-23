@@ -38,10 +38,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let deleteButton = UIButton(frame:CGRect(x: self.view.bounds.width/2 - 60,y: self.view.bounds.height - 70, width: 120, height: 40))
         deleteButton.setTitle("Delete All", for: .normal)
         deleteButton.setTitleColor(UIColor.white, for: .normal)
+        deleteButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         deleteButton.layer.cornerRadius = 20
         deleteButton.backgroundColor = UIColor.red
         deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchDown)
         self.view.addSubview(deleteButton)
+        
+        
     }
     
     @objc func deleteTapped() {
@@ -81,11 +84,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let order = localToDo.localToDoStore[indexPath.row].order else {return cell}
         guard let textLabel = cell.textLabel else {return cell}
         textLabel.text = "\(order) - \(title) by \(user)"
-        guard let detailTextLabel = cell.detailTextLabel else {return cell}
-        detailTextLabel.text = "\(order)"
+        
+        for item in localToDo.localToDoStore {
+            if item.completed == true {
+                self.tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+            } else {
+                self.tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
+            }
+        }
+        
         
         if localToDo.localToDoStore[indexPath.row].completed == true {
-            print()
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
         
         return cell
