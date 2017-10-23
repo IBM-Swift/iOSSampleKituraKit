@@ -1,7 +1,6 @@
 branches:
   only:
     - master
-    - travisSupport
 
 matrix:
   include:
