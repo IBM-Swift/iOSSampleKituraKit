@@ -53,6 +53,13 @@ extension ViewController {
     // Read method to read a ToDo object from the server
     
     func read(Id: String) {
+        
+        let encoded = Id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let decoded = encoded.removingPercentEncoding
+        guard let Id = decoded else {
+            return
+        }
+        
         self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 DispatchQueue.main.async {
@@ -87,9 +94,16 @@ extension ViewController {
         guard let urlEndOfArray = urlArray.last else {return}
         guard let urlToSend = Int(urlEndOfArray) else{return}
         print("url to send: \(String(describing:urlToSend))")
+        
+        let encoded = String(describing:urlToSend).addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let decoded = encoded.removingPercentEncoding
+        guard let Id = decoded else {
+            return
+        }
+        
         let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
         print("updateToDo: \(newToDo)")
-        self.client.patch("", identifier: urlToSend, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        self.client.patch("", identifier: Id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 print("Error in patching ToDo. error code \(String(describing:error))")
                 return
@@ -113,6 +127,7 @@ extension ViewController {
     // Delete method to delete a ToDo object from the server
     
     func delete(url: String) {
+        
         let urlArray = url.split(separator: "/")
         guard let urlEndOfArray = urlArray.last else {return}
         guard let urlToSend = Int(urlEndOfArray) else{return}

@@ -61,7 +61,11 @@ public class KituraBuddy {
 
     // GET single - basic type safe routing
     public func get<O: Codable>(_ route: String, identifier: Identifier, resultHandler: @escaping CodableClosure<O>) {
-        let url: String = baseURL + route + "/\(identifier)"
+        
+        let encoded = identifier.value.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let decoded = encoded.removingPercentEncoding
+        
+        let url: String = baseURL + route + "/\(decoded)"
         let request = RestRequest(url: url)
 
         request.responseData { response in
@@ -99,10 +103,14 @@ public class KituraBuddy {
 
     // PUT - basic type safe routing
     public func put<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
-        let url: String = baseURL + route + "/\(identifier)"
-        let encoded = try? JSONEncoder().encode(data)
+        
+        let encoded = identifier.value.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let decoded = encoded.removingPercentEncoding
+        
+        let url: String = baseURL + route + "/\(decoded)"
+        let encode = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .put, url: url)
-        request.messageBody = encoded
+        request.messageBody = encode
 
         request.responseData { response in
             switch response.result {
@@ -119,10 +127,14 @@ public class KituraBuddy {
 
     // PATCH - basic type safe routing
     public func patch<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
-        let url: String = baseURL + route + "/\(identifier)"
-        let encoded = try? JSONEncoder().encode(data)
+        
+        let encoded = identifier.value.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let decoded = encoded.removingPercentEncoding
+        
+        let url: String = baseURL + route + "/\(decoded)"
+        let encode = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .patch, url: url)
-        request.messageBody = encoded
+        request.messageBody = encode
 
         request.responseData { response in
             switch response.result {
