@@ -8,10 +8,6 @@ The file structure matches what would be automatically generated using `kitura i
 
 This folder contains the running programs files. It is split into /Application and /ToDoServer. The second folder matches the name of the project and is where main.swift is stored. This runs the application, and the /Application folder contains the Classes and Models that are used in the running application.
 
-#### Tests
-
-A Tests folder is also generated as a logical place for you to place all your XCTests, if you choose to create any.
-
 ### Application.swift
 
 This is where the majority of logic regarding the server lives. It defines routes available for the server, starts the server using `Kitura.run()` and also sets up handlers for a manner **RESTful requests**. The context of the request is inferred by a combination of the type of request (post, put, patch, delete or get) and the parameters given. The majority of the file is the handlers, there is also some environment setup at the start of the file for SwiftMetrics and Health. If you choose to include SwiftMetrics, navigating to https://localhost:8080/swiftmetrics-dash will show the servers activity as a live Dashboard.
