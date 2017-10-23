@@ -83,10 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let user = localToDo.localToDoStore[indexPath.row].user ?? "Test User"
         guard let order = localToDo.localToDoStore[indexPath.row].order else {return cell}
         guard let textLabel = cell.textLabel else {return cell}
-        
-        // REMOVE ORDER --------------
-        
-        textLabel.text = "\(order) - \(title) by \(user)"
+        textLabel.text = "\(title) - created by \(user)"
         
         for item in localToDo.localToDoStore {
             if item.completed == true {
