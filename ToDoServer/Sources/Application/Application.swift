@@ -51,7 +51,7 @@ public class Application {
         router.delete("/", handler: deleteAllHandler)
         router.delete("/", handler: deleteOneHandler)
         router.patch("/", handler: updateHandler)
-        router.patch("/", handler: updatePutHandler)
+        router.put("/", handler: updatePutHandler)
         
     }
     
