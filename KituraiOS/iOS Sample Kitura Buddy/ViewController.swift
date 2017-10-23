@@ -83,6 +83,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let user = localToDo.localToDoStore[indexPath.row].user ?? "Test User"
         guard let order = localToDo.localToDoStore[indexPath.row].order else {return cell}
         guard let textLabel = cell.textLabel else {return cell}
+        
+        // REMOVE ORDER --------------
+        
         textLabel.text = "\(order) - \(title) by \(user)"
         
         for item in localToDo.localToDoStore {
@@ -104,19 +107,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let completed = UIContextualAction(style: .normal, title: "Mark as completed") { action, view, completionHandler in
-            print("Marking as completed")
-            guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
-            let orderToSend:Int = indexPath.row + 1
-            let titleToSend:String? = localToDo.localToDoStore[indexPath.row].title
-            let userToSend:String? = localToDo.localToDoStore[indexPath.row].user
-            self.update(title: titleToSend, user: userToSend, order: orderToSend, completed: true, url: url)
-            self.tableView.reloadData()
-            completionHandler(true)
+     
+        if localToDo.localToDoStore[indexPath.row].completed == true {
+            
+            let completed = UIContextualAction(style: .normal, title: "Mark as uncompleted") { action, view, completionHandler in
+                print("Marking as completed")
+                guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
+                let orderToSend:Int = indexPath.row + 1
+                let titleToSend:String? = localToDo.localToDoStore[indexPath.row].title
+                let userToSend:String? = localToDo.localToDoStore[indexPath.row].user
+                self.update(title: titleToSend, user: userToSend, order: orderToSend, completed: false, url: url)
+                self.tableView.reloadData()
+                completionHandler(true)
+            }
+            completed.backgroundColor = UIColor.gray
+            
+            return UISwipeActionsConfiguration(actions: [completed])
+                
+        } else {
+            
+            let completed = UIContextualAction(style: .normal, title: "Mark as completed") { action, view, completionHandler in
+                print("Marking as completed")
+                guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
+                let orderToSend:Int = indexPath.row + 1
+                let titleToSend:String? = localToDo.localToDoStore[indexPath.row].title
+                let userToSend:String? = localToDo.localToDoStore[indexPath.row].user
+                self.update(title: titleToSend, user: userToSend, order: orderToSend, completed: true, url: url)
+                self.tableView.reloadData()
+                completionHandler(true)
+            }
+            completed.backgroundColor = UIColor(red: 10/255, green:200/255, blue:10/255, alpha:1)
+            
+            return UISwipeActionsConfiguration(actions: [completed])
+                
         }
-        completed.backgroundColor = UIColor(red: 10/255, green:200/255, blue:10/255, alpha:1)
-        
-        return UISwipeActionsConfiguration(actions: [completed])
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
