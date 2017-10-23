@@ -26,7 +26,8 @@ class DataInputViewController: ViewController {
     @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
-        hideKeyboard()
+        titleField.becomeFirstResponder()
+        //hideKeyboard()
     }
     
     @IBAction func pressedDone(_ sender: UIButton) {
@@ -51,19 +52,4 @@ class DataInputViewController: ViewController {
     
 }
 
-extension UIViewController
-{
-    func hideKeyboard()
-    {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(UIViewController.dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard()
-    {
-        view.endEditing(true)
-    }
-}
+

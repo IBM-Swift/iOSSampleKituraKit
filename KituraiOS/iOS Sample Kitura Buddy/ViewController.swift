@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let client = KituraBuddy(baseURL: "http://localhost:8080")
     public var tableView: UITableView = UITableView()
-    lazy var searchBar:UISearchBar = UISearchBar()
+    public let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         self.tableView = UITableView(frame:CGRect(x:0, y:(self.navigationController?.navigationBar.bounds.height)!, width: self.view.bounds.width, height: (self.navigationController?.view.bounds.height)!))
@@ -30,23 +30,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
         
-        searchBar.frame = CGRect(x: 0, y: 64, width: self.view.bounds.width, height: searchBar.bounds.height)
-        searchBar.searchBarStyle = UISearchBarStyle.prominent
-        searchBar.placeholder = " Search..."
-        searchBar.sizeToFit()
-        searchBar.isTranslucent = false
-        searchBar.backgroundImage = UIImage()
-        searchBar.delegate = self
-        navigationItem.titleView = searchBar
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search..."
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
         self.readAll()
-        self.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchString = searchBar.text else {
+        searchController.dismiss(animated: true, completion: nil)
+        guard let searchString = searchController.searchBar.text else {
             return
         }
         guard let searchInt = Int(searchString) else {
@@ -55,6 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let searchIntChanged = searchInt - 1
         let searchStringToSend = String(searchIntChanged)
         self.read(Id: searchStringToSend)
+        searchController.resignFirstResponder()
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
@@ -67,7 +62,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-        
         guard let title = localToDo.localToDoStore[indexPath.row].title else {return cell}
         let user = localToDo.localToDoStore[indexPath.row].user ?? "Test User"
         guard let order = localToDo.localToDoStore[indexPath.row].order else {return cell}
@@ -78,11 +72,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let completed = UIContextualAction(style: .normal, title: "Mark as completed") { action, view, completionHandler in
+            print("Marking as completed")
+            guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
+            let orderToSend:Int = indexPath.row + 1
+            let titleToSend:String? = localToDo.localToDoStore[indexPath.row].title
+            let userToSend:String? = localToDo.localToDoStore[indexPath.row].user
+            self.update(title: titleToSend, user: userToSend, order: orderToSend, completed: true, url: url)
+            self.tableView.reloadData()
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [completed])
+    }
+    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         
         guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
-        let textEntry = UIAlertController(title: "Text", message: "Please input new data", preferredStyle: .alert)
+        let textEntry = UIAlertController(title: "Edit ToDo", message: "Please input new data", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
             
             let orderToSend:Int = indexPath.row + 1
@@ -117,10 +126,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             guard let url = localToDo.localToDoStore[indexPath.row].url else {return}
-                self.delete(url: url)
-                localToDo.localToDoStore.remove(at: indexPath.row)
-                self.tableView.reloadData()
+            self.delete(url: url)
+            localToDo.localToDoStore.remove(at: indexPath.row)
+            self.tableView.reloadData()
         }
     }
     
+}
+
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        ViewController().tableView.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }
