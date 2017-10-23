@@ -51,7 +51,7 @@ public class Application {
         router.delete("/", handler: deleteAllHandler)
         router.delete("/", handler: deleteOneHandler)
         router.patch("/", handler: updateHandler)
-        //No need for a put, as we have all the bases covered with these.
+        router.patch("/", handler: updatePutHandler)
         
     }
     
@@ -102,6 +102,16 @@ public class Application {
         current.order = new.order ?? current.order
         current.title = new.title ?? current.title
         current.completed = new.completed ?? current.completed
+        todoStore[id] = current
+        completion(todoStore[id], nil)
+    }
+    
+    func updatePutHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
+        var current = todoStore[id]
+        current.user = new.user
+        current.order = new.order
+        current.title = new.title
+        current.completed = new.completed
         todoStore[id] = current
         completion(todoStore[id], nil)
     }
