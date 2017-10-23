@@ -1,5 +1,7 @@
 # Kitura 2 Sample App - ToDo List
 
+[![Build Status](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master)](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy)
+
 ### Prequisites
 
 * Xcode 9 or later running on macOS 10.12 or later
