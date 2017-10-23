@@ -40,8 +40,8 @@ public struct localToDo {
 }
 
 let initialStore = [
-    "1": ToDo(title: "Bring milk and bread", user: "Andy", order: 2, completed: false),
-    "2": ToDo(title: "Mow the lawn", user: "Kye", order: 1, completed: false),
-    "3": ToDo(title: "File taxes", user: "Shihab", order: 4, completed: false),
-    "4": ToDo(title: "Clean the garage", user: "Andy", order: 3, completed: false)
+    "1": ToDo(title: "Bring milk and bread", user: "Andy", order: 1, completed: false),
+    "2": ToDo(title: "Mow the lawn", user: "Kye", order: 2, completed: false),
+    "3": ToDo(title: "File taxes", user: "Shihab", order: 3, completed: false),
+    "4": ToDo(title: "Clean the garage", user: "Andy", order: 4, completed: false)
 ]

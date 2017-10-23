@@ -46,11 +46,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("search")
+        
         guard let searchString = searchBar.text else {
             return
         }
-        self.read(Id: searchString)
+        guard let searchInt = Int(searchString) else {
+            return
+        }
+        let searchIntChanged = searchInt - 1
+        
+        let searchStringToSend = String(searchIntChanged)
+        
+        self.read(Id: searchStringToSend)
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
@@ -63,12 +70,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        /*var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: "Cell")
+        }*/
         
         guard let title = localToDo.localToDoStore[indexPath.row].title else {return cell}
         guard let user = localToDo.localToDoStore[indexPath.row].user else {return cell}
         guard let order = localToDo.localToDoStore[indexPath.row].order else {return cell}
         guard let textLabel = cell.textLabel else {return cell}
         textLabel.text = "\(order) - \(title) by \(user)"
+        guard let detailTextLabel = cell.detailTextLabel else {return cell}
+        detailTextLabel.text = "\(order)"
         return cell
     }
     
@@ -80,11 +93,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let textEntry = UIAlertController(title: "Text", message: "Please input new data", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (_) in
             
-            var orderToSend : Int? = nil
-            if let order = textEntry.textFields?[2].text, let orderToInt = Int(order){orderToSend = orderToInt}
-            print("pre update values \(String(describing: textEntry.textFields?[0].text)), \(String(describing:textEntry.textFields?[1].text)),\(String(describing:orderToSend)), \(String(describing:url))")
-            var titleToSend :String? = textEntry.textFields?[0].text
-            var userToSend :String? = textEntry.textFields?[1].text
+            let orderToSend:Int = indexPath.row + 1
+            var titleToSend:String? = textEntry.textFields?[0].text
+            var userToSend:String? = textEntry.textFields?[1].text
             if titleToSend == "" {titleToSend = nil}
             if userToSend == "" {userToSend = nil}
             self.update(title: titleToSend, user: userToSend, order: orderToSend, completed: nil, url: url)
@@ -99,9 +110,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         textEntry.addTextField { (textField) in
             textField.placeholder = "User..."
-        }
-        textEntry.addTextField { (textField) in
-            textField.placeholder = "Order..."
         }
         
         textEntry.addAction(confirm)

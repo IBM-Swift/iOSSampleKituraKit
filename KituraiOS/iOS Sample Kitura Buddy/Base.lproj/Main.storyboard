@@ -183,15 +183,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Order" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="INf-by-svK">
-                                <rect key="frame" x="15" y="240" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsw-Fr-kBE">
-                                <rect key="frame" x="162" y="320" width="50" height="40"/>
+                                <rect key="frame" x="162" y="275" width="50" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Save"/>
@@ -205,7 +198,6 @@
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="dsw-Fr-kBE" id="jMd-8w-zRE"/>
-                        <outlet property="orderField" destination="INf-by-svK" id="05f-Qc-6Fi"/>
                         <outlet property="titleField" destination="0Fa-bi-gi2" id="2bm-cG-IZ5"/>
                         <outlet property="userField" destination="RES-rH-170" id="Wnu-vX-eHb"/>
                         <segue destination="gxJ-Xb-Zwq" kind="unwind" identifier="unwindToList" unwindAction="unwindToListWithSegue:" id="iz0-2W-YHJ"/>
