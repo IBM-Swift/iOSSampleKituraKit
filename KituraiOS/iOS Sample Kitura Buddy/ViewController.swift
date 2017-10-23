@@ -35,6 +35,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
+        let deleteButton = UIButton(frame:CGRect(x: self.view.bounds.width/2 - 60,y: self.view.bounds.height - 70, width: 120, height: 40))
+        deleteButton.setTitle("Delete All", for: .normal)
+        deleteButton.setTitleColor(UIColor.white, for: .normal)
+        deleteButton.layer.cornerRadius = 20
+        deleteButton.backgroundColor = UIColor.red
+        deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchDown)
+        self.view.addSubview(deleteButton)
+    }
+    
+    @objc func deleteTapped() {
+        self.deleteAll()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.readAll()
     }
     
@@ -69,6 +83,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         textLabel.text = "\(order) - \(title) by \(user)"
         guard let detailTextLabel = cell.detailTextLabel else {return cell}
         detailTextLabel.text = "\(order)"
+        
+        if localToDo.localToDoStore[indexPath.row].completed == true {
+            print()
+        }
+        
         return cell
     }
     
@@ -83,6 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tableView.reloadData()
             completionHandler(true)
         }
+        completed.backgroundColor = UIColor(red: 10/255, green:200/255, blue:10/255, alpha:1)
         
         return UISwipeActionsConfiguration(actions: [completed])
     }
