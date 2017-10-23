@@ -27,12 +27,15 @@ class DataInputViewController: ViewController {
     
     override func viewDidLoad() {
         titleField.becomeFirstResponder()
-        //hideKeyboard()
     }
     
     @IBAction func pressedDone(_ sender: UIButton) {
         
+        // Infer the order field from the placement of the cell in the table view
+        
         let orderText = String(localToDo.localToDoStore.count + 1)
+        
+        // Populate the title and user fields to send from the respective fields in the view
         
         guard let title = titleField.text, let user = userField.text, title != "", user != "" else{
             let alert = UIAlertController(title: "Could Not Save", message: "One or more fields are not completed", preferredStyle: UIAlertControllerStyle.alert)
@@ -46,6 +49,9 @@ class DataInputViewController: ViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
+        
+        // Call the create method with the respective fields, and head back to the main screen
+        
         create(title: title, user: user, order: orderAsInt)
         self.performSegue(withIdentifier: "unwindToList", sender: self)
     }

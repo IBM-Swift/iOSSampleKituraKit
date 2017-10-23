@@ -19,8 +19,9 @@ import UIKit
 
 extension ViewController {
     
+    // Create method to post a new ToDo object to the server
+    
     func create(title: String, user: String, order: Int) {
-        print("create function called")
         let newToDo = ToDo(title: title, user: user, order: order, completed: false)
         self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
             print(String(describing: returnedItem))
@@ -31,6 +32,8 @@ extension ViewController {
         }
     }
     
+    // Read all method to read all ToDo objects from the server
+    
     func readAll() {
         self.client.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
             guard let allToDoItems = allToDoItems else {
@@ -38,16 +41,24 @@ extension ViewController {
                 return
             }
             DispatchQueue.main.async {
+                
+                // Populate the LocalToDo struct with the received data, and update the table view
+                
                 localToDo.localToDoStore = allToDoItems
                 self.tableView.reloadData()
             }
         }
     }
     
+    // Read method to read a ToDo object from the server
+    
     func read(Id: String) {
         self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 DispatchQueue.main.async {
+                    
+                    // Display the search result in a pop up, not found
+                    
                     print("Error in reading user. error code \(String(describing:error))")
                     let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
@@ -57,6 +68,9 @@ extension ViewController {
             }
             if let returnedToDo = returnedToDo {
                 DispatchQueue.main.async {
+                    
+                    // Display the search result in a pop up
+                    
                     guard let title = returnedToDo.title else {return}
                     let alert = UIAlertController(title: "Search result", message: title, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
@@ -65,6 +79,8 @@ extension ViewController {
             }
         }
     }
+    
+    // Update method to path and update the relevant ToDo object on the server
     
     func update(title: String?, user: String?, order: Int?, completed: Bool?, url: String) {
         let urlArray = url.split(separator: "/")
@@ -83,6 +99,8 @@ extension ViewController {
         }
     }
     
+    // Delete all method to delete all ToDo objects from the server
+    
     func deleteAll() {
         self.client.delete("") { error in
             guard error == nil else {
@@ -91,6 +109,8 @@ extension ViewController {
             self.readAll()
         }
     }
+    
+    // Delete method to delete a ToDo object from the server
     
     func delete(url: String) {
         let urlArray = url.split(separator: "/")
