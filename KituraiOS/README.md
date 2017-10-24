@@ -10,7 +10,7 @@ The file structure contains the iOS sample project along with KituraKit, which c
 
 #### KituraKit
 
-This folder contains the client library for Kitura, which has further dependancies that are necessary to the functionality of the app. More information can be found here: https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/KituraiOS/KituraBuddy
+This folder contains the client library for Kitura, which has further dependancies that are necessary to the functionality of the app. More information can be found here: https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/KituraiOS/KituraBuddy.
 
 #### iOS Sample KituraKit
 
@@ -36,7 +36,7 @@ This file is called when the user segues into the screen to add new ToDo items b
 
 The app's core functionality lies here, leveraging KituraKit to send and receive data from the server, along with other functions such as patching and deleting.
 
-The first function present is to create a new ToDo item on the server:
+The first function present is to create a new ToDo item on the server. The below code illustrates how a post method is called on the client using the parameters that have been passed in, which throws an error if the item failed to be created:
 
 ```swift
 func create(title: String, user: String, order: Int) {
@@ -51,9 +51,7 @@ return
 }
 ```
 
-The above code illustrates how a post method is called on the client using the parameters that have been passed in, which throws an error if the item failed to be created.
-
-The next function allows all content from the server to be read:
+The next function allows all content from the server to be read. This shows a get function being called on the client. No parameters are passed in as it responds with all data present on the root path. All data that is returned has to conform to the ToDo item, and is added to the LocalToDo struct in the Model.swift file:
 
 ```swift
 func readAll() {
@@ -70,9 +68,7 @@ self.tableView.reloadData()
 }
 ```
 
-This shows a get function being called on the client. No parameters are passed in as it responds with all data present on the root path. All data that is returned has to conform to the ToDo item, and is added to the LocalToDo struct in the Model.swift file.
-
-Another read function also exists, which returns one item depending on the identifier passed in:
+Another read function also exists, which returns one item depending on the identifier passed in. The below code portrays a get function on the client similar to the previous function, however this also takes in an identifier and returns a single ToDo item rather than an array of items. As this is called from a search function, the response is added to a popup alert view and displayed to the user:
 
 ```swift
 func read(Id: String) {
@@ -105,9 +101,7 @@ self.present(alert, animated: true, completion: nil)
 }
 ```
 
-The above code portrays a get function on the client similar to the previous function, however this also takes in an identifier and returns a single ToDo item rather than an array of items. As this is called from a search function, the response is added to a popup alert view and displayed to the user.
-
-An update is performed via a patch function:
+An update is performed via a patch function. This shows how a patch is called on the client to replace respective components in the ToDo item depending on the data passed in. The `self.readAll()` function is called at the end to get data from the server again and populate the table:
 
 ```swift
 func update(title: String?, user: String?, order: Int?, completed: Bool?, url: String) {
@@ -135,9 +129,7 @@ self.readAll()
 }
 ```
 
-This shows how a patch is called on the client to replace respective components in the ToDo item depending on the data passed in. The `self.readAll()` function is called at the end to get data from the server again and populate the table.
-
-All data can be deleted from the server:
+All data can be deleted from the server. This function doesn't take in any parameters as it performs a delete on the root path, removing all data.:
 
 ```swift
 func deleteAll() {
@@ -150,9 +142,7 @@ self.readAll()
 }
 ```
 
-This function doesn't take in any parameters as it performs a delete on the root path, removing all data.
-
-Finally, the user can choose to delete specific data dependant on the identifier passed in:
+Finally, the user can choose to delete specific data dependant on the identifier passed in. The below code performs a delete function on the client too, however it takes in an identifier as a parameter, enabling the specified ToDo item on the server to be deleted:
 
 ```swift
 func delete(url: String) {
@@ -170,8 +160,6 @@ self.readAll()
 }
 }
 ```
-
-The above code performs a delete function on the client too, however it takes in an identifier as a parameter, enabling the specified ToDo item on the server to be deleted.
 
 ### Models.swift
 
