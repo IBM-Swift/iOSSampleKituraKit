@@ -52,7 +52,7 @@ class DataInputViewController: ViewController {
         
         // Call the create method with the respective fields, and head back to the main screen
         
-        create(title: title, user: user, order: orderAsInt)
+        self.create(title: title, user: user, order: orderAsInt)
         self.performSegue(withIdentifier: "unwindToList", sender: self)
     }
     
