@@ -15,9 +15,6 @@
  **/
 
 import Foundation
-import LoggerAPI
-import SwiftyRequest
-import SafetyContracts
 
 public class KituraBuddy {
 
@@ -35,7 +32,7 @@ public class KituraBuddy {
     // Instance variables
     public let baseURL: String
 
-    // Initializers   
+    // Initializers
     public init(baseURL: String) {
         self.baseURL = baseURL
     }
@@ -61,10 +58,10 @@ public class KituraBuddy {
 
     // GET single - basic type safe routing
     public func get<O: Codable>(_ route: String, identifier: Identifier, resultHandler: @escaping CodableClosure<O>) {
-        
+
         let encoded = identifier.value.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         let decoded = encoded.removingPercentEncoding
-        
+
         let url: String = baseURL + route + "/\(decoded)"
         let request = RestRequest(url: url)
 
@@ -103,10 +100,10 @@ public class KituraBuddy {
 
     // PUT - basic type safe routing
     public func put<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
-        
+
         let encoded = identifier.value.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         let decoded = encoded.removingPercentEncoding
-        
+
         let url: String = baseURL + route + "/\(decoded)"
         let encode = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .put, url: url)
@@ -127,10 +124,10 @@ public class KituraBuddy {
 
     // PATCH - basic type safe routing
     public func patch<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
-        
+
         let encoded = identifier.value.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         let decoded = encoded.removingPercentEncoding
-        
+
         let url: String = baseURL + route + "/\(decoded)"
         let encode = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .patch, url: url)

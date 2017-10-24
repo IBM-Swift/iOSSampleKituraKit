@@ -2,7 +2,7 @@
 //  KituraBuddy.h
 //  KituraBuddy
 //
-//  Created by Shibab Mehboob on 16/10/2017.
+//  Created by Andrew Lees on 23/10/2017.
 //  Copyright © 2017 IBM. All rights reserved.
 //
 

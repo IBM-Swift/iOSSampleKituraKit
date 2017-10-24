@@ -33,7 +33,7 @@ public extension String {
         return URLComponents(string: urlString) ?? nil
     }
 
-    /// Creates a user agent string to explain the current platform being used. 
+    /// Creates a user agent string to explain the current platform being used.
     /// `self` is expected to be product info, typically in the format `<productName>/<productVersion>`
     ///
     /// - Returns: user agent `String`
