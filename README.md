@@ -4,7 +4,9 @@
 <img src="https://www.ibm.com/cloud-computing/bluemix/sites/default/files/assets/page/catalog-swift.svg" width="120" alt="Kitura Bird">
 </p>
 
-[![Build Status](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master)](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy)
+<p align="center">
+<img src="https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master" alt="Travis CI">
+    </p>
 
 
 [Kituta is a lightweight and simple web framework](http://kitura.io) that makes it easy to set up complex web routes for web services and applications. 
