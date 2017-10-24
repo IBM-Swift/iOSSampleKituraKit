@@ -70,7 +70,8 @@ This shows a get function being called on the client. No parameters are passed i
 
 Another read function also exists, which returns one item depending on the identifier passed in:
 
-```swiftfunc read(Id: String) {
+```swift
+func read(Id: String) {
 
 let encoded = Id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
 let decoded = encoded.removingPercentEncoding
