@@ -1,6 +1,8 @@
 # Kitura 2 Sample App - ToDo List
 
-<img src="https://www.ibm.com/cloud-computing/bluemix/sites/default/files/assets/page/catalog-swift.svg" width="180" align="middle" alt="Kitura Bird">
+<p align="center">
+<img src="https://www.ibm.com/cloud-computing/bluemix/sites/default/files/assets/page/catalog-swift.svg" width="120" alt="Kitura Bird">
+</p>
 
 [![Build Status](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master)](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy)
 
