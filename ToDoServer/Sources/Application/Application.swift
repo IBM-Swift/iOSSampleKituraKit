@@ -122,15 +122,15 @@ public class Application {
     }
     
     func updatePutHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
-        var current = todoStore[id]
-        current.user = new.user
-        current.order = new.order
-        current.title = new.title
-        current.completed = new.completed
         guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
             completion(nil, .notFound)
             return
         }
+        var current = todoStore[idPosition]
+        current.user = new.user
+        current.order = new.order
+        current.title = new.title
+        current.completed = new.completed
         todoStore[idPosition] = current
         completion(todoStore[idPosition], nil)
     }
