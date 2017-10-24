@@ -6,7 +6,9 @@
 
 <p align="center">
 <img src="https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master" alt="Travis CI">
-<img src="https://img.shields.io/badge/Swift-4.0-orange.svg" alt="Swift 4 Compliant">
+<a href= "http://swift-at-ibm-slack.mybluemix.net/"> 
+    <img src="http://swift-at-ibm-slack.mybluemix.net/badge.svg"  alt="Slack"> 
+</a>
 </p>
 
 
@@ -56,4 +58,4 @@ A new Xcode window will open. For more info on the iOS app, [click here](https:/
 
 10. Press the Run button or ⌘+R. The project will build and the simulator will launch the application. Navigate your web browser to the address http://localhost:8080 to see an empty array. This is where ToDos made in the app are stored. As you add or delete elements in the app, this array will change.
 
-*Not available due to the iOS App section of the project, which requires Xcode running on macOS.
+*Not available on other platforms due to the iOS App section of the project, which requires Xcode running on macOS.
