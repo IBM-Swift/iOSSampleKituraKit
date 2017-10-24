@@ -1,16 +1,62 @@
 # Kitura 2 Sample App - ToDo List
 
+<img src="https://www.ibm.com/cloud-computing/bluemix/sites/default/files/assets/page/catalog-swift.svg" width="180">
+
 [![Build Status](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master)](https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy)
 
-### Prequisites
 
-* Xcode 9 or later running on macOS 10.12 or later
+[Kituta is a lightweight and simple web framework](http://kitura.io) that makes it easy to set up complex web routes for web services and applications. 
 
-### Installation
+ToDo List demonstrates how Kitura 2s new Type Safe Routing features can help developers leverage Swift 4's Codable protocol and write code that works on both the front and back end. A new client library is used in the app called [KituraKit](https://github.com/IBM-Swift/KituraBudd), which is open source so feel free to contribute! 
 
-* Open a terminal window and clone this repo to your machine.
-* Run `swift build` to create the backend server, and launch it with the follow command: `.build/x86_64-apple-macosx10.10/debug/ToDoServer`.
-  * It may ask for permission for incoming connections. Select "Allow"
-* Open a new terminal window and back to the root of the project, and navigate to KituraiOS, and launch the Xcode Project. A new window is needed because the Server never returns (it runs forever listening for connections).
-  * Ensure the Target Scheme next to the Run button at the top is on the iOS app with the app icon.
-* Press ▶️ at the top next to schemes, or ⌘+R does the same thing. Make sure an iPhone is selected as the Simulator in the drop down menu next to the run button.
+It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to showcase the power of Kitura 2 and its API.
+
+
+
+
+### Quick Start for macOS (Not available on Windows or Linux*) 
+
+1. Install [Xcode 9](https://itunes.apple.com/gb/app/xcode/id497799835) or later.
+
+   ​
+
+2. Clone this repo to your Mac:
+  `git clone https://github.com/IBM-Swift/iOSSampleKituraBuddy.git`
+
+  ​
+
+3. Navigate into the [ToDoServer folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/ToDoServer) and run the following commands to start the server:
+  `swift build`
+
+  `.build/x86_64-apple-macosx10.10/debug/ToDoServer`
+
+**Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. Opening a new Terminal window will let you continue with the Quick Start. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md)
+
+
+
+4. Navigate into the [KituraiOS folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/KituraiOS) and open the iOS Sample Kitura Buddy.xcodeproj file. A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/KituraiOS/README.md)
+
+   ​
+
+
+
+5. Ensure that the Scheme in Xcode is set to the iOS Application. The Scheme selection is located along the top of the Xcode window next to the Run and Stop buttons. If you don't see a Kitura 2 icon in the box next to the Stop button, click the icon that's there and select the App from the drop down menu.
+
+   ​
+
+
+
+6. Make sure an iPhone X is selected in the drop down menu next to the Scheme, not "Generic iOS Device". The iPhone Simulators all have blue icons next to their names. iPad is not supported at this time.
+
+   ​
+
+
+
+7. Press the Run button or ⌘+R. The project will build and the simulator will launch the application. Navigate any web browser to the address http://localhost:8080 to see an empty array. This is where ToDos made in the app are stored. As you add or delete elements in the app, this array will change.
+
+   ​
+
+*Not available due to the iOS Application section of the projet, which requires Xcode running on macOS.
+
+
+
