@@ -8,6 +8,10 @@ This directory of the repo was created to store and demonstrate that the iOS com
 
 The file structure contains the iOS sample project along with KituraKit, which contains the relevant files needed within the app itself for type-safe routing.
 
+#### KituraKit
+
+This folder contains the client library for Kitura, which has further dependancies that are necessary to the functionality of the app. More information can be found here: https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/KituraiOS/KituraBuddy
+
 #### iOS Sample KituraKit
 
 This folder contains the main app files used to create the app's UI and functionality, along with storyboard files. The ViewController.swift file is the first file that gets called from the AppDelegate.swift file, which is the entry point for the ToDo List app.
