@@ -6,7 +6,8 @@
 
 <p align="center">
 <img src="https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master" alt="Travis CI">
-    </p>
+<img src="https://img.shields.io/badge/Swift-4.0-orange.svg" alt="Swift 4 Compliant">
+</p>
 
 
 [Kituta is a lightweight and simple web framework](http://kitura.io) that makes it easy to set up complex web routes for web services and applications. 
