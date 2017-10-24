@@ -32,6 +32,7 @@ public class Application {
     let router = Router()
     let cloudEnv = CloudEnv()
     var todoStore = [ToDo]()
+    var nextId :Int = 0
     
     func postInit() throws{
         // Capabilities
@@ -72,7 +73,9 @@ public class Application {
         if todo.completed == nil {
             todo.completed = false
         }
-        let id = todoStore.count
+        let id = nextId
+        nextId += 1
+        todo.id = id
         todo.url = "http://localhost:8080/\(id)"
         todoStore.append(todo)
         completion(todo, nil)
@@ -83,7 +86,11 @@ public class Application {
     }
     
     func getOneHandler(id: Int, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
-        completion(todoStore[id], nil)
+        guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
+            completion(nil, .notFound)
+            return
+        }
+        completion(todoStore[idPosition], nil)
     }
     
     func deleteAllHandler(completion: (ProcessHandlerError?) -> Void ) -> Void {
@@ -92,18 +99,26 @@ public class Application {
     }
     
     func deleteOneHandler(id: Int, completion: (ProcessHandlerError?) -> Void ) -> Void {
-        todoStore.remove(at: id)
+        guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
+            completion(.notFound)
+            return
+        }
+        todoStore.remove(at: idPosition)
         completion(nil)
     }
     
     func updateHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
-        var current = todoStore[id]
+        guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
+            completion(nil, .notFound)
+            return
+        }
+        var current = todoStore[idPosition]
         current.user = new.user ?? current.user
         current.order = new.order ?? current.order
         current.title = new.title ?? current.title
         current.completed = new.completed ?? current.completed
-        todoStore[id] = current
-        completion(todoStore[id], nil)
+        todoStore[idPosition] = current
+        completion(todoStore[idPosition], nil)
     }
     
     func updatePutHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
@@ -112,8 +127,12 @@ public class Application {
         current.order = new.order
         current.title = new.title
         current.completed = new.completed
-        todoStore[id] = current
-        completion(todoStore[id], nil)
+        guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
+            completion(nil, .notFound)
+            return
+        }
+        todoStore[idPosition] = current
+        completion(todoStore[idPosition], nil)
     }
     
 }
