@@ -2,13 +2,13 @@
 
 ### Usage
 
-This directory of the repo was created to store and demonstrate that the server component can work with an iOS application. It uses a new Kitura client side library called **KituraKit**. If you were to create a server plus client project, placing it here in its own folder will help keep everything organised.
+This directory of the repo was created to store and demonstrate that the iOS component can work with the server. It uses a new Kitura client side library called **KituraKit**. The `.xcodeproj` file loads up the XCode project with the files and corresponding structure. To run the iOS app on a simulator, select the iOS Sample KituraKit scheme with the chosen simulator (iPhone X for example), and click the play button on the top left of the XCode window (or `CMD + R`). This will start the app on the simulator, functionality with the Kitura server will only be present after the server has already been started.
 
 ### File Structure
 
 The file structure contains the iOS sample project along with KituraKit, which contains the relevant files needed within the app itself for type-safe routing.
 
-#### iOS Sample Kitura Kit
+#### iOS Sample KituraKit
 
 This folder contains the main app files used to create the app's UI and functionality, along with storyboard files. The ViewController.swift file is the first file that gets called from the AppDelegate.swift file, which is the entry point for the ToDo List app.
 
