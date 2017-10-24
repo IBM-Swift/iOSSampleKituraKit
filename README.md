@@ -19,29 +19,29 @@ It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to
 
 2. Clone this repository:
 
-  `git clone https://github.com/IBM-Swift/iOSSampleKituraBuddy.git`
+    `git clone https://github.com/IBM-Swift/iOSSampleKituraBuddy.git`
 
 3. Navigate into the [ToDoServer folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/ToDoServer) using: 
 
-`cd ToDoServer/`
+    `cd ToDoServer/`
 
 4. Run the following commands to compile the code:
 
-  `swift build`
+    `swift build`
   
 5. Start the server with: 
 
-  `.build/x86_64-apple-macosx10.10/debug/ToDoServer`
+    `.build/x86_64-apple-macosx10.10/debug/ToDoServer`
 
 **Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. Opening a new Terminal window will let you continue with the Quick Start. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md)
 
 6. Navigate into the [KituraiOS folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/KituraiOS) using:
 
-`cd ../KituraiOS`
+    `cd ../KituraiOS`
 
 7. Open the iOS Sample Kitura Buddy.xcodeproj file with:
 
-`open iOS\ Sample\ Kitura\ Buddy.xcodeproj`
+    `open iOS\ Sample\ Kitura\ Buddy.xcodeproj`
 
 A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/KituraiOS/README.md)
 
