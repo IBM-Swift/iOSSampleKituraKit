@@ -1,6 +1,7 @@
 This is KituraBuddy with all dependancies inside to make it a single module for importing into iOS projects.
 
 To import:
+- if updating delete any old references to Kitura buddy in your project
 - copy file into project
 - create new target called KituraBuddy
 - right click on KituraBuddy and add files to "project name"

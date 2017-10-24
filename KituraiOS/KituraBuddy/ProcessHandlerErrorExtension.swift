@@ -17,7 +17,7 @@
 import Foundation
 
 extension ProcessHandlerError {
-
+    
     init(clientErrorCode: Int) {
         self.init(rawValue: clientErrorCode)
     }

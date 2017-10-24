@@ -98,7 +98,7 @@ public class RestRequest {
                     completionHandler(nil, nil, error)
                     return
                 }
-
+              
                 let code = response.statusCode
                 if code >= 200 && code < 300 {
                     completionHandler(data, response, error)
@@ -262,7 +262,7 @@ public class RestRequest {
                 completionHandler(dataResponse)
                 return
             }
-
+            
             if let responseToError = responseToError,
                 let error = responseToError(response, data) {
                 let result = Result<[T]>.failure(error)
@@ -338,7 +338,7 @@ public class RestRequest {
                 completionHandler(dataResponse)
                 return
             }
-
+            
             if let responseToError = responseToError,
                 let error = responseToError(response, data) {
                 let result = Result<String>.failure(error)
@@ -399,7 +399,7 @@ public class RestRequest {
                 completionHandler(dataResponse)
                 return
             }
-
+            
             if let responseToError = responseToError, let error = responseToError(response, data) {
                 let result = Result<Void>.failure(error)
                 let dataResponse = RestResponse(request: request, response: response, data: data, result: result)
@@ -602,7 +602,7 @@ public enum RestError: Error, CustomStringConvertible {
     case invalidFile
     case invalidSubstitution
     case erroredResponseStatus(Int)
-
+    
     public var description: String {
         switch self {
         case .noData                        : return "No Data"
