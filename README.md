@@ -20,7 +20,7 @@ ToDo List demonstrates how Kitura 2s new Type Safe Routing features can help dev
 
 It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to showcase the power of Kitura 2 and its API.
 
-
+If you would like to import KituraKit into your own iOS project please see [KituraKit iOS Import](http://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/KituraKit/README.md).
 
 ### Quick Start for macOS*
 
@@ -32,23 +32,25 @@ It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to
 
 3. Navigate into the [ToDoServer folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/ToDoServer) using: 
 
-    `cd ToDoServer/`
+    `cd /iOSSampleKituraKit/ToDoServer/`
 
 4. Run the following commands to compile the code:
 
     `swift build`
-  
+
 5. Start the server with: 
 
     `.build/x86_64-apple-macosx10.10/debug/ToDoServer`
 
-**Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. Opening a new Terminal window will let you continue with the Quick Start. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md)
+**Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md)
 
-6. Navigate into the [KituraiOS folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/KituraiOS) using:
+6. Open new Terminal window to continue with the Quick Start. 
 
-    `cd ../KituraiOS`
+7. Navigate into the [KituraiOS folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/KituraiOS) using:
 
-7. Open the iOS Sample Kitura Buddy.xcodeproj file with:
+   `cd /iOSSampleKituraKit/KituraiOS`
+
+8. Open the iOS Sample Kitura Buddy.xcodeproj file with:
 
     `open iOSKituraKitSample.xcodeproj`
 
