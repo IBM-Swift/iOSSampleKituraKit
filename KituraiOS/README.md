@@ -32,7 +32,7 @@ The search bar allows users to input an identifier that's associated with each T
 
 This file is called when the user segues into the screen to add new ToDo items by tapping the plus icon in the top right of the initial screen. The user is presented with two fields, accepting the task name and a user name, along with a save button that calls the `create(title: title, user: user, order: orderAsInt)` function when it is tapped. This takes in data from the fields as parameters, and the cell order as the order identifier, and creates the ToDo item on the server. The user is returned back to the initial screen after this is completed.
 
-### TypeSafeRouting.swift
+### CodableRouting.swift
 
 The app's core functionality lies here, leveraging KituraKit to send and receive data from the server, along with other functions such as patching and deleting.
 
@@ -41,7 +41,7 @@ The first function present is to create a new ToDo item on the server. The below
 ```swift
 func create(title: String, user: String, order: Int) {
   let newToDo = ToDo(title: title, user: user, order: order, completed: false)
-  self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
+  self.client?.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
     print(String(describing: returnedItem))
     guard returnedItem != nil else {
       print("Error in creating ToDo. error code \(String(describing:error))")
@@ -55,7 +55,7 @@ The next function allows all content from the server to be read. This shows a ge
 
 ```swift
 func readAll() {
-  self.client.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
+  self.client?.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
     guard let allToDoItems = allToDoItems else {
       print("Error in reading user. error code \(String(describing:error))")
       return
@@ -78,7 +78,7 @@ func read(Id: String) {
     return
   }
 
-  self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
+  self.client?.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
     guard let _ = returnedToDo else {
       DispatchQueue.main.async {
         print("Error in reading user. error code \(String(describing:error))")
@@ -117,7 +117,7 @@ func update(title: String?, user: String?, order: Int?, completed: Bool?, url: S
 
   let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
   print("updateToDo: \(newToDo)")
-  self.client.patch("", identifier: Id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+  self.client?.patch("", identifier: Id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
     guard let _ = returnedToDo else {
       print("Error in patching ToDo. error code \(String(describing:error))")
       return
@@ -132,7 +132,7 @@ All data can be deleted from the server. This function doesn't take in any param
 
 ```swift
 func deleteAll() {
-  self.client.delete("") { error in
+  self.client?.delete("") { error in
     guard error == nil else {
       return
     }
@@ -149,7 +149,7 @@ func delete(url: String) {
   guard let urlEndOfArray = urlArray.last else {return}
   guard let urlToSend = Int(urlEndOfArray) else{return}
   print("url to delete \(urlToSend)")
-  self.client.delete("", identifier: urlToSend) { error in
+  self.client?.delete("", identifier: urlToSend) { error in
     guard error == nil else {
       print("delete error: \(String(describing : error))")
       return
