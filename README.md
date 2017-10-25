@@ -42,7 +42,7 @@ If you would like to import KituraKit into your own iOS project please see [Kitu
 
     `.build/x86_64-apple-macosx10.10/debug/ToDoServer`
 
-**Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md)
+**Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md).
 
 6. Open new Terminal window to continue with the Quick Start. 
 
@@ -54,7 +54,7 @@ If you would like to import KituraKit into your own iOS project please see [Kitu
 
     `open iOSKituraKitSample.xcodeproj`
 
-A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/README.md)
+A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/README.md).
 
 8. Ensure that the Scheme in Xcode is set to the iOS Application. The Scheme selection is located along the top of the Xcode window next to the Run and Stop buttons. If you don't see a Kitura icon (white and blue) in the box next to the Stop button, click the icon that's there and select the App from the drop down menu.
 
