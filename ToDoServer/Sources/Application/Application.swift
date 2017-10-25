@@ -17,7 +17,7 @@
 import Kitura
 import KituraCORS
 import Foundation
-import SafetyContracts
+import KituraContracts
 import LoggerAPI
 import Configuration
 import CloudEnvironment
@@ -68,7 +68,7 @@ public class Application {
         Kitura.run()
     }
     
-    func createHandler(todo: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
+    func createHandler(todo: ToDo, completion: (ToDo?, RequestError?) -> Void ) -> Void {
         var todo = todo
         if todo.completed == nil {
             todo.completed = false
@@ -81,11 +81,11 @@ public class Application {
         completion(todo, nil)
     }
     
-    func getAllHandler(completion: ([ToDo]?, ProcessHandlerError?) -> Void ) -> Void {
+    func getAllHandler(completion: ([ToDo]?, RequestError?) -> Void ) -> Void {
         completion(todoStore, nil)
     }
     
-    func getOneHandler(id: Int, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
+    func getOneHandler(id: Int, completion: (ToDo?, RequestError?) -> Void ) -> Void {
         guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
             completion(nil, .notFound)
             return
@@ -93,12 +93,12 @@ public class Application {
         completion(todoStore[idPosition], nil)
     }
     
-    func deleteAllHandler(completion: (ProcessHandlerError?) -> Void ) -> Void {
+    func deleteAllHandler(completion: (RequestError?) -> Void ) -> Void {
         todoStore = [ToDo]()
         completion(nil)
     }
     
-    func deleteOneHandler(id: Int, completion: (ProcessHandlerError?) -> Void ) -> Void {
+    func deleteOneHandler(id: Int, completion: (RequestError?) -> Void ) -> Void {
         guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
             completion(.notFound)
             return
@@ -107,7 +107,7 @@ public class Application {
         completion(nil)
     }
     
-    func updateHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
+    func updateHandler(id: Int, new: ToDo, completion: (ToDo?, RequestError?) -> Void ) -> Void {
         guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
             completion(nil, .notFound)
             return
@@ -121,7 +121,7 @@ public class Application {
         completion(todoStore[idPosition], nil)
     }
     
-    func updatePutHandler(id: Int, new: ToDo, completion: (ToDo?, ProcessHandlerError?) -> Void ) -> Void {
+    func updatePutHandler(id: Int, new: ToDo, completion: (ToDo?, RequestError?) -> Void ) -> Void {
         guard let idMatch = todoStore.first(where: { $0.id == id }), let idPosition = todoStore.index(of: idMatch) else {
             completion(nil, .notFound)
             return
