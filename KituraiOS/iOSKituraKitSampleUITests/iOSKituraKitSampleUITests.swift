@@ -8,7 +8,7 @@
 
 import XCTest
 
-class iOS_Sample_Kitura_BuddyUITests: XCTestCase {
+class iOSKituraKitSampleUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

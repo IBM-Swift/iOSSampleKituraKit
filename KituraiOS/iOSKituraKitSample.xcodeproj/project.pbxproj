@@ -12,7 +12,7 @@
 		671676CA1F838AFE007DAA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676C81F838AFE007DAA76 /* Main.storyboard */; };
 		671676CC1F838AFE007DAA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671676CB1F838AFE007DAA76 /* Assets.xcassets */; };
 		671676CF1F838AFE007DAA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671676CD1F838AFE007DAA76 /* LaunchScreen.storyboard */; };
-		671676DA1F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */; };
+		671676DA1F838AFE007DAA76 /* iOSKituraKitSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671676D91F838AFE007DAA76 /* iOSKituraKitSampleTests.swift */; };
 		6716770E1F839CE0007DAA76 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6716770D1F839CE0007DAA76 /* Model.swift */; };
 		679D17701FA0A67E000020CB /* KituraKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 679D176E1FA0A67E000020CB /* KituraKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		679D17731FA0A67E000020CB /* KituraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679D176C1FA0A67E000020CB /* KituraKit.framework */; };
@@ -106,17 +106,17 @@
 
 /* Begin PBXFileReference section */
 		4A79BE531F981C6D00B9E1D1 /* DataInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInputViewController.swift; sourceTree = "<group>"; };
-		671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Sample Kitura Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		671676C11F838AFE007DAA76 /* iOSKituraKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSKituraKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		671676C41F838AFE007DAA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		671676C61F838AFE007DAA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		671676C91F838AFE007DAA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		671676CB1F838AFE007DAA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		671676CE1F838AFE007DAA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		671676D01F838AFE007DAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		671676D51F838AFE007DAA76 /* iOS Sample Kitura BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Sample Kitura BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Sample_Kitura_BuddyTests.swift; sourceTree = "<group>"; };
+		671676D51F838AFE007DAA76 /* iOSKituraKitSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSKituraKitSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		671676D91F838AFE007DAA76 /* iOSKituraKitSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSKituraKitSampleTests.swift; sourceTree = "<group>"; };
 		671676DB1F838AFE007DAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Sample_Kitura_BuddyUITests.swift; sourceTree = "<group>"; };
+		671676E41F838AFE007DAA76 /* iOSKituraKitSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSKituraKitSampleUITests.swift; sourceTree = "<group>"; };
 		671676E61F838AFE007DAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6716770D1F839CE0007DAA76 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6725B1CB1F94BF0600D236DC /* Package.pins */ = {isa = PBXFileReference; lastKnownFileType = text; path = Package.pins; sourceTree = "<group>"; };
@@ -766,8 +766,8 @@
 		671676C21F838AFE007DAA76 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */,
-				671676D51F838AFE007DAA76 /* iOS Sample Kitura BuddyTests.xctest */,
+				671676C11F838AFE007DAA76 /* iOSKituraKitSample.app */,
+				671676D51F838AFE007DAA76 /* iOSKituraKitSampleTests.xctest */,
 				679D176C1FA0A67E000020CB /* KituraKit.framework */,
 			);
 			name = Products;
@@ -792,7 +792,7 @@
 		671676D81F838AFE007DAA76 /* iOSKituraKitSampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				671676D91F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift */,
+				671676D91F838AFE007DAA76 /* iOSKituraKitSampleTests.swift */,
 				671676DB1F838AFE007DAA76 /* Info.plist */,
 			);
 			path = iOSKituraKitSampleTests;
@@ -801,7 +801,7 @@
 		671676E31F838AFE007DAA76 /* iOSKituraKitSampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				671676E41F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyUITests.swift */,
+				671676E41F838AFE007DAA76 /* iOSKituraKitSampleUITests.swift */,
 				671676E61F838AFE007DAA76 /* Info.plist */,
 			);
 			path = iOSKituraKitSampleUITests;
@@ -2935,9 +2935,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */ = {
+		671676C01F838AFE007DAA76 /* iOSKituraKitSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura Buddy" */;
+			buildConfigurationList = 671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOSKituraKitSample" */;
 			buildPhases = (
 				671676BD1F838AFE007DAA76 /* Sources */,
 				671676BE1F838AFE007DAA76 /* Frameworks */,
@@ -2949,14 +2949,14 @@
 			dependencies = (
 				679D17721FA0A67E000020CB /* PBXTargetDependency */,
 			);
-			name = "iOS Sample Kitura Buddy";
+			name = iOSKituraKitSample;
 			productName = "iOS Sample Kitura Buddy";
-			productReference = 671676C11F838AFE007DAA76 /* iOS Sample Kitura Buddy.app */;
+			productReference = 671676C11F838AFE007DAA76 /* iOSKituraKitSample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		671676D41F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */ = {
+		671676D41F838AFE007DAA76 /* iOSKituraKitSampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 671676EC1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura BuddyTests" */;
+			buildConfigurationList = 671676EC1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOSKituraKitSampleTests" */;
 			buildPhases = (
 				671676D11F838AFE007DAA76 /* Sources */,
 				671676D21F838AFE007DAA76 /* Frameworks */,
@@ -2967,9 +2967,9 @@
 			dependencies = (
 				671676D71F838AFE007DAA76 /* PBXTargetDependency */,
 			);
-			name = "iOS Sample Kitura BuddyTests";
+			name = iOSKituraKitSampleTests;
 			productName = "iOS Sample Kitura BuddyTests";
-			productReference = 671676D51F838AFE007DAA76 /* iOS Sample Kitura BuddyTests.xctest */;
+			productReference = 671676D51F838AFE007DAA76 /* iOSKituraKitSampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		679D176B1FA0A67E000020CB /* KituraKit */ = {
@@ -3038,8 +3038,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */,
-				671676D41F838AFE007DAA76 /* iOS Sample Kitura BuddyTests */,
+				671676C01F838AFE007DAA76 /* iOSKituraKitSample */,
+				671676D41F838AFE007DAA76 /* iOSKituraKitSampleTests */,
 				679D176B1FA0A67E000020CB /* KituraKit */,
 			);
 		};
@@ -3144,7 +3144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				671676DA1F838AFE007DAA76 /* iOS_Sample_Kitura_BuddyTests.swift in Sources */,
+				671676DA1F838AFE007DAA76 /* iOSKituraKitSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3160,7 +3160,7 @@
 /* Begin PBXTargetDependency section */
 		671676D71F838AFE007DAA76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 671676C01F838AFE007DAA76 /* iOS Sample Kitura Buddy */;
+			target = 671676C01F838AFE007DAA76 /* iOSKituraKitSample */;
 			targetProxy = 671676D61F838AFE007DAA76 /* PBXContainerItemProxy */;
 		};
 		679D17721FA0A67E000020CB /* PBXTargetDependency */ = {
@@ -3429,7 +3429,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura Buddy" */ = {
+		671676E91F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOSKituraKitSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				671676EA1F838AFE007DAA76 /* Debug */,
@@ -3438,7 +3438,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		671676EC1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOS Sample Kitura BuddyTests" */ = {
+		671676EC1F838AFE007DAA76 /* Build configuration list for PBXNativeTarget "iOSKituraKitSampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				671676ED1F838AFE007DAA76 /* Debug */,
