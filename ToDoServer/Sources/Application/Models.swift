@@ -19,8 +19,9 @@ import SafetyContracts
 
 public struct ToDo: Codable, Equatable {
     public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
-        return (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url)
+        return (lhs.title == rhs.title) && (lhs.user == rhs.user) && (lhs.order == rhs.order) && (lhs.completed == rhs.completed) && (lhs.url == rhs.url) && (lhs.id == rhs.id)
     }
+    public var id: Int?
     public var title: String?
     public var user: String?
     public var order: Int?
@@ -32,6 +33,7 @@ public struct ToDo: Codable, Equatable {
         self.order = order
         self.completed = completed
         self.url = nil
+        self.id = nil
     }
     
 }
