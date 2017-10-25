@@ -15,11 +15,11 @@
  */
 
 import UIKit
-import KituraBuddy
+import KituraKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    let client = KituraBuddy(baseURL: "http://localhost:8080")
+    let client = KituraKit(baseURL: "http://localhost:8080")
     public var tableView: UITableView = UITableView()
     public let searchController: UISearchController = UISearchController(searchResultsController: nil)
     

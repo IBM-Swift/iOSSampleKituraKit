@@ -23,7 +23,7 @@ extension ViewController {
     
     func create(title: String, user: String, order: Int) {
         let newToDo = ToDo(title: title, user: user, order: order, completed: false)
-        self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
+        self.client?.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
             print(String(describing: returnedItem))
             guard returnedItem != nil else {
                 print("Error in creating ToDo. error code \(String(describing:error))")
@@ -35,7 +35,7 @@ extension ViewController {
     // Read all method to read all ToDo objects from the server
     
     func readAll() {
-        self.client.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
+        self.client?.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
             guard let allToDoItems = allToDoItems else {
                 print("Error in reading user. error code \(String(describing:error))")
                 return
@@ -60,7 +60,7 @@ extension ViewController {
             return
         }
         
-        self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        self.client?.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 DispatchQueue.main.async {
                     
@@ -103,7 +103,7 @@ extension ViewController {
         
         let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
         print("updateToDo: \(newToDo)")
-        self.client.patch("", identifier: Id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+        self.client?.patch("", identifier: Id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
             guard let _ = returnedToDo else {
                 print("Error in patching ToDo. error code \(String(describing:error))")
                 return
@@ -116,7 +116,7 @@ extension ViewController {
     // Delete all method to delete all ToDo objects from the server
     
     func deleteAll() {
-        self.client.delete("") { error in
+        self.client?.delete("") { error in
             guard error == nil else {
                 return
             }
@@ -132,7 +132,7 @@ extension ViewController {
         guard let urlEndOfArray = urlArray.last else {return}
         guard let urlToSend = Int(urlEndOfArray) else{return}
         print("url to delete \(urlToSend)")
-        self.client.delete("", identifier: urlToSend) { error in
+        self.client?.delete("", identifier: urlToSend) { error in
             guard error == nil else {
                 print("delete error: \(String(describing : error))")
                 return

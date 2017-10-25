@@ -15,7 +15,7 @@
  */
 
 import Foundation
-import KituraBuddy
+import KituraKit
 import UIKit
 
 
