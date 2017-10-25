@@ -40,14 +40,14 @@ The first function present is to create a new ToDo item on the server. The below
 
 ```swift
 func create(title: String, user: String, order: Int) {
-let newToDo = ToDo(title: title, user: user, order: order, completed: false)
-self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
-print(String(describing: returnedItem))
-guard returnedItem != nil else {
-print("Error in creating ToDo. error code \(String(describing:error))")
-return
-}
-}
+  let newToDo = ToDo(title: title, user: user, order: order, completed: false)
+  self.client.post("/", data: newToDo) { (returnedItem: ToDo?, error: Error?) -> Void in
+    print(String(describing: returnedItem))
+    guard returnedItem != nil else {
+      print("Error in creating ToDo. error code \(String(describing:error))")
+      return
+    }
+  }
 }
 ```
 
@@ -55,16 +55,16 @@ The next function allows all content from the server to be read. This shows a ge
 
 ```swift
 func readAll() {
-self.client.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
-guard let allToDoItems = allToDoItems else {
-print("Error in reading user. error code \(String(describing:error))")
-return
-}
-DispatchQueue.main.async {
-localToDo.localToDoStore = allToDoItems
-self.tableView.reloadData()
-}
-}
+  self.client.get("/") { (allToDoItems: [ToDo]?, error: Error?) -> Void in
+    guard let allToDoItems = allToDoItems else {
+      print("Error in reading user. error code \(String(describing:error))")
+      return
+    }
+    DispatchQueue.main.async {
+      localToDo.localToDoStore = allToDoItems
+      self.tableView.reloadData()
+    }
+  }
 }
 ```
 
@@ -72,32 +72,31 @@ Another read function also exists, which returns one item depending on the ident
 
 ```swift
 func read(Id: String) {
+  let encoded = Id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+  let decoded = encoded.removingPercentEncoding
+  guard let Id = decoded else {
+    return
+  }
 
-let encoded = Id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-let decoded = encoded.removingPercentEncoding
-guard let Id = decoded else {
-return
-}
-
-self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
-guard let _ = returnedToDo else {
-DispatchQueue.main.async {
-print("Error in reading user. error code \(String(describing:error))")
-let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
-alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-self.present(alert, animated: true, completion: nil)
-}
-return
-}
-if let returnedToDo = returnedToDo {
-DispatchQueue.main.async {
-guard let title = returnedToDo.title else {return}
-let alert = UIAlertController(title: "Search result", message: title, preferredStyle: UIAlertControllerStyle.alert)
-alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-self.present(alert, animated: true, completion: nil)
-}
-}
-}
+  self.client.get("", identifier: Id) { (returnedToDo: ToDo?, error: Error?) -> Void in
+    guard let _ = returnedToDo else {
+      DispatchQueue.main.async {
+        print("Error in reading user. error code \(String(describing:error))")
+        let alert = UIAlertController(title: "Search result", message: "Not Found", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+      }
+      return
+    }
+    if let returnedToDo = returnedToDo {
+      DispatchQueue.main.async {
+        guard let title = returnedToDo.title else {return}
+        let alert = UIAlertController(title: "Search result", message: title, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+      }
+    }
+  }
 }
 ```
 
@@ -105,27 +104,27 @@ An update is performed via a patch function. This shows how a patch is called on
 
 ```swift
 func update(title: String?, user: String?, order: Int?, completed: Bool?, url: String) {
-let urlArray = url.split(separator: "/")
-guard let urlEndOfArray = urlArray.last else {return}
-guard let urlToSend = Int(urlEndOfArray) else{return}
-print("url to send: \(String(describing:urlToSend))")
+  let urlArray = url.split(separator: "/")
+  guard let urlEndOfArray = urlArray.last else {return}
+  guard let urlToSend = Int(urlEndOfArray) else{return}
+  print("url to send: \(String(describing:urlToSend))")
 
-let encoded = String(describing:urlToSend).addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-let decoded = encoded.removingPercentEncoding
-guard let Id = decoded else {
-return
-}
+  let encoded = String(describing:urlToSend).addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+  let decoded = encoded.removingPercentEncoding
+  guard let Id = decoded else {
+    return
+  }
 
-let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
-print("updateToDo: \(newToDo)")
-self.client.patch("", identifier: Id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
-guard let _ = returnedToDo else {
-print("Error in patching ToDo. error code \(String(describing:error))")
-return
-}
-print("reached patch response: \(String(describing:returnedToDo))")
-self.readAll()
-}
+  let newToDo = ToDo(title: title, user: user, order: order, completed: completed)
+  print("updateToDo: \(newToDo)")
+  self.client.patch("", identifier: Id, data: newToDo) { (returnedToDo: ToDo?, error: Error?) -> Void in
+    guard let _ = returnedToDo else {
+      print("Error in patching ToDo. error code \(String(describing:error))")
+      return
+    }
+    print("reached patch response: \(String(describing:returnedToDo))")
+    self.readAll()
+  }
 }
 ```
 
@@ -133,12 +132,12 @@ All data can be deleted from the server. This function doesn't take in any param
 
 ```swift
 func deleteAll() {
-self.client.delete("") { error in
-guard error == nil else {
-return
-}
-self.readAll()
-}
+  self.client.delete("") { error in
+    guard error == nil else {
+      return
+    }
+    self.readAll()
+  }
 }
 ```
 
@@ -146,18 +145,17 @@ Finally, the user can choose to delete specific data dependant on the identifier
 
 ```swift
 func delete(url: String) {
-
-let urlArray = url.split(separator: "/")
-guard let urlEndOfArray = urlArray.last else {return}
-guard let urlToSend = Int(urlEndOfArray) else{return}
-print("url to delete \(urlToSend)")
-self.client.delete("", identifier: urlToSend) { error in
-guard error == nil else {
-print("delete error: \(String(describing : error))")
-return
-}
-self.readAll()
-}
+  let urlArray = url.split(separator: "/")
+  guard let urlEndOfArray = urlArray.last else {return}
+  guard let urlToSend = Int(urlEndOfArray) else{return}
+  print("url to delete \(urlToSend)")
+  self.client.delete("", identifier: urlToSend) { error in
+    guard error == nil else {
+      print("delete error: \(String(describing : error))")
+      return
+    }
+    self.readAll()
+  }
 }
 ```
 
