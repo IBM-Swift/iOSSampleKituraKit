@@ -15,7 +15,7 @@
  */
 
 import Foundation
-import SafetyContracts
+import KituraContracts
 
 public struct ToDo: Codable, Equatable {
     public static func ==(lhs: ToDo, rhs: ToDo) -> Bool {

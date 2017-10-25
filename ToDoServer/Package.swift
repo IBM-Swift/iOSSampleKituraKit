@@ -28,12 +28,12 @@ let package = Package(
         .package(url: "https://github.com/IBM-Swift/Configuration.git", .upToNextMinor(from: "1.0.0")),
         .package(url: "https://github.com/RuntimeTools/SwiftMetrics.git", .branch("swift4")),
         .package(url: "https://github.com/IBM-Swift/Health.git", from: "0.0.0"),
-        .package(url: "https://github.com/IBM-Swift/SafetyContracts.git", .exact("0.0.9")),
+        .package(url: "https://github.com/IBM-Swift/KituraContracts.git", .branch("master")),
         .package(url: "https://github.com/IBM-Swift/Kitura-CORS", .upToNextMinor(from: "1.7.0")),
         ],
     targets: [
         .target(name: "ToDoServer", dependencies: [ .target(name: "Application"), "Kitura" , "HeliumLogger"]),
-        .target(name: "Application", dependencies: [ "SafetyContracts", "Kitura", "KituraCORS", "Configuration", "CloudEnvironment", "Health" , "SwiftMetrics",
+        .target(name: "Application", dependencies: [ "KituraContracts", "Kitura", "KituraCORS", "Configuration", "CloudEnvironment", "Health" , "SwiftMetrics",
          ]),
         ]
 )
