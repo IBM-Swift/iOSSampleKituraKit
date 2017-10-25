@@ -28,7 +28,7 @@ It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to
 
 2. Clone this repository:
 
-    `git clone https://github.com/IBM-Swift/iOSSampleKituraBuddy.git`
+    `git clone https://github.com/IBM-Swift/iOSSampleKituraKit.git`
 
 3. Navigate into the [ToDoServer folder](https://github.com/IBM-Swift/iOSSampleKituraBuddy/tree/master/ToDoServer) using: 
 
@@ -50,9 +50,9 @@ It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to
 
 7. Open the iOS Sample Kitura Buddy.xcodeproj file with:
 
-    `open iOS\ Sample\ Kitura\ Buddy.xcodeproj`
+    `open iOSKituraKitSample.xcodeproj`
 
-A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/KituraiOS/README.md)
+A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/README.md)
 
 8. Ensure that the Scheme in Xcode is set to the iOS Application. The Scheme selection is located along the top of the Xcode window next to the Run and Stop buttons. If you don't see a Kitura icon (white and blue) in the box next to the Stop button, click the icon that's there and select the App from the drop down menu.
 
