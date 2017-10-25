@@ -17,37 +17,36 @@
 import Foundation
 
 public class KituraKit {
-
+    
     public typealias SimpleClosure = (RequestError?) -> Void
     public typealias CodableClosure<O: Codable> = (O?, RequestError?) -> Void
     public typealias ArrayCodableClosure<O: Codable> = ([O]?, RequestError?) -> Void
-
+    
     public static var defaultBaseURL: String = "http://localhost:8080"
     public static var `default`: KituraKit {
         get {
             return KituraKit(url: defaultBaseURL)
         }
     }
-
+    
     // Instance variables
     public let baseURL: String
-
+    
     // Initializers
     private init(url: String) {
         self.baseURL = url
     }
-
+    
     public init?(baseURL: String) {
-        guard URL(string: baseURL) != nil else {
+        let checkedUrl = checkMistypedURL(inputURL: baseURL)
+        guard URL(string: checkedUrl) != nil else {
             return nil
         }
-        
-        // If necessary, trim extra back slash
-        self.baseURL = baseURL.last == "/" ? String(baseURL.dropLast()) : baseURL
+        self.baseURL = checkedUrl
     }
-
+    
+    
     // HTTP verb/action methods (basic type safe routing)
-
     // GET - basic type safe routing
     public func get<O: Codable>(_ route: String, resultHandler: @escaping ArrayCodableClosure<O>) {
         let url: String = baseURL + route
@@ -70,12 +69,12 @@ public class KituraKit {
             }
         }
     }
-
+    
     // GET single - basic type safe routing
     public func get<O: Codable>(_ route: String, identifier: Identifier, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let request = RestRequest(url: url)
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
@@ -94,14 +93,14 @@ public class KituraKit {
             }
         }
     }
-
+    
     // POST - basic type safe routing
     public func post<I: Codable, O: Codable>(_ route: String, data: I, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .post, url: url)
         request.messageBody = encoded
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
@@ -120,14 +119,14 @@ public class KituraKit {
             }
         }
     }
-
+    
     // PUT - basic type safe routing
     public func put<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .put, url: url)
         request.messageBody = encoded
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
@@ -146,14 +145,14 @@ public class KituraKit {
             }
         }
     }
-
+    
     // PATCH - basic type safe routing
     public func patch<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .patch, url: url)
         request.messageBody = encoded
-
+        
         request.responseData { response in
             switch response.result {
             case .success(let data):
@@ -172,7 +171,7 @@ public class KituraKit {
             }
         }
     }
-
+    
     // DELETE - basic type safe routing
     public func delete(_ route: String, resultHandler: @escaping SimpleClosure) {
         let url: String = baseURL + route
@@ -191,7 +190,7 @@ public class KituraKit {
             }
         }
     }
-
+    
     // DELETE single - basic type safe routing
     public func delete(_ route: String, identifier: Identifier, resultHandler: @escaping SimpleClosure) {
         let url: String = baseURL + route + "/\(identifier)"
@@ -210,4 +209,28 @@ public class KituraKit {
             }
         }
     }
+    
+    //Check an input URL begins with http:// or https:// and fix common mistypes
+}
+
+private func checkMistypedURL(inputURL: String) -> String{
+    let mistypes = ["http:/","http:","http","htp://","ttp://","htttp://","htpp://","http//","htt://","http:://","http:///","httpp://","hhttp://","htt:"]
+    // If necessary, trim extra back slash
+    var noSlashUrl: String = inputURL.last == "/" ? String(inputURL.dropLast()) : inputURL
+    if String(noSlashUrl.characters.prefix(7)).lowercased() == "http://" || String(noSlashUrl.characters.prefix(8)).lowercased() == "https://"{
+        if String(noSlashUrl.characters.prefix(8)).lowercased() != "http:///" {
+            return noSlashUrl
+        }
+    }
+    //search the first 8 - 4 charecters for matching mistypes and replace with http://
+    for i in (4...8).reversed() {
+        for item in mistypes{
+            if String(noSlashUrl.characters.prefix(i)).lowercased() == item {
+                let processedUrl = noSlashUrl.dropFirst(i)
+                return "http://\(processedUrl)"
+            }
+        }
+    }
+    //if no matching mistypes just add http:// to the front
+    return "http://\(noSlashUrl)"
 }
