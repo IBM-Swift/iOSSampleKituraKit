@@ -53,7 +53,6 @@ extension ViewController {
     // Read method to read a ToDo object from the server
     
     func read(Id: String) {
-        
         let encoded = Id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         let decoded = encoded.removingPercentEncoding
         guard let Id = decoded else {
@@ -127,7 +126,6 @@ extension ViewController {
     // Delete method to delete a ToDo object from the server
     
     func delete(url: String) {
-        
         let urlArray = url.split(separator: "/")
         guard let urlEndOfArray = urlArray.last else {return}
         guard let urlToSend = Int(urlEndOfArray) else{return}
