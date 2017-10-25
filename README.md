@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy">
+<a href="https://travis-ci.org/IBM-Swift/iOSSampleKituraKit">
     <img src="https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master" alt="Travis CI">
 </a>
 <a href= "http://swift-at-ibm-slack.mybluemix.net/"> 
