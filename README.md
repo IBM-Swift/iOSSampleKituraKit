@@ -6,7 +6,7 @@
 
 <p align="center">
 <a href="https://travis-ci.org/IBM-Swift/iOSSampleKituraKit">
-    <img src="https://travis-ci.org/IBM-Swift/iOSSampleKituraBuddy.svg?branch=master" alt="Travis CI">
+    <img src="https://travis-ci.org/IBM-Swift/iOSSampleKituraKit.svg?branch=master" alt="Travis CI">
 </a>
 <a href= "http://swift-at-ibm-slack.mybluemix.net/"> 
     <img src="http://swift-at-ibm-slack.mybluemix.net/badge.svg"  alt="Slack"> 
@@ -22,7 +22,7 @@ It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to
 
 If you would like to import KituraKit into your own iOS project please see [KituraKit iOS Import](http://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/KituraKit/README.md).
 
-### Quick Start for macOS*
+### Quick Start*
 
 1. Install [Xcode 9](https://itunes.apple.com/gb/app/xcode/id497799835) or later.
 
@@ -42,7 +42,7 @@ If you would like to import KituraKit into your own iOS project please see [Kitu
 
     `.build/x86_64-apple-macosx10.10/debug/ToDoServer`
 
-**Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md)
+**Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running. For more info on the Server component, [click here](https://github.com/IBM-Swift/iOSSampleKituraBuddy/blob/master/ToDoServer/README.md).
 
 6. Open new Terminal window to continue with the Quick Start. 
 
@@ -54,7 +54,7 @@ If you would like to import KituraKit into your own iOS project please see [Kitu
 
     `open iOSKituraKitSample.xcodeproj`
 
-A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/README.md)
+A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/README.md).
 
 8. Ensure that the Scheme in Xcode is set to the iOS Application. The Scheme selection is located along the top of the Xcode window next to the Run and Stop buttons. If you don't see a Kitura icon (white and blue) in the box next to the Stop button, click the icon that's there and select the App from the drop down menu.
 
@@ -62,4 +62,4 @@ A new Xcode window will open. For more info on the iOS app, [click here](https:/
 
 10. Press the Run button or ⌘+R. The project will build and the simulator will launch the application. Navigate your web browser to the address http://localhost:8080 to see an empty array. This is where ToDos made in the app are stored. As you add or delete elements in the app, this array will change.
 
-*Not available on other platforms due to the iOS App section of the project, which requires Xcode running on macOS.
+*The Kitura component can be run on Linux or macOS. Xcode is not required for running the Kitura server component (Xcode is only required for the iOS component).
