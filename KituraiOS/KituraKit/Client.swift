@@ -16,20 +16,24 @@
 
 import Foundation
 
+/// A client side library for using REST requests in a web application.
 public class KituraKit {
     
     public typealias SimpleClosure = (RequestError?) -> Void
     public typealias CodableClosure<O: Codable> = (O?, RequestError?) -> Void
     public typealias ArrayCodableClosure<O: Codable> = ([O]?, RequestError?) -> Void
     
+    /// Default URL used for setting up the routes when no URL is provided in the initializer.
     public static var defaultBaseURL: String = "http://localhost:8080"
+    
+    /// Default route used for setting up the paths based on the URL provided in the initializer.
     public static var `default`: KituraKit {
         get {
             return KituraKit(url: defaultBaseURL)
         }
     }
     
-    // Instance variables
+    /// Customisable URL used for setting up the routes when initializing a new KituraKit instance.
     public let baseURL: String
     
     // Initializers
@@ -37,41 +41,65 @@ public class KituraKit {
         self.baseURL = url
     }
     
+    /// An initializer to set up a custom KituraKit instance on a specified route.
+    /// - Parameter baseURL: The custom route KituraKit points to during REST requests.
     public init?(baseURL: String) {
         let checkedUrl = checkMistypedURL(inputURL: baseURL)
-        guard URL(string: checkedUrl) != nil else {
+        guard let _ = URL(string: checkedUrl) else {
             return nil
         }
         self.baseURL = checkedUrl
     }
     
-    
     // HTTP verb/action methods (basic type safe routing)
-    // GET - basic type safe routing
-    public func get<O: Codable>(_ route: String, resultHandler: @escaping ArrayCodableClosure<O>) {
+    
+    /// Retrieves data from a designated route.
+    ///
+    /// ### Usage Example: ###
+    /// ````
+    /// let client = KituraKit.default
+    /// client.get("/") { (returnedArray: [O]?, error: Error?) -> Void in
+    ///    print(returnedArray)
+    /// }
+    /// ````
+    /// * This declaration of get retrieves all items. There is another declaration for specific item retrieval.
+    ///
+    /// - Parameter route: The custom route KituraKit points to during REST requests.
+    public func get<O: Codable>(_ route: String, respondWith: @escaping ArrayCodableClosure<O>) {
         let url: String = baseURL + route
         let request = RestRequest(url: url)
         request.responseData { response in
             switch response.result {
             case .success(let data):
                 guard let items: [O] = try? JSONDecoder().decode([O].self, from: data) else {
-                    resultHandler(nil, RequestError.clientDeserializationError)
+                    respondWith(nil, RequestError.clientDeserializationError)
                     return
                 }
-                resultHandler(items, nil)
+                respondWith(items, nil)
             case .failure(let error):
                 Log.error("GET failure: \(error)")
                 if let restError = error as? RestError {
-                    resultHandler(nil, RequestError(restError: restError))
+                    respondWith(nil, RequestError(restError: restError))
                 } else {
-                    resultHandler(nil, .clientErrorUnknown)
+                    respondWith(nil, .clientErrorUnknown)
                 }
             }
         }
     }
     
-    // GET single - basic type safe routing
-    public func get<O: Codable>(_ route: String, identifier: Identifier, resultHandler: @escaping CodableClosure<O>) {
+    /// Retrieves data from a designated route with an Identifier.
+    ///
+    /// ### Usage Example: ###
+    /// ````
+    /// let client = KituraKit.default
+    /// client.get("/", identifier: Id) { (returnedItem: O?, error: Error?) -> Void in
+    ///     print(returnedItem)
+    /// }
+    /// ````
+    /// * This declaration of get retrieves single items. There is another declaration for all item retrieval.
+    /// - Parameter route: The custom route KituraKit points to during REST requests.
+    /// - Parameter identifier: The custom Identifier object that is searched for.
+    public func get<O: Codable>(_ route: String, identifier: Identifier, respondWith: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let request = RestRequest(url: url)
         
@@ -79,23 +107,33 @@ public class KituraKit {
             switch response.result {
             case .success(let data):
                 guard let items: O = try? JSONDecoder().decode(O.self, from: data) else {
-                    resultHandler(nil, RequestError.clientDeserializationError)
+                    respondWith(nil, RequestError.clientDeserializationError)
                     return
                 }
-                resultHandler(items, nil)
+                respondWith(items, nil)
             case .failure(let error):
                 Log.error("GET (single) failure: \(error)")
                 if let restError = error as? RestError {
-                    resultHandler(nil, RequestError(restError: restError))
+                    respondWith(nil, RequestError(restError: restError))
                 } else {
-                    resultHandler(nil, .clientErrorUnknown)
+                    respondWith(nil, .clientErrorUnknown)
                 }
             }
         }
     }
     
-    // POST - basic type safe routing
-    public func post<I: Codable, O: Codable>(_ route: String, data: I, resultHandler: @escaping CodableClosure<O>) {
+    /// Sends data to a designated route.
+    ///
+    /// ### Usage Example: ###
+    /// ````
+    /// let client = KituraKit.default
+    /// client.post("/", data: dataToSend) { (returnedItem: O?, error: Error?) -> Void in
+    ///     print(returnedItem)
+    /// }
+    /// ````
+    /// - Parameter route: The custom route KituraKit points to during REST requests.
+    /// - Parameter data: The custom Codable object passed in to be sent.
+    public func post<I: Codable, O: Codable>(_ route: String, data: I, respondWith: @escaping CodableClosure<O>) {
         let url: String = baseURL + route
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .post, url: url)
@@ -105,23 +143,35 @@ public class KituraKit {
             switch response.result {
             case .success(let data):
                 guard let item: O = try? JSONDecoder().decode(O.self, from: data) else {
-                    resultHandler(nil, RequestError.clientDeserializationError)
+                    respondWith(nil, RequestError.clientDeserializationError)
                     return
                 }
-                resultHandler(item, nil)
+                respondWith(item, nil)
             case .failure(let error):
                 Log.error("POST failure: \(error)")
                 if let restError = error as? RestError {
-                    resultHandler(nil, RequestError(restError: restError))
+                    respondWith(nil, RequestError(restError: restError))
                 } else {
-                    resultHandler(nil, .clientErrorUnknown)
+                    respondWith(nil, .clientErrorUnknown)
                 }
             }
         }
     }
     
-    // PUT - basic type safe routing
-    public func put<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
+    /// Updates data for a designated route using an Identifier.
+    ///
+    /// ### Usage Example: ###
+    /// ````
+    /// let client = KituraKit.default
+    /// client.put("/", identifier: Id, data: dataToSend) { (returnedItem: O?, error: Error?) -> Void in
+    ///     print(returnedItem)
+    /// }
+    /// ````
+    /// * This declaration uses the put method to update data.
+    /// - Parameter route: The custom route KituraKit points to during REST requests.
+    /// - Parameter identifier: The custom Identifier object that is searched for.
+    /// - Parameter data: The custom Codable object passed in to be sent.
+    public func put<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, respondWith: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .put, url: url)
@@ -131,23 +181,34 @@ public class KituraKit {
             switch response.result {
             case .success(let data):
                 guard let item: O = try? JSONDecoder().decode(O.self, from: data) else {
-                    resultHandler(nil, RequestError.clientDeserializationError)
+                    respondWith(nil, RequestError.clientDeserializationError)
                     return
                 }
-                resultHandler(item, nil)
+                respondWith(item, nil)
             case .failure(let error):
                 Log.error("PUT failure: \(error)")
                 if let restError = error as? RestError {
-                    resultHandler(nil, RequestError(restError: restError))
+                    respondWith(nil, RequestError(restError: restError))
                 } else {
-                    resultHandler(nil, .clientErrorUnknown)
+                    respondWith(nil, .clientErrorUnknown)
                 }
             }
         }
     }
     
-    // PATCH - basic type safe routing
-    public func patch<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, resultHandler: @escaping CodableClosure<O>) {
+    /// Updates data for a designated route using an Identifier.
+    ///
+    /// ### Usage Example: ###
+    /// ````
+    /// let client = KituraKit.default
+    /// client.patch("/", identifier: Id, data: dataToSend) { (returnedItem: O?, error: Error?) -> Void in
+    ///     print(returnedItem)
+    /// }
+    /// ````
+    /// * This declaration uses the patch method to update data.
+    /// - Parameter route: The custom route KituraKit points to during REST requests.
+    /// - Parameter identifier: The custom Identifier object that is searched for.
+    public func patch<I: Codable, O: Codable>(_ route: String, identifier: Identifier, data: I, respondWith: @escaping CodableClosure<O>) {
         let url: String = baseURL + route + "/\(identifier)"
         let encoded = try? JSONEncoder().encode(data)
         let request = RestRequest(method: .patch, url: url)
@@ -157,65 +218,91 @@ public class KituraKit {
             switch response.result {
             case .success(let data):
                 guard let item: O = try? JSONDecoder().decode(O.self, from: data) else {
-                    resultHandler(nil, RequestError.clientDeserializationError)
+                    respondWith(nil, RequestError.clientDeserializationError)
                     return
                 }
-                resultHandler(item, nil)
+                respondWith(item, nil)
             case .failure(let error):
                 Log.error("PATCH failure: \(error)")
                 if let restError = error as? RestError {
-                    resultHandler(nil, RequestError(restError: restError))
+                    respondWith(nil, RequestError(restError: restError))
                 } else {
-                    resultHandler(nil, .clientErrorUnknown)
+                    respondWith(nil, .clientErrorUnknown)
                 }
             }
         }
     }
     
-    // DELETE - basic type safe routing
-    public func delete(_ route: String, resultHandler: @escaping SimpleClosure) {
+    /// Deletes data at a designated route.
+    ///
+    /// ### Usage Example: ###
+    /// ````
+    /// let client = KituraKit.default
+    /// client.delete("/") { error in
+    ///     print("Successfully deleted")
+    /// }
+    /// ````
+    /// * This declaration of delete deletes all items. There is another declaration for single item deletion.
+    /// - Parameter route: The custom route KituraKit points to during REST requests.
+    public func delete(_ route: String, respondWith: @escaping SimpleClosure) {
         let url: String = baseURL + route
         let request = RestRequest(method: .delete, url: url)
         request.responseData { response in
             switch response.result {
             case .success:
-                resultHandler(nil)
+                respondWith(nil)
             case .failure(let error):
                 Log.error("DELETE failure: \(error)")
                 if let restError = error as? RestError {
-                    resultHandler(RequestError(restError: restError))
+                    respondWith(RequestError(restError: restError))
                 } else {
-                    resultHandler(.clientErrorUnknown)
+                    respondWith(.clientErrorUnknown)
                 }
             }
         }
     }
     
-    // DELETE single - basic type safe routing
-    public func delete(_ route: String, identifier: Identifier, resultHandler: @escaping SimpleClosure) {
+    /// Deletes data at a designated route using an Identifier.
+    ///
+    /// ### Usage Example: ###
+    /// ````
+    /// let client = KituraKit.default
+    /// client.delete("/", identifier: urlToSend) { error in
+    ///     print("Successfully deleted")
+    /// }
+    /// ````
+    /// * This declaration of delete deletes single items. There is another declaration for all item deletion.
+    /// - Parameter route: The custom route KituraKit points to during REST requests.
+    /// - Parameter identifier: The custom Identifier object that is searched for.
+    public func delete(_ route: String, identifier: Identifier, respondWith: @escaping SimpleClosure) {
         let url: String = baseURL + route + "/\(identifier)"
         let request = RestRequest(method: .delete, url: url)
         request.responseData { response in
             switch response.result {
             case .success:
-                resultHandler(nil)
+                respondWith(nil)
             case .failure(let error):
                 Log.error("DELETE failure: \(error)")
                 if let restError = error as? RestError {
-                    resultHandler(RequestError(restError: restError))
+                    respondWith(RequestError(restError: restError))
                 } else {
-                    resultHandler(.clientErrorUnknown)
+                    respondWith(.clientErrorUnknown)
                 }
             }
         }
     }
-    
-    //Check an input URL begins with http:// or https:// and fix common mistypes
 }
 
-private func checkMistypedURL(inputURL: String) -> String{
+/// Checks for mistyped URLs for the client route path.
+///
+/// ### Usage Example: ###
+/// ````
+/// let checkedUrl = checkMistypedURL(inputURL: baseURL)
+/// ````
+/// - Parameter inputURL: The string that is checked for mistypes.
+private func checkMistypedURL(inputURL: String) -> String {
     let mistypes = ["http:/","http:","http","htp://","ttp://","htttp://","htpp://","http//","htt://","http:://","http:///","httpp://","hhttp://","htt:"]
-    // If necessary, trim extra back slash
+    //if necessary, trim extra back slash
     var noSlashUrl: String = inputURL.last == "/" ? String(inputURL.dropLast()) : inputURL
     if String(noSlashUrl.characters.prefix(7)).lowercased() == "http://" || String(noSlashUrl.characters.prefix(8)).lowercased() == "https://"{
         if String(noSlashUrl.characters.prefix(8)).lowercased() != "http:///" {
@@ -234,3 +321,4 @@ private func checkMistypedURL(inputURL: String) -> String{
     //if no matching mistypes just add http:// to the front
     return "http://\(noSlashUrl)"
 }
+
