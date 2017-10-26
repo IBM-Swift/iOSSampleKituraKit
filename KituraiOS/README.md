@@ -6,7 +6,7 @@ This directory of the repo was created to store and demonstrate that the iOS com
 
 ### File Structure
 
-The file structure contains the iOS sample project along with KituraKit, which contains the relevant files needed within the app itself for type-safe routing.
+The file structure contains the iOS sample project along with KituraKit, which contains the relevant files needed within the app itself for Codable routing.
 
 #### KituraKit
 
