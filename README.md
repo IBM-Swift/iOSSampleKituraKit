@@ -22,7 +22,7 @@ It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to
 
 If you would like to import KituraKit into your own iOS project please see [KituraKit iOS Import](http://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/KituraKit/README.md).
 
-### Quick Start for macOS*
+### Quick Start*
 
 1. Install [Xcode 9](https://itunes.apple.com/gb/app/xcode/id497799835) or later.
 
@@ -62,4 +62,4 @@ A new Xcode window will open. For more info on the iOS app, [click here](https:/
 
 10. Press the Run button or ⌘+R. The project will build and the simulator will launch the application. Navigate your web browser to the address http://localhost:8080 to see an empty array. This is where ToDos made in the app are stored. As you add or delete elements in the app, this array will change.
 
-*Not available on other platforms due to the iOS App section of the project, which requires Xcode running on macOS.
+*The Kitura component can be run on Linux or macOS. Xcode is not required for running the Kitura server component (Xcode is only required for the iOS component).
