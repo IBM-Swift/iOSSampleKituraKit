@@ -16,7 +16,7 @@ Code Examples:
 
 `let options = Options(allowedOrigin: .all)` and `let cors = CORS(options: options)` allow CORS to work, which allows a testing suite called ToDo backend to run and test the server against some benchmarks.
 
-The handlers found after the `run()` method are leveraging type safe routing and closures to handle incoming requests and return values. For example, the following method receives no input parameters, but returns either an Array of ToDo Objects or a ProcessHandlerError. The question marks mean that they are optional, but one will always be given depending on the task: 
+The handlers found after the `run()` method are leveraging Codable routing and closures to handle incoming requests and return values. For example, the following method receives no input parameters, but returns either an Array of ToDo Objects or a ProcessHandlerError. The question marks mean that they are optional, but one will always be given depending on the task: 
 
 ```swift 
 func getAllHandler(completion: ([ToDo]?, ProcessHandlerError?) -> Void ) -> Void {        completion(todoStore, nil) }
