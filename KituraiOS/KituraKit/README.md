@@ -76,15 +76,15 @@ To update your version of KituraKit you must first delete the Previous KituraKit
 
 3. Open the left menu pane and delete the KituraKit Target
 
-4. <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/DeleteKituraKitTarget.png" width="300" alt="Delete KituraKit Target">
+   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/DeleteKituraKitTarget.png" width="300" alt="Delete KituraKit Target">
 
-5. Open finder and Ensure the KituraKit folder has been deleted from your project files. If it is still there, delete it.
+4. Open finder and Ensure the KituraKit folder has been deleted from your project files. If it is still there, delete it.
 
    <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/DeleteKituraKitFolder.png" width="500" alt="Delete KituraKit Folder">
 
-6. To update from a new zip folder go to "Importing KituraKit to an Xcode Project" and follow those steps with the updated KituraKit
+5. To update from a new zip folder go to "Importing KituraKit to an Xcode Project" and follow those steps with the updated KituraKit
 
-7. To update files manually continue to Updating Files in KituraKit iOS Import
+6. To update files manually continue to Updating Files in KituraKit iOS Import
 
 ### Updating Files in KituraKit iOS Import
 
