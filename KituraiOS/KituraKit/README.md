@@ -6,7 +6,7 @@ This folder contains the Swift code from [KituraKit](https://github.com/IBM-Swif
 
 #### KituraKit
 
-Client.swift, PersistableExtension.swift are taken from the sources files folder of the [KituraKit](https://github.com/IBM-Swift/KituraBuddy) repository with their import statements removed.
+Client.swift and RequestErrorExtension.swift are taken from the sources files folder of the [KituraKit](https://github.com/IBM-Swift/KituraBuddy) repository with their import statements removed.
 
 #### KituraKit dependencies
 
