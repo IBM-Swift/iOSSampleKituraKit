@@ -6,7 +6,7 @@ This folder contains the Swift code from [KituraKit](https://github.com/IBM-Swif
 
 #### KituraKit
 
-Client.swift, PersistableExtension.swift and ProcesshandlerErrorExtension.swift are all taken from the sources files folder of the [KituraKit](https://github.com/IBM-Swift/KituraBuddy) repository with their import statements removed.
+Client.swift, PersistableExtension.swift are taken from the sources files folder of the [KituraKit](https://github.com/IBM-Swift/KituraBuddy) repository with their import statements removed.
 
 #### KituraKit dependencies
 
@@ -50,7 +50,7 @@ Their source folders (with imports removed) have been added inside this KituraKi
 
    <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddFilesToiOSImport.png" width="300" alt="Add Files To iOSImport">
 
-11. A menu inside KituraKit should appear. Click options, Ensure Copy Items if needed is ticked and create groups is selected. In add to targets only "project name" should be ticked
+11. A menu inside KituraKit should appear. **Click options**, Ensure Copy Items if needed is ticked and create groups is selected. In add to targets only "project name" should be ticked
 
     <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddFilesOptions.png" width="500" alt="Add Files Options">
 
