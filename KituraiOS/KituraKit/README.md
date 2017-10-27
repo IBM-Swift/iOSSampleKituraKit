@@ -22,47 +22,29 @@ Their source folders (with imports removed) have been added inside this KituraKi
 
 2. Extract the files from the Zip folder.
 
-3. Drag the "KituraKit" folder from the finder into your Xcode project just below your xCode Project file.
+3. Open your Xcode project and click File -> New -> Target
 
-4. A menu stating "Choose options for adding these files" should appear. Tick "copy items if needed", select "Create groups" and in add to target make sure your app is ticked.
-
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddingFilesToXcode.png" width="400" alt="Adding Files To Xcode">
-
-5. Click on the folder and check the folder is yellow and the path in the right panel includes your project. If the path is incorrect go to "Updating KituraKit in an Xcode Project"
-
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/FirstFileStructure.png" width="200" alt="First File Structure">
-
-6. In Xcode click File -> New -> Target
-
-7. Scroll to the bottom and select Cocoa Touch Framework
+4. Scroll to the bottom and select Cocoa Touch Framework
 
    <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddCocoaFramework.png" width="500" alt="Add Cocoa Framework">
 
-8. Set product name to be "KituraKit", language to be Swift, Project to be your application and Embed in Application to be your application.
+5. Set product name to be "KituraKit", language to be Swift, Project to be your application and Embed in Application to be your application.
 
    <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/OptionsForAddFramework.png" width="400" alt="Options For Adding Framework">
 
-9. You should now see a second KituraKit folder with two files and KituraKit.framework Inside the Products folder
+6. in Xcode click on your project at the top of your file structure, click File -> add files to "project name"
 
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/FileStructureWithFramework.png" width="200" alt="File Structure With Framework">
+   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddFilesToProject.png" width="250" alt="Add files To Project">
 
-10.  Right click on the KituraKit folder containing all the KituraKit swift files and click "Add files to "project name"
+7. in your finder go to where you unziped the kituraKit Folder, Select it, **click on options**, make sure Copy Items if needed, Create groups and add to targets KituraKit are selected. Add to targets ImportForiOS should **not** be selected
 
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddFilesToiOSImport.png" width="300" alt="Add Files To iOSImport">
+   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/OptionsForAddFiles.png" width="400" alt="Options For Add Files">
 
-11. A menu inside KituraKit should appear. **Click options**, Ensure Copy Items if needed is ticked and create groups is selected. In add to targets only "project name" should be ticked
+8. Your final structure should then look like below. 
 
-    <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddFilesOptions.png" width="500" alt="Add Files Options">
+   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/FinalFileStructure.png" width="200" alt="Final File Structure">
 
-12. The final structure should look like the one below. 
-
-    <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/CompletedFileStructure.png" width="200" alt="Completed File Structure">
-
-    ​
-
-    You can now use KituraKit by adding `import KituraKit` to the imports section for your project files.
-
-
+You can now use KituraKit by adding `import KituraKit` to the imports section for your project files.
 
 ### Updating KituraKit in an Xcode Project
 
@@ -86,7 +68,7 @@ To update your version of KituraKit you must first delete the Previous KituraKit
 
 6. To update files manually continue to Updating Files in KituraKit iOS Import
 
-### Updating Files in KituraKit iOS Import
+### Updating Files in KituraKit Bundle For iOS Import
 
 To update files in this zip folder:
 
