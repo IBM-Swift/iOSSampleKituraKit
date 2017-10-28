@@ -3,4 +3,6 @@ ToDoServer/config/localdev-config.json
 ToDoServer/.build/*
 ToDoServer/.build-ubuntu/*
 ToDoServer/ToDoServer.xcodeproj/*
+KituraiOS/iOSKituraKitSample.xcodeproj/xcuserdata/*
+KituraiOS/iOSKituraKitSample.xcodeproj/project.xcworkspace/xcuserdata/*
 

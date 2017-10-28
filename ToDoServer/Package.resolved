@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "CEpoll",
+        "repositoryURL": "https://github.com/IBM-Swift/CEpoll.git",
+        "state": {
+          "branch": null,
+          "revision": "7b65f0adfe5a1f36fc16b16760f5f99cfd3a4e1a",
+          "version": "0.1.1"
+        }
+      },
+      {
         "package": "CloudEnvironment",
         "repositoryURL": "https://github.com/IBM-Swift/CloudEnvironment.git",
         "state": {
@@ -77,9 +86,18 @@
         "package": "Kitura",
         "repositoryURL": "https://github.com/IBM-Swift/Kitura.git",
         "state": {
-          "branch": "issue.swift4",
-          "revision": "e59eb55bfe64912222a3301f90cd8ee368910442",
-          "version": null
+          "branch": null,
+          "revision": "744a8fbc25a94f598d77662fd71eaa25d789c3fe",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "Kitura-net",
+        "repositoryURL": "https://github.com/IBM-Swift/Kitura-net.git",
+        "state": {
+          "branch": null,
+          "revision": "e04ee59e93b72ffb19c730d80dac4e15d060a5da",
+          "version": "1.7.18"
         }
       },
       {
@@ -101,12 +119,12 @@
         }
       },
       {
-        "package": "Kitura-net",
-        "repositoryURL": "https://github.com/IBM-Swift/Kitura-net.git",
+        "package": "KituraContracts",
+        "repositoryURL": "https://github.com/IBM-Swift/KituraContracts.git",
         "state": {
           "branch": null,
-          "revision": "e04ee59e93b72ffb19c730d80dac4e15d060a5da",
-          "version": "1.7.18"
+          "revision": "60ad79cfffeeb9693f53dd68067783d4fde5dc4d",
+          "version": "0.0.14"
         }
       },
       {
@@ -114,17 +132,8 @@
         "repositoryURL": "https://github.com/IBM-Swift/Kitura-CORS",
         "state": {
           "branch": null,
-          "revision": "4f07b281ce3672ea77f8bee252b74cad108459df",
-          "version": "1.7.0"
-        }
-      },
-      {
-        "package": "KituraContracts",
-        "repositoryURL": "https://github.com/IBM-Swift/KituraContracts.git",
-        "state": {
-          "branch": "master",
-          "revision": "0877fda2de0c4c53099471e354c3e365d86dad6f",
-          "version": null
+          "revision": "2a7b8ca909b13ae660792c741958b6972e402943",
+          "version": "2.0.0"
         }
       },
       {
@@ -146,12 +155,30 @@
         }
       },
       {
-        "package": "SSLService",
-        "repositoryURL": "https://github.com/IBM-Swift/BlueSSLService.git",
+        "package": "omr-agentcore",
+        "repositoryURL": "https://github.com/RuntimeTools/omr-agentcore",
         "state": {
           "branch": null,
-          "revision": "40e5da2ce74a50faeebd45e2dcf83972b6718623",
-          "version": "0.12.62"
+          "revision": "5a2361ba1f005596a2bfa28de76ed4acf1e71c33",
+          "version": "3.2.4-swift4"
+        }
+      },
+      {
+        "package": "OpenSSL",
+        "repositoryURL": "https://github.com/IBM-Swift/OpenSSL.git",
+        "state": {
+          "branch": null,
+          "revision": "95c405c18a071a1c13616e984ba1b3c6091ca6ca",
+          "version": "0.3.7"
+        }
+      },
+      {
+        "package": "Signals",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueSignals.git",
+        "state": {
+          "branch": null,
+          "revision": "0fab5a9f166e96f17bb9646dc56cd22a6f3c3757",
+          "version": "0.9.50"
         }
       },
       {
@@ -159,17 +186,26 @@
         "repositoryURL": "https://github.com/IBM-Swift/BlueSocket.git",
         "state": {
           "branch": null,
-          "revision": "badbf15cb8ea1ca6df5458f1472d84f1e070f7a7",
-          "version": "0.12.74"
+          "revision": "00b126a2c19520bbf51cd26e8c0cc41dacbc5a05",
+          "version": "0.12.76"
+        }
+      },
+      {
+        "package": "SSLService",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueSSLService.git",
+        "state": {
+          "branch": null,
+          "revision": "7adf7cacc447d447df5dcc3058cabd402177c5aa",
+          "version": "0.12.64"
         }
       },
       {
         "package": "SwiftMetrics",
         "repositoryURL": "https://github.com/RuntimeTools/SwiftMetrics.git",
         "state": {
-          "branch": "swift4",
-          "revision": "e124cff8ab2e2ecdc90ea626d59cf3f723a95f1f",
-          "version": null
+          "branch": null,
+          "revision": "3400f9837b60b20b0de00e940d41409077d7cf88",
+          "version": "2.0.0"
         }
       },
       {
@@ -179,15 +215,6 @@
           "branch": null,
           "revision": "1190845cf7d25a5c8ea7653fe03dcdd39a082056",
           "version": "17.0.0"
-        }
-      },
-      {
-        "package": "omr-agentcore",
-        "repositoryURL": "https://github.com/RuntimeTools/omr-agentcore",
-        "state": {
-          "branch": null,
-          "revision": "5a2361ba1f005596a2bfa28de76ed4acf1e71c33",
-          "version": "3.2.4-swift4"
         }
       }
     ]
