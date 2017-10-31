@@ -2,7 +2,7 @@
 
 ### File Structure
 
-This folder contains the Swift code from [KituraKit](https://github.com/IBM-Swift/KituraBuddy) and the code for its dependencies to make a single module for importing into an iOS project. Swift Package Manager is not currently supported in iOS, these instructions provide a workaround so you can easily use KituraKit in iOS.
+This folder contains the Swift code from [KituraKit](https://github.com/IBM-Swift/KituraBuddy) and the code for its dependencies to make a single module for importing into an iOS project. Swift Package Manager is not currently supported in iOS, so we have provided instructions for use with CocoaPods. 
 
 #### KituraKit
 
@@ -16,62 +16,35 @@ KituraKit depends on the following four modules:
 
 Their source folders (with imports removed) have been added inside this KituraKit folder. This allows KituraKit to use them without needing additional imports.
 
-### Importing KituraKit to an Xcode Project
+### Importing KituraKit to an Xcode Project using CocoaPods
 
-1. Download KituraKit For iOS import from [KituraKit releases](https://github.com/IBM-Swift/KituraBuddy/releases). This should be a zipped binary file containing KituraKit, It's dependencies and this readme.
+1. Download KituraKit from [KituraKit releases](https://github.com/IBM-Swift/KituraBuddy/releases).
 
-2. Extract the files from the Zip folder.
+2. Extract the files from the Zip folder into your app, this can be anywhere as long as the KituraKit directory exists in your app. This is becuase the Podfile we'll create later will use these local files and you'll need to provide a path to them. 
 
-3. Open your Xcode project and click File -> New -> Target
+3. Open a terminal and navigate to the root of your iOS application (where the .xcodeproj is).
 
-4. Scroll to the bottom and select Cocoa Touch Framework
+4. Run the `pod init` command in the terminal. This will create a Podfile in the current directory. 
 
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddCocoaFramework.png" width="500" alt="Add Cocoa Framework">
+5. Open the Podfile using your preferred text editor. 
 
-5. Set product name to be "KituraKit", language to be Swift, Project to be your application and Embed in Application to be your application.
+6. You may need to set a global platform of iOS 11 for your project if your app has a deployment target of 11. To do so uncomment # platform :ios, '9.0' and set the value to 11.0
 
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/OptionsForAddFramework.png" width="400" alt="Options For Adding Framework">
+7. Under the line "# Pods for <Your-App-Name>". Add the following: 
+`pod 'KituraKit', :path => ‘<Path-To-Your-KituraKit-Directory>’`
 
-6. in Xcode click on your project at the top of your file structure, click File -> add files to "project name"
+8. In the terminal run `pod install` this will install the KituraKit pod, and also generate you an xcodeworkspace. 
 
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/AddFilesToProject.png" width="250" alt="Add files To Project">
-
-7. in your finder go to where you unziped the kituraKit Folder, Select it, **click on options**, make sure Copy Items if needed, Create groups and add to targets KituraKit are selected. Add to targets ImportForiOS should **not** be selected
-
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/OptionsForAddFiles.png" width="400" alt="Options For Add Files">
-
-8. Your final structure should then look like below. 
-
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/FinalFileStructure.png" width="200" alt="Final File Structure">
+9. If you had your app open in Xcode as an Xcode project you need to close that and open the Xcode workspace. 
 
 You can now use KituraKit by adding `import KituraKit` to the imports section for your project files.
 
-### Updating KituraKit in an Xcode Project
+### Updating KituraKit
 
 To update your version of KituraKit you must first delete the Previous KituraKit.
 
-1. Inside Xcode delete both KituraKit Folders
+1. Download the version of [KituraKit](https://github.com/IBM-Swift/KituraBuddy) you want to update to. 
 
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/DeleteKituraKitFolders.png" width="300" alt="Delete KituraKit Folders">
+2. Extract the files from the KituraKit.zip you've just downloaded.
 
-2. Select your project from the top of the folders pane
-
-3. Open the left menu pane and delete the KituraKit Target
-
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/DeleteKituraKitTarget.png" width="300" alt="Delete KituraKit Target">
-
-4. Open finder and Ensure the KituraKit folder has been deleted from your project files. If it is still there, delete it.
-
-   <img src="https://raw.githubusercontent.com/IBM-Swift/iOSSampleKituraKit/master/KituraiOS/KituraKit/ScreenshotsForReadmes/DeleteKituraKitFolder.png" width="500" alt="Delete KituraKit Folder">
-
-5. To update from a new zip folder go to "Importing KituraKit to an Xcode Project" and follow those steps with the updated KituraKit
-
-6. To update files manually continue to Updating Files in KituraKit iOS Import
-
-### Updating Files in KituraKit Bundle For iOS Import
-
-To update files in this zip folder:
-
-1. Get desired files from the sources folder of [KituraKit](http://github.com/IBM-Swift/KituraKit/tree/master/Sources/KituraKit), [CircuitBreaker](http://github.com/IBM-Swift/tree/master/Sources/CircuitBreaker), [LoggerAPI](http://github.com/IBM-Swift/LoggerAPI/tree/master/Sources/LoggerAPI), [KituraContracts](http://github.com/IBM-Swift/KituraContracts/tree/master/Sources/KituraContracts) and [SwiftyRequest](http://github.com/IBM-Swift/tree/master/Sources/SwiftyRequest)
-2. Remove any import lines from new .swift files in KituraKit, SwiftyRequest and CircuitBreaker
-3. Reimport your files following "Updating KituraKit in an Xcode Project"
+3. Replace the current KituraKit directory found in your app with the newly extracted one. 
