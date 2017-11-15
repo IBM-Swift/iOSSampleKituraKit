@@ -63,8 +63,22 @@ public class Application {
     }
     
     public func run() throws{
+        #if os(Linux)
+            let myCertFile = "/Users/shihab.mehboob1@ibm.com/Documents/KituraSample/iOSSampleKituraKit/ToDoServer/Sources/Application/Creds/cert.pem"
+            let myKeyFile = "/Users/shihab.mehboob1@ibm.com/Documents/KituraSample/iOSSampleKituraKit/ToDoServer/Sources/Application/Creds/key.pem"
+            let mySSLConfig =  SSLConfig(withCACertificateDirectory: nil,
+                                         usingCertificateFile: myCertFile,
+                                         withKeyFile: myKeyFile,
+                                         usingSelfSignedCerts: true)
+        #else
+            let myCertKeyFile = "/Users/shihab.mehboob1@ibm.com/Documents/KituraSample/iOSSampleKituraKit/ToDoServer/Sources/Application/Creds/cert.pfx"
+            let mySSLConfig =  SSLConfig(withChainFilePath: myCertKeyFile,
+                                         withPassword: "password",
+                                         usingSelfSignedCerts: true)
+        #endif
+        
         try postInit()
-        Kitura.addHTTPServer(onPort: port, with: router)
+        Kitura.addHTTPServer(onPort: port, with: router, withSSL: mySSLConfig)
         Kitura.run()
     }
     
@@ -76,7 +90,7 @@ public class Application {
         let id = nextId
         nextId += 1
         todo.id = id
-        todo.url = "http://localhost:8080/\(id)"
+        todo.url = "https://localhost:8080/\(id)"
         todoStore.append(todo)
         completion(todo, nil)
     }
