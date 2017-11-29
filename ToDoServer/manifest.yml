@@ -4,6 +4,6 @@ applications:
   timeout: 180
   name: iOSSampleKituraBuddy
   buildpack: swift_buildpack
-  command: iOSSampleKituraBuddy
+  command: ToDoServer
   memory: 128M
   random-route: true

@@ -25,7 +25,7 @@ import Health
 
 public let projectPath = ConfigurationManager.BasePath.project.path
 public let health = Health()
-public var port: Int = 8080
+public var port: Int = 8090
 
 public class Application {
     
