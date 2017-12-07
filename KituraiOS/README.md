@@ -10,7 +10,7 @@ The file structure contains the iOS sample project along with KituraKit, which c
 
 #### KituraKit
 
-This folder contains the client library for Kitura, which has further dependancies that are necessary to the functionality of the app. For more information on KituraKit, [click here](https://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/KituraKit/README.md)
+This folder contains the client library for Kitura, which has further dependancies that are necessary to the functionality of the app. For more information on KituraKit, [click here](https://github.com/IBM-Swift/KituraKit/blob/master/README.md)
 
 #### iOS Sample KituraKit
 
