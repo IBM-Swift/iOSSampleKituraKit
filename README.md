@@ -14,7 +14,7 @@
 </p>
 
 
-[Kituta is a lightweight and simple web framework](http://kitura.io) that makes it easy to set up complex web routes for web services and applications. 
+[Kitura is a lightweight and simple web framework](http://kitura.io) that makes it easy to set up complex web routes for web services and applications. 
 
 ToDo List demonstrates how Kitura 2s new Codable Routing features can help developers leverage Swift 4's Codable protocol and write code that works on both the front and back end. A new client library is used in the app called [KituraKit](https://github.com/IBM-Swift/KituraBuddy), which is open source so feel free to contribute! 
 
