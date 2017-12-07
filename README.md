@@ -20,7 +20,7 @@ ToDo List demonstrates how Kitura 2s new Codable Routing features can help devel
 
 It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to showcase the power of Kitura 2 and its API.
 
-If you would like to import KituraKit into your own iOS project please see [How to Import KituraKit to an iOS Project](http://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/KituraKit/README.md).
+If you would like to import KituraKit into your own iOS project please see [KituraKit Usage](https://github.com/IBM-Swift/KituraKit/blob/master/README.md).
 
 ### Quick Start*
 
