@@ -1,0 +1,818 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07DEEEC79D88061A6F4CE4BF1E494B16 /* RestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4774DFA8C872FA23456520B2C39D5A5E /* RestUtilities.swift */; };
+		083DCE10FE1B8407F2EEE98A9D071334 /* PersistableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DFD0AAA24D13DC1157B337BDB6782 /* PersistableExtension.swift */; };
+		0AA8194E4F8BE23DCA0E3AB895D75755 /* Contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C6F0F36012B180C07AB74FC237372D /* Contracts.swift */; };
+		307295E63068D80D0AD6674CC9E5FD9D /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E9B4260D6A838E7954C13487206F5 /* StringExtensions.swift */; };
+		32484A2E2304046AF2F4DF4B1A2A3F42 /* RestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF9B1E2BEF98B7CAD0CD2C9DFE2D73D /* RestToken.swift */; };
+		3B18737E04C123C1D910457428110163 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		3C335D52DC3D9CB29E094FA4D8E8A870 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF8992051519EC30613C6A9D6FF636 /* RestRequest.swift */; };
+		501240F7917C8CF8BFAE43485A225A9E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5737706F32C78C529C9B6278780685 /* Utils.swift */; };
+		606AACB40C60F8725BB7702619F9ECC9 /* ClousureAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D33AF625C776622D58CE530416BC6 /* ClousureAliases.swift */; };
+		618561442A874611B303E0779C20CC54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		6E05A88DAC36EC5FEC7D593577351374 /* CircuitBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4510B1636E6D7889FEFA70BE21F72A1 /* CircuitBreaker.swift */; };
+		84BF6DC52E9FB7ECA5420E90259A7BB5 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA5967923E6A72D0E72F326A63EA0B /* HTTPMethod.swift */; };
+		90B4C3797E435046DA894C15DF12A6DD /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48789A2E5489411C5C157A7F18983F32 /* JSON.swift */; };
+		97276EAD6BA4D8CEE4DCBB804139A2F0 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D0CF01C6ACCA102D46FE2CB03E3DD /* Stats.swift */; };
+		982CE6087248425316834425915A0D91 /* KituraKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9CA6F9931752CD6DD5049C1027938 /* KituraKit-dummy.m */; };
+		9AA7CA2EC274B2C34064B5B0C1DF7081 /* KituraKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E800AD3E59A45A3BF837ED520C4B98 /* KituraKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0CBD160867A844926264A7F7C48E2E7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D9B6A59042E485E87B679037630D01 /* Logger.swift */; };
+		B2CE1745602B283073C94C72CB6839E1 /* Pods-iOSKituraKitSampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3724B62C35C5542E5B033F5C595F474 /* Pods-iOSKituraKitSampleTests-dummy.m */; };
+		B61D9D5892BE6DF927D56CF1EB357D73 /* Pods-iOSKituraKitSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F0305E20CA1A12C4D5F3071DD91ED08 /* Pods-iOSKituraKitSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C086CD303523B672C8F4DC6838ED1F51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C1900B5FCE91AD3EB776D2FC76C426DE /* Pods-iOSKituraKitSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD2D755C24ACCD8DE6525C40CE1974C /* Pods-iOSKituraKitSample-dummy.m */; };
+		C59E4C499D87B51A03DCEF43EB8C799A /* RequestErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB273AEF486B6F631B989A1C6C6442 /* RequestErrorExtension.swift */; };
+		C8E2A04885008D4020DA7D5B3FA75290 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D4692C09D5F592BCB1BEC5F758750 /* Client.swift */; };
+		E0549C4E979703BCEA7B27F6CA7161D3 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539DEE982EE5D713802380648362C74E /* MultipartFormData.swift */; };
+		F9DEB7619B11361834CDD2B3F070597A /* Pods-iOSKituraKitSampleTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E2831515492E9B02F908B3E9C765C3A0 /* Pods-iOSKituraKitSampleTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36B4A98CCF36D940245C1B32C8516248 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F4B09F028C180F8C50379438AABB868;
+			remoteInfo = KituraKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A80F5C80BD3F28C382A9EEC076CCE07 /* KituraKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KituraKit-prefix.pch"; sourceTree = "<group>"; };
+		0DB9CA6F9931752CD6DD5049C1027938 /* KituraKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KituraKit-dummy.m"; sourceTree = "<group>"; };
+		0DF9B1E2BEF98B7CAD0CD2C9DFE2D73D /* RestToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestToken.swift; path = Sources/KituraKit/SwiftyRequest/RestToken.swift; sourceTree = "<group>"; };
+		12D9B6A59042E485E87B679037630D01 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Sources/KituraKit/LoggerAPI/Logger.swift; sourceTree = "<group>"; };
+		170D4692C09D5F592BCB1BEC5F758750 /* Client.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Sources/KituraKit/Client.swift; sourceTree = "<group>"; };
+		2EAB273AEF486B6F631B989A1C6C6442 /* RequestErrorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestErrorExtension.swift; path = Sources/KituraKit/RequestErrorExtension.swift; sourceTree = "<group>"; };
+		357E0DCDC0C98932E09A42889BEEF2AC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C0667FC482F6ABC450FAF25A5712736 /* Pods-iOSKituraKitSample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSKituraKitSample-resources.sh"; sourceTree = "<group>"; };
+		42E800AD3E59A45A3BF837ED520C4B98 /* KituraKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KituraKit-umbrella.h"; sourceTree = "<group>"; };
+		4774DFA8C872FA23456520B2C39D5A5E /* RestUtilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestUtilities.swift; path = Sources/KituraKit/SwiftyRequest/RestUtilities.swift; sourceTree = "<group>"; };
+		48789A2E5489411C5C157A7F18983F32 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/KituraKit/SwiftyRequest/JSON.swift; sourceTree = "<group>"; };
+		50C6F0F36012B180C07AB74FC237372D /* Contracts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Contracts.swift; path = Sources/KituraKit/KituraContracts/Contracts.swift; sourceTree = "<group>"; };
+		539DEE982EE5D713802380648362C74E /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Sources/KituraKit/SwiftyRequest/MultipartFormData.swift; sourceTree = "<group>"; };
+		5AD0D1D511D5BC940779A20EF445043B /* Pods_iOSKituraKitSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iOSKituraKitSample.framework; path = "Pods-iOSKituraKitSample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E4E9B4260D6A838E7954C13487206F5 /* StringExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Sources/KituraKit/SwiftyRequest/StringExtensions.swift; sourceTree = "<group>"; };
+		604D0CF01C6ACCA102D46FE2CB03E3DD /* Stats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stats.swift; path = Sources/KituraKit/CircuitBreaker/Stats.swift; sourceTree = "<group>"; };
+		623290AD79A9A1667CB53E6E8FEBB7FA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		691EC53FA8FE64FA082F37F26C1E8967 /* Pods-iOSKituraKitSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSKituraKitSample-frameworks.sh"; sourceTree = "<group>"; };
+		6BCD466BDC97ADEA3E1899E3E48FF12D /* Pods-iOSKituraKitSampleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSKituraKitSampleTests-frameworks.sh"; sourceTree = "<group>"; };
+		794A3C70B4FED3F454DCD988EE92CC9C /* KituraKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KituraKit.framework; path = KituraKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AD2D755C24ACCD8DE6525C40CE1974C /* Pods-iOSKituraKitSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOSKituraKitSample-dummy.m"; sourceTree = "<group>"; };
+		7C5737706F32C78C529C9B6278780685 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Sources/KituraKit/CircuitBreaker/Utils.swift; sourceTree = "<group>"; };
+		7EF6B14BDAD5E044E620BC89D463732B /* Pods-iOSKituraKitSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKituraKitSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		864C2C8312DFECCBB447346FC15DDD1A /* Pods-iOSKituraKitSampleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSKituraKitSampleTests-resources.sh"; sourceTree = "<group>"; };
+		8F0305E20CA1A12C4D5F3071DD91ED08 /* Pods-iOSKituraKitSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOSKituraKitSample-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D631C6CEB81132AAE26C752F7437D75 /* Pods-iOSKituraKitSampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOSKituraKitSampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9F9D28CE24F6631F9B1CA073D41FAAA0 /* Pods_iOSKituraKitSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iOSKituraKitSampleTests.framework; path = "Pods-iOSKituraKitSampleTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17DFD0AAA24D13DC1157B337BDB6782 /* PersistableExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistableExtension.swift; path = Sources/KituraKit/PersistableExtension.swift; sourceTree = "<group>"; };
+		A397F64819D2840F6B42EE9A2551A4FB /* Pods-iOSKituraKitSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKituraKitSampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		AECAC98E64F0C727FCF1A55483240FEA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B67D33AF625C776622D58CE530416BC6 /* ClousureAliases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ClousureAliases.swift; path = Sources/KituraKit/KituraContracts/ClousureAliases.swift; sourceTree = "<group>"; };
+		C015AE03A100FAD038B264A200E3C7E5 /* Pods-iOSKituraKitSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOSKituraKitSample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C0CF5F02B8578B531DC6BBEF6FD53800 /* Pods-iOSKituraKitSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKituraKitSample.release.xcconfig"; sourceTree = "<group>"; };
+		C4510B1636E6D7889FEFA70BE21F72A1 /* CircuitBreaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircuitBreaker.swift; path = Sources/KituraKit/CircuitBreaker/CircuitBreaker.swift; sourceTree = "<group>"; };
+		C5B5F02D9CE613494CC7327A2A0B7C9A /* Pods-iOSKituraKitSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOSKituraKitSample-acknowledgements.plist"; sourceTree = "<group>"; };
+		CEDF8992051519EC30613C6A9D6FF636 /* RestRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestRequest.swift; path = Sources/KituraKit/SwiftyRequest/RestRequest.swift; sourceTree = "<group>"; };
+		D3724B62C35C5542E5B033F5C595F474 /* Pods-iOSKituraKitSampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOSKituraKitSampleTests-dummy.m"; sourceTree = "<group>"; };
+		D622FB2C2CD2CA068E4FD527AC23BAFF /* Pods-iOSKituraKitSampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOSKituraKitSampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DD9292E7FFA3509BA4E0C1E69B11BDF4 /* Pods-iOSKituraKitSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKituraKitSample.debug.xcconfig"; sourceTree = "<group>"; };
+		E1C7AE43F45C3FCCCCB3F3AC0EBABDD0 /* KituraKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KituraKit.modulemap; sourceTree = "<group>"; };
+		E2831515492E9B02F908B3E9C765C3A0 /* Pods-iOSKituraKitSampleTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOSKituraKitSampleTests-umbrella.h"; sourceTree = "<group>"; };
+		E6BA5967923E6A72D0E72F326A63EA0B /* HTTPMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/KituraKit/SwiftyRequest/HTTPMethod.swift; sourceTree = "<group>"; };
+		F0481A698DF5451A1487DDF5B5DF7C75 /* Pods-iOSKituraKitSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-iOSKituraKitSample.modulemap"; sourceTree = "<group>"; };
+		FD80953A0DB1C3387B7B88D09E590880 /* Pods-iOSKituraKitSampleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-iOSKituraKitSampleTests.modulemap"; sourceTree = "<group>"; };
+		FDB7DB83B8DE227209EA8CC7AB92288D /* KituraKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KituraKit.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DD8A068A2B89E76589FC6539DE30557 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				618561442A874611B303E0779C20CC54 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6422AF32C794DA21EBF8AD01CB41EB81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C086CD303523B672C8F4DC6838ED1F51 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65FA21D4A7072B1483D366A63CADFB20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B18737E04C123C1D910457428110163 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0806802DF66361FB5B996097CC634FDC /* Pods-iOSKituraKitSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				AECAC98E64F0C727FCF1A55483240FEA /* Info.plist */,
+				FD80953A0DB1C3387B7B88D09E590880 /* Pods-iOSKituraKitSampleTests.modulemap */,
+				9D631C6CEB81132AAE26C752F7437D75 /* Pods-iOSKituraKitSampleTests-acknowledgements.markdown */,
+				D622FB2C2CD2CA068E4FD527AC23BAFF /* Pods-iOSKituraKitSampleTests-acknowledgements.plist */,
+				D3724B62C35C5542E5B033F5C595F474 /* Pods-iOSKituraKitSampleTests-dummy.m */,
+				6BCD466BDC97ADEA3E1899E3E48FF12D /* Pods-iOSKituraKitSampleTests-frameworks.sh */,
+				864C2C8312DFECCBB447346FC15DDD1A /* Pods-iOSKituraKitSampleTests-resources.sh */,
+				E2831515492E9B02F908B3E9C765C3A0 /* Pods-iOSKituraKitSampleTests-umbrella.h */,
+				7EF6B14BDAD5E044E620BC89D463732B /* Pods-iOSKituraKitSampleTests.debug.xcconfig */,
+				A397F64819D2840F6B42EE9A2551A4FB /* Pods-iOSKituraKitSampleTests.release.xcconfig */,
+			);
+			name = "Pods-iOSKituraKitSampleTests";
+			path = "Target Support Files/Pods-iOSKituraKitSampleTests";
+			sourceTree = "<group>";
+		};
+		19EEBB88B8BA7894FC6BBC63F232EA02 /* Pods-iOSKituraKitSample */ = {
+			isa = PBXGroup;
+			children = (
+				623290AD79A9A1667CB53E6E8FEBB7FA /* Info.plist */,
+				F0481A698DF5451A1487DDF5B5DF7C75 /* Pods-iOSKituraKitSample.modulemap */,
+				C015AE03A100FAD038B264A200E3C7E5 /* Pods-iOSKituraKitSample-acknowledgements.markdown */,
+				C5B5F02D9CE613494CC7327A2A0B7C9A /* Pods-iOSKituraKitSample-acknowledgements.plist */,
+				7AD2D755C24ACCD8DE6525C40CE1974C /* Pods-iOSKituraKitSample-dummy.m */,
+				691EC53FA8FE64FA082F37F26C1E8967 /* Pods-iOSKituraKitSample-frameworks.sh */,
+				3C0667FC482F6ABC450FAF25A5712736 /* Pods-iOSKituraKitSample-resources.sh */,
+				8F0305E20CA1A12C4D5F3071DD91ED08 /* Pods-iOSKituraKitSample-umbrella.h */,
+				DD9292E7FFA3509BA4E0C1E69B11BDF4 /* Pods-iOSKituraKitSample.debug.xcconfig */,
+				C0CF5F02B8578B531DC6BBEF6FD53800 /* Pods-iOSKituraKitSample.release.xcconfig */,
+			);
+			name = "Pods-iOSKituraKitSample";
+			path = "Target Support Files/Pods-iOSKituraKitSample";
+			sourceTree = "<group>";
+		};
+		2E4E6C95DAFF9A589564A74CFDEC1916 /* SwiftyRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E6BA5967923E6A72D0E72F326A63EA0B /* HTTPMethod.swift */,
+				48789A2E5489411C5C157A7F18983F32 /* JSON.swift */,
+				539DEE982EE5D713802380648362C74E /* MultipartFormData.swift */,
+				CEDF8992051519EC30613C6A9D6FF636 /* RestRequest.swift */,
+				0DF9B1E2BEF98B7CAD0CD2C9DFE2D73D /* RestToken.swift */,
+				4774DFA8C872FA23456520B2C39D5A5E /* RestUtilities.swift */,
+				5E4E9B4260D6A838E7954C13487206F5 /* StringExtensions.swift */,
+				78CBCF7CFBAE9228A855B2127C5096AF /* CircuitBreaker */,
+			);
+			name = SwiftyRequest;
+			sourceTree = "<group>";
+		};
+		38A962F261C781E72AAC1AA31EC7B0BA /* CircuitBreaker */ = {
+			isa = PBXGroup;
+			children = (
+				C4510B1636E6D7889FEFA70BE21F72A1 /* CircuitBreaker.swift */,
+				604D0CF01C6ACCA102D46FE2CB03E3DD /* Stats.swift */,
+				7C5737706F32C78C529C9B6278780685 /* Utils.swift */,
+				D5DC97EDAC2E10FA16422CBE95131CD9 /* LoggerAPI */,
+			);
+			name = CircuitBreaker;
+			sourceTree = "<group>";
+		};
+		5188941B62A2163B696E1AB044700FBC /* KituraKit */ = {
+			isa = PBXGroup;
+			children = (
+				170D4692C09D5F592BCB1BEC5F758750 /* Client.swift */,
+				A17DFD0AAA24D13DC1157B337BDB6782 /* PersistableExtension.swift */,
+				2EAB273AEF486B6F631B989A1C6C6442 /* RequestErrorExtension.swift */,
+				38A962F261C781E72AAC1AA31EC7B0BA /* CircuitBreaker */,
+				D951B53031AB97A09BC95811E530492E /* KituraContracts */,
+				D94E26E1F634A96A09EA892A96B1EC1D /* Support Files */,
+				2E4E6C95DAFF9A589564A74CFDEC1916 /* SwiftyRequest */,
+			);
+			name = KituraKit;
+			path = KituraKit;
+			sourceTree = "<group>";
+		};
+		707A92FE941D4E2507A886FD97D09633 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				19EEBB88B8BA7894FC6BBC63F232EA02 /* Pods-iOSKituraKitSample */,
+				0806802DF66361FB5B996097CC634FDC /* Pods-iOSKituraKitSampleTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		78CBCF7CFBAE9228A855B2127C5096AF /* CircuitBreaker */ = {
+			isa = PBXGroup;
+			children = (
+				CECD7B9FF9B1B57C0409D8B033269C9C /* LoggerAPI */,
+			);
+			name = CircuitBreaker;
+			sourceTree = "<group>";
+		};
+		79E4BEDD46A82869FE14E2EAFF8D07BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5188941B62A2163B696E1AB044700FBC /* KituraKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				79E4BEDD46A82869FE14E2EAFF8D07BF /* Pods */,
+				9B8ED673323D7511E5FA860BF2C04BD0 /* Products */,
+				707A92FE941D4E2507A886FD97D09633 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9B8ED673323D7511E5FA860BF2C04BD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				794A3C70B4FED3F454DCD988EE92CC9C /* KituraKit.framework */,
+				5AD0D1D511D5BC940779A20EF445043B /* Pods_iOSKituraKitSample.framework */,
+				9F9D28CE24F6631F9B1CA073D41FAAA0 /* Pods_iOSKituraKitSampleTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CECD7B9FF9B1B57C0409D8B033269C9C /* LoggerAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LoggerAPI;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D5DC97EDAC2E10FA16422CBE95131CD9 /* LoggerAPI */ = {
+			isa = PBXGroup;
+			children = (
+				12D9B6A59042E485E87B679037630D01 /* Logger.swift */,
+			);
+			name = LoggerAPI;
+			sourceTree = "<group>";
+		};
+		D94E26E1F634A96A09EA892A96B1EC1D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				357E0DCDC0C98932E09A42889BEEF2AC /* Info.plist */,
+				E1C7AE43F45C3FCCCCB3F3AC0EBABDD0 /* KituraKit.modulemap */,
+				FDB7DB83B8DE227209EA8CC7AB92288D /* KituraKit.xcconfig */,
+				0DB9CA6F9931752CD6DD5049C1027938 /* KituraKit-dummy.m */,
+				0A80F5C80BD3F28C382A9EEC076CCE07 /* KituraKit-prefix.pch */,
+				42E800AD3E59A45A3BF837ED520C4B98 /* KituraKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KituraKit";
+			sourceTree = "<group>";
+		};
+		D951B53031AB97A09BC95811E530492E /* KituraContracts */ = {
+			isa = PBXGroup;
+			children = (
+				B67D33AF625C776622D58CE530416BC6 /* ClousureAliases.swift */,
+				50C6F0F36012B180C07AB74FC237372D /* Contracts.swift */,
+			);
+			name = KituraContracts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		021AD05C3E9A1FF6E7D24C253C211344 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA7CA2EC274B2C34064B5B0C1DF7081 /* KituraKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48C4CF1EB4183C426807799542224C8E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9DEB7619B11361834CDD2B3F070597A /* Pods-iOSKituraKitSampleTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		514133DD140197F7101539616E9972EB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B61D9D5892BE6DF927D56CF1EB357D73 /* Pods-iOSKituraKitSample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0A974559159EA43048A140893A2F83C8 /* Pods-iOSKituraKitSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65F2A104566764E24721B01DFA440DD9 /* Build configuration list for PBXNativeTarget "Pods-iOSKituraKitSample" */;
+			buildPhases = (
+				59863CE3691BAECE5113BDA4AEEB1F5D /* Sources */,
+				2DD8A068A2B89E76589FC6539DE30557 /* Frameworks */,
+				514133DD140197F7101539616E9972EB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46920149141D0BA08B433520C899978E /* PBXTargetDependency */,
+			);
+			name = "Pods-iOSKituraKitSample";
+			productName = "Pods-iOSKituraKitSample";
+			productReference = 5AD0D1D511D5BC940779A20EF445043B /* Pods_iOSKituraKitSample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3A489A51B8C90AAD0D7BE3972D960368 /* Pods-iOSKituraKitSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EBED7001677465E9CEA6EB5C0DAA79B /* Build configuration list for PBXNativeTarget "Pods-iOSKituraKitSampleTests" */;
+			buildPhases = (
+				D3D1948C34BC502A6D3BC68445CF8B02 /* Sources */,
+				65FA21D4A7072B1483D366A63CADFB20 /* Frameworks */,
+				48C4CF1EB4183C426807799542224C8E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-iOSKituraKitSampleTests";
+			productName = "Pods-iOSKituraKitSampleTests";
+			productReference = 9F9D28CE24F6631F9B1CA073D41FAAA0 /* Pods_iOSKituraKitSampleTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F4B09F028C180F8C50379438AABB868 /* KituraKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62BC1CC41DDC139B53B964736879719A /* Build configuration list for PBXNativeTarget "KituraKit" */;
+			buildPhases = (
+				FF35F9319472C0E4E9B8F729D35FB0F1 /* Sources */,
+				6422AF32C794DA21EBF8AD01CB41EB81 /* Frameworks */,
+				021AD05C3E9A1FF6E7D24C253C211344 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KituraKit;
+			productName = KituraKit;
+			productReference = 794A3C70B4FED3F454DCD988EE92CC9C /* KituraKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 9B8ED673323D7511E5FA860BF2C04BD0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F4B09F028C180F8C50379438AABB868 /* KituraKit */,
+				0A974559159EA43048A140893A2F83C8 /* Pods-iOSKituraKitSample */,
+				3A489A51B8C90AAD0D7BE3972D960368 /* Pods-iOSKituraKitSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59863CE3691BAECE5113BDA4AEEB1F5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1900B5FCE91AD3EB776D2FC76C426DE /* Pods-iOSKituraKitSample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3D1948C34BC502A6D3BC68445CF8B02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2CE1745602B283073C94C72CB6839E1 /* Pods-iOSKituraKitSampleTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF35F9319472C0E4E9B8F729D35FB0F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E05A88DAC36EC5FEC7D593577351374 /* CircuitBreaker.swift in Sources */,
+				C8E2A04885008D4020DA7D5B3FA75290 /* Client.swift in Sources */,
+				606AACB40C60F8725BB7702619F9ECC9 /* ClousureAliases.swift in Sources */,
+				0AA8194E4F8BE23DCA0E3AB895D75755 /* Contracts.swift in Sources */,
+				84BF6DC52E9FB7ECA5420E90259A7BB5 /* HTTPMethod.swift in Sources */,
+				90B4C3797E435046DA894C15DF12A6DD /* JSON.swift in Sources */,
+				982CE6087248425316834425915A0D91 /* KituraKit-dummy.m in Sources */,
+				B0CBD160867A844926264A7F7C48E2E7 /* Logger.swift in Sources */,
+				E0549C4E979703BCEA7B27F6CA7161D3 /* MultipartFormData.swift in Sources */,
+				083DCE10FE1B8407F2EEE98A9D071334 /* PersistableExtension.swift in Sources */,
+				C59E4C499D87B51A03DCEF43EB8C799A /* RequestErrorExtension.swift in Sources */,
+				3C335D52DC3D9CB29E094FA4D8E8A870 /* RestRequest.swift in Sources */,
+				32484A2E2304046AF2F4DF4B1A2A3F42 /* RestToken.swift in Sources */,
+				07DEEEC79D88061A6F4CE4BF1E494B16 /* RestUtilities.swift in Sources */,
+				97276EAD6BA4D8CEE4DCBB804139A2F0 /* Stats.swift in Sources */,
+				307295E63068D80D0AD6674CC9E5FD9D /* StringExtensions.swift in Sources */,
+				501240F7917C8CF8BFAE43485A225A9E /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46920149141D0BA08B433520C899978E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KituraKit;
+			target = 6F4B09F028C180F8C50379438AABB868 /* KituraKit */;
+			targetProxy = 36B4A98CCF36D940245C1B32C8516248 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		12C4B864767C59600DBFA238F1E2F8BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		347658C150483AD89BB9D2AE1EB1E49F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDB7DB83B8DE227209EA8CC7AB92288D /* KituraKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KituraKit/KituraKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KituraKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KituraKit/KituraKit.modulemap";
+				PRODUCT_NAME = KituraKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3A72A3B278973289DE6D3466AAD5DA85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD9292E7FFA3509BA4E0C1E69B11BDF4 /* Pods-iOSKituraKitSample.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKituraKitSample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKituraKitSample/Pods-iOSKituraKitSample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iOSKituraKitSample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4FAACE01959ACB5E36AD872262CBB2A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EF6B14BDAD5E044E620BC89D463732B /* Pods-iOSKituraKitSampleTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKituraKitSampleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKituraKitSampleTests/Pods-iOSKituraKitSampleTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iOSKituraKitSampleTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		59F0302F2371FCC6B73EF0A418D40734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7F68F0D7C0AC5F6D660BB431BDA66CF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDB7DB83B8DE227209EA8CC7AB92288D /* KituraKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KituraKit/KituraKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KituraKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KituraKit/KituraKit.modulemap";
+				PRODUCT_NAME = KituraKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E78A0C2361FC2008E7B8682064206298 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0CF5F02B8578B531DC6BBEF6FD53800 /* Pods-iOSKituraKitSample.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKituraKitSample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKituraKitSample/Pods-iOSKituraKitSample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iOSKituraKitSample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDF88C94F107D76A34D0079F806CA38D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A397F64819D2840F6B42EE9A2551A4FB /* Pods-iOSKituraKitSampleTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKituraKitSampleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKituraKitSampleTests/Pods-iOSKituraKitSampleTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iOSKituraKitSampleTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59F0302F2371FCC6B73EF0A418D40734 /* Debug */,
+				12C4B864767C59600DBFA238F1E2F8BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EBED7001677465E9CEA6EB5C0DAA79B /* Build configuration list for PBXNativeTarget "Pods-iOSKituraKitSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FAACE01959ACB5E36AD872262CBB2A5 /* Debug */,
+				FDF88C94F107D76A34D0079F806CA38D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62BC1CC41DDC139B53B964736879719A /* Build configuration list for PBXNativeTarget "KituraKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				347658C150483AD89BB9D2AE1EB1E49F /* Debug */,
+				7F68F0D7C0AC5F6D660BB431BDA66CF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65F2A104566764E24721B01DFA440DD9 /* Build configuration list for PBXNativeTarget "Pods-iOSKituraKitSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A72A3B278973289DE6D3466AAD5DA85 /* Debug */,
+				E78A0C2361FC2008E7B8682064206298 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
