@@ -1,5 +1,9 @@
 # Kitura 2 App Component
 
+### PersistentiOSKituraKit
+
+The app is unchanged by the addition of a database since it is the [server](https://github.com/IBM-Swift/iOSSampleKituraKit/tree/persistentiOSKituraKit/ToDoServer) which handles all calls to the database.
+
 ### Usage
 
 This directory of the repo was created to store and demonstrate that the iOS component can work with the server. It uses a new Kitura client side library called **KituraKit**. The `.xcworkspace` file loads up the XCode project with the files and corresponding structure. To run the iOS app on a simulator, select the iOS Sample KituraKit scheme with the chosen simulator (iPhone X for example), and click the play button on the top left of the XCode window (or `CMD + R`). This will start the app on the simulator, functionality with the Kitura server will only be present after the server has already been started.
