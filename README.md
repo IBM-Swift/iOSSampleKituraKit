@@ -50,9 +50,9 @@ If you would like to import KituraKit into your own iOS project please see [Kitu
 
    `cd /iOSSampleKituraKit/KituraiOS`
 
-8. Open the iOS Sample Kitura Buddy.xcodeproj file with:
+8. Open the iOSKituraKitSample workspace with:
 
-    `open iOSKituraKitSample.xcodeproj`
+    `open iOSKituraKitSample.xcworkspace`
 
 A new Xcode window will open. For more info on the iOS app, [click here](https://github.com/IBM-Swift/iOSSampleKituraKit/blob/master/KituraiOS/README.md).
 
