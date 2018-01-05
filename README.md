@@ -22,6 +22,8 @@ It is built against a set of [ToDoBackend tests](http://www.todobackend.com/) to
 
 If you would like to import KituraKit into your own iOS project please see [KituraKit Usage](https://github.com/IBM-Swift/KituraKit/blob/master/README.md).
 
+If you would like to view this sample app with an SQL database connected view the [persistentiOSKituraKit branch](https://github.com/IBM-Swift/iOSSampleKituraKit/tree/persistentiOSKituraKit).
+
 ### Quick Start*
 
 1. Install [Xcode 9](https://itunes.apple.com/gb/app/xcode/id497799835) or later.
