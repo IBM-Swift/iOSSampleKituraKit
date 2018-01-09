@@ -33,8 +33,8 @@ let package = Package(
         .package(url: "https://github.com/IBM-Swift/SwiftKueryMySQL.git", .upToNextMinor(from: "1.0.0")),
         ],
     targets: [
-        .target(name: "ToDoServer", dependencies: [ .target(name: "Application"), "Kitura" , "HeliumLogger", "SwiftKueryMySQL", "SwiftKueryPostgreSQL"]),
-        .target(name: "Application", dependencies: [ "Kitura", "KituraCORS", "CloudEnvironment", "Health", "SwiftMetrics"]),
+        .target(name: "ToDoServer", dependencies: [ .target(name: "Application"), "Kitura" , "HeliumLogger"]),
+        .target(name: "Application", dependencies: [ "Kitura", "KituraCORS", "CloudEnvironment", "Health", "SwiftMetrics", "SwiftKueryMySQL", "SwiftKueryPostgreSQL"]),
         ]
 )
 

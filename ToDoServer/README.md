@@ -76,7 +76,7 @@ func createHandler(todo: ToDo, completion: @escaping (ToDo?, RequestError?) -> V
     }
 }
 ```
-To view the other handlers, look inside the [Application.swift](https://github.com/IBM-Swift/iOSSampleKituraKit/tree/master/ToDoServer/Sources/Application/Application.swift) file.
+To view the other handlers, look inside the [Application.swift](https://github.com/IBM-Swift/iOSSampleKituraKit/tree/persistentiOSKituraKit/ToDoServer/Sources/Application/Application.swift) file.
 
 ### Package.swift
 
@@ -133,12 +133,12 @@ This project used a MySQL database to store the data from the server. Since [Swi
 
 ```
 CREATE TABLE toDoTable (
-toDo_id integer primary key,
-toDo_title varchar(50),
-toDo_user varchar(50),
-toDo_order integer,
-toDo_completed boolean,
-toDo_url varchar(50)
+    toDo_id integer primary key,
+    toDo_title varchar(50),
+    toDo_user varchar(50),
+    toDo_order integer,
+    toDo_completed boolean,
+    toDo_url varchar(50)
 );
 ```
 4. In the Application.swift file,  remove the mySQL connection and replace it with:

@@ -37,13 +37,13 @@ mysql -uroot -e "GRANT ALL ON ToDoDatabase.* TO 'swift'@'localhost';"
 mysql -uroot;
 use ToDoDatabase;
 CREATE TABLE toDoTable (
-toDo_id INT NOT NULL,
-toDo_title VARCHAR(50),
-toDo_user VARCHAR(50),
-toDo_order INT,
-toDo_completed BOOLEAN,
-toDo_url VARCHAR(50),
-PRIMARY KEY ( toDo_id )
+    toDo_id INT NOT NULL,
+    toDo_title VARCHAR(50),
+    toDo_user VARCHAR(50),
+    toDo_order INT,
+    toDo_completed BOOLEAN,
+    toDo_url VARCHAR(50),
+    PRIMARY KEY ( toDo_id )
 );
 ```
 
@@ -53,25 +53,27 @@ PRIMARY KEY ( toDo_id )
 
 7. Clone this repository:
 
-`git clone https://github.com/Andrew-Lees11/PersistentiOSKituraKit.git`
+`git clone https://github.com/IBM-Swift/iOSSampleKituraKit.git`
 
 8. Navigate into the [ToDoServer folder](https://github.com/IBM-Swift/iOSSampleKituraKit/tree/persistentiOSKituraKit/ToDoServer) using:
 
-`cd PersistentiOSKituraKit/ToDoServer/`
+`cd iOSSampleKituraKit/ToDoServer/`
 
-9. Run the following commands to compile the code:
+9. Switch to the persistentiOSKituraKit branch:
 
-`swift build -Xlinker -L/usr/local/lib`
+`git checkout persistentiOSKituraKit`
 
-10. Start the server with:
+10. Run the following command to compile and run the server:
 
-`.build/x86_64-apple-macosx10.10/debug/ToDoServer`
+`swift run -Xlinker -L/usr/local/lib`
+
+"-Xlinker -L/usr/local/lib" is required to point swift at the linker for mySQL
 
 **Note:** This command will start the server and it will listen for new connections forever, so the terminal window will be unable to take new commands while the server is running.
 
 11. Open new Terminal window and navigate into the [KituraiOS folder](https://github.com/IBM-Swift/iOSSampleKituraKit/tree/persistentiOSKituraKit/KituraiOS) using:
 
-`cd /PersistentiOSKituraKit/KituraiOS`
+`cd iOSSampleKituraKit/KituraiOS`
 
 12. Open the iOSKituraKitSample.xcworkspace file with:
 

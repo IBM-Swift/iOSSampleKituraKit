@@ -259,7 +259,13 @@ public class Application {
      The updateHandler function tells the server how to handle an HTTP PATCH request. It takes a ToDo id as the parameter and a ToDo object which will replace your existing ToDo values. It creates and executes an SQL Select query to get the current values for the ToDo. A new ToDo is then created by replacing the old ToDo values with any of the new ToDo values which are not nil. This updated ToDo is then sent back to the database using an SQL update query which replaces the old row with your new row (Similar to an HTTP PUT request). If this is successful, the server responds with the updated ToDo that was stored in the database and nil for the request error. If it was not successful it responds with the Request error and nil for the ToDo.
      */
     func updateHandler(id: Int, new: ToDo, completion: @escaping (ToDo?, RequestError?) -> Void ) {
-        var current: ToDo?
+        // Create an array of Column to Any describing which fields will be updated
+        var validFields: [(Column, Any)] = []
+        // If the new ToDo has a value for a field, add that value to your valid fields
+        if let title = new.title { validFields.append((self.todotable.toDo_title, title)) }
+        if let user = new.user { validFields.append((self.todotable.toDo_user, user)) }
+        if let order = new.order { validFields.append((self.todotable.toDo_order, order)) }
+        if let completed = new.completed { validFields.append((self.todotable.toDo_completed, completed)) }
         // Connect to the database. If this fails return an internalServerError.
         connection.connect() { error in
             if error != nil {
@@ -268,43 +274,17 @@ public class Application {
                 return
             }
             else {
-                // An SQL select query is created and executed to return the row from the `todotable` where todotable.toDo_id == id.
-                let selectQuery = Select(from :todotable).where(todotable.toDo_id == id)
-                connection.execute(query: selectQuery) { queryResult in
-                    // Parse the returned row into a ToDo object
-                    if let resultSet = queryResult.asResultSet {
-                        for row in resultSet.rows {
-                            current = self.rowToDo(row: row)
-                        }
-                    }
-                    else if let queryError = queryResult.asError {
+                // An SQL update query is created and executed to replace all valid fields in the table with your new values
+                let updateQuery = Update(self.todotable, set: validFields).where(self.todotable.toDo_id == id)
+                self.connection.execute(query: updateQuery) { queryResult in
+                    if let queryError = queryResult.asError {
                         // If the queryResult is an error return .internalServerError
-                        print("update select query error: \(queryError)")
+                        print("delete one query error: \(queryError)")
                         completion(nil, .internalServerError)
                         return
                     }
-                    // For each value in ToDo, If the new value is nil use the old value, otherwise replace the old value with the new value and unwrap the optional.
-                    guard var current = current else {return}
-                    current.title = new.title ?? current.title
-                    guard let title = current.title else {return}
-                    current.user = new.user ?? current.user
-                    guard let user = current.user else {return}
-                    current.order = new.order ?? current.order
-                    guard let order = current.order else {return}
-                    current.completed = new.completed ?? current.completed
-                    guard let completed = current.completed else {return}
-                    // Create and execute an update query with the new value to replace the old values with the new values.
-                    let updateQuery = Update(self.todotable, set: [(self.todotable.toDo_title, title),(self.todotable.toDo_user, user),(self.todotable.toDo_order, order),(self.todotable.toDo_completed, completed)]).where(self.todotable.toDo_id == id)
-                    self.connection.execute(query: updateQuery) { queryResult in
-                        if let queryError = queryResult.asError {
-                            // If the queryResult is an error return .internalServerError
-                            print("delete one query error: \(queryError)")
-                            completion(nil, .internalServerError)
-                            return
-                        }
-                        // If there were no errors, return the updated ToDo object.
-                        completion(current, nil)
-                    }
+                    // If there were no errors, return the sent ToDo object.
+                    completion(new, nil)
                 }
             }
         }
@@ -323,17 +303,13 @@ public class Application {
             }
             else {
                 // Create a new ToDo object from the received ToDo object with the given id.
-                var current = ToDo(title: nil, user: nil, order: nil, completed: nil)
-                current.id = id
-                current.title = new.title
-                guard let title = current.title else {return}
-                current.user = new.user
-                guard let user = current.user else {return}
-                current.order = new.order
-                guard let order = current.order else {return}
-                current.completed = new.completed
-                guard let completed = current.completed else {return}
-                current.url = "http://localhost:8080/\(id)"
+                var returnedToDo: ToDo = new
+                returnedToDo.id = id
+                guard let title = new.title else {return}
+                guard let user = new.user else {return}
+                guard let order = new.order else {return}
+                guard let completed = new.completed else {return}
+                returnedToDo.url = "http://localhost:8080/\(id)"
                 // Create an execute the update query to replace the old ToDo with the new ToDo.
                 let updateQuery = Update(self.todotable, set: [(self.todotable.toDo_title, title),(self.todotable.toDo_user, user),(self.todotable.toDo_order, order),(self.todotable.toDo_completed, completed)]).where(self.todotable.toDo_id == id)
                 self.connection.execute(query: updateQuery) { queryResult in
@@ -344,7 +320,7 @@ public class Application {
                         return
                     }
                     // If there were no errors, return the new ToDo object.
-                    completion(current, nil)
+                    completion(returnedToDo, nil)
                 }
             }
         }
@@ -352,6 +328,8 @@ public class Application {
     
     /**
      id is used as the primary key for the database and therefore, must be unique. When the server receives a ToDo it assigns an id and this function getNextId is used to find the next available id to assign. It does this by using a SQL select query to get the max id in the database and then returning the number 1 larger than that.
+     
+     This method is not safe across multiple clients as it creates race conditions. An abstraction for swift kuery is currently being developed to implement returning next available id and this will be updated once that is complete.
      */
     private func getNextId() -> Int {
         var nextId = 0
