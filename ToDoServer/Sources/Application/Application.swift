@@ -76,7 +76,11 @@ public class Application {
     }
     
     /**
-     The createHandler function tells the server how to handle an HTTP POST request. It receives a ToDo object from the client and adds an unique identify and URL. The values from the ToDo object are then inserted into the mySQL database using SwiftKuery and SwiftKueryMySQL. It will return either, a ToDo object, with the RequestError being nil, or a RequestError, with the ToDo object being nil.
+     The createHandler function tells the server how to handle an HTTP POST request.
+     It receives a ToDo object from the client and adds an unique identify and URL.
+     The values from the ToDo object are then inserted into the mySQL database using SwiftKuery and SwiftKueryMySQL.
+     It will return either, a ToDo object, with the RequestError being nil, or a RequestError,
+     with the ToDo object being nil.
      */
     func createHandler(todo: ToDo, completion: @escaping (ToDo?, RequestError?) -> Void ) {
         // Set a local ToDo object to equal the ToDo object received from the client.
@@ -118,7 +122,10 @@ public class Application {
     }
     
     /**
-     The getAllHandler function tells the server how to handle an HTTP GET request when you receive no parameters. It connects to the database, executes a SQL select query to get the todotable from the database and then fills a temporary ToDoStore with all the ToDos. If it has been successful, this function returns this array of ToDos with the requestError being nil. If there has been an error it will return the RequestError and nil for the ToDo array.
+     The getAllHandler function tells the server how to handle an HTTP GET request when you receive no parameters.
+     It connects to the database, executes a SQL select query to get the todotable from the database and then fills
+     a temporary ToDoStore with all the ToDos. If it has been successful, this function returns this array of ToDos
+     with the requestError being nil. If there has been an error it will return the RequestError and nil for the ToDo array.
      */
     func getAllHandler(completion: @escaping ([ToDo]?, RequestError?) -> Void ) {
         // Connect to the database. If this fails return an internalServerError.
@@ -161,7 +168,11 @@ public class Application {
     }
     
     /**
-     The getOneHandler function tells the server how to handle an HTTP GET request when you receive an id as a parameter. It creates and executes an SQL select query for the received id to lookup if that id is present in the database. If it has been successful, this function returns the ToDo with the received id and nil for the requestError. If there has been an error it will return the RequestError and nil for the ToDo. If the id is not in the database, it will return nil for the ToDo and .notFound for the Request error.
+     The getOneHandler function tells the server how to handle an HTTP GET request when you receive an id as a parameter.
+     It creates and executes an SQL select query for the received id to lookup if that id is present in the database.
+     If it has been successful, this function returns the ToDo with the received id and nil for the requestError.
+     If there has been an error it will return the RequestError and nil for the ToDo.
+     If the id is not in the database, it will return nil for the ToDo and .notFound for the Request error.
      */
     func getOneHandler(id: Int, completion: @escaping (ToDo?, RequestError?) -> Void ) {
         // Connect to the database. If this fails return an internalServerError.
@@ -200,7 +211,10 @@ public class Application {
     }
     
     /**
-     The deleteAllHandler function tells the server how to handle an HTTP DELETE request when you receive no parameters. It creates and executes an SQL delete query for all values in the `todotable`. If it has been successful, this function returns nil for the requestError. If there has been an error it will return the RequestError.
+     The deleteAllHandler function tells the server how to handle an HTTP DELETE request when you receive no parameters.
+     It creates and executes an SQL delete query for all values in the `todotable`.
+     If it has been successful, this function returns nil for the requestError.
+     If there has been an error it will return the RequestError.
      */
     func deleteAllHandler(completion: @escaping (RequestError?) -> Void ) {
         // Connect to the database. If this fails return an internalServerError.
@@ -228,7 +242,10 @@ public class Application {
     }
     
     /**
-     The deleteOneHandler function tells the server how to handle an HTTP DELETE request when you receive a ToDo id as the parameter. It creates and executes an SQL delete query for the received id in the `todotable`. If it has been successful, this function returns nil for the requestError. If there has been an error it will return the RequestError.
+     The deleteOneHandler function tells the server how to handle an HTTP DELETE request when you receive a ToDo id as the parameter.
+     It creates and executes an SQL delete query for the received id in the `todotable`.
+     If it has been successful, this function returns nil for the requestError.
+     If there has been an error it will return the RequestError.
      */
     func deleteOneHandler(id: Int, completion: @escaping (RequestError?) -> Void ) {
         // Connect to the database. If this fails return an internalServerError.
@@ -256,7 +273,13 @@ public class Application {
     }
     
     /**
-     The updateHandler function tells the server how to handle an HTTP PATCH request. It takes a ToDo id as the parameter and a ToDo object which will replace your existing ToDo values. It creates and executes an SQL Select query to get the current values for the ToDo. A new ToDo is then created by replacing the old ToDo values with any of the new ToDo values which are not nil. This updated ToDo is then sent back to the database using an SQL update query which replaces the old row with your new row (Similar to an HTTP PUT request). If this is successful, the server responds with the updated ToDo that was stored in the database and nil for the request error. If it was not successful it responds with the Request error and nil for the ToDo.
+     The updateHandler function tells the server how to handle an HTTP PATCH request.
+     It takes a ToDo id as the parameter and a ToDo object which will replace your existing ToDo values.
+     It creates and executes an SQL Select query to get the current values for the ToDo.
+     A new ToDo is then created by replacing the old ToDo values with any of the new ToDo values which are not nil.
+     This updated ToDo is then sent back to the database using an SQL update query which replaces the old row with your new row (Similar to an HTTP PUT request).
+     If this is successful, the server responds with the updated ToDo that was stored in the database and nil for the request error.
+     If it was not successful it responds with the Request error and nil for the ToDo.
      */
     func updateHandler(id: Int, new: ToDo, completion: @escaping (ToDo?, RequestError?) -> Void ) {
         // Create an array of Column to Any describing which fields will be updated
@@ -291,7 +314,12 @@ public class Application {
     }
     
     /**
-     The updatePutHandler function tells the server how to handle an HTTP PUT request. It takes a ToDo id as the parameter and a ToDo object which will replace your existing ToDo. A new ToDo is then created with the given id using the received values. This new ToDo is then sent to the database using an SQL update query which replaces the old row with the new row. If this is successful, the server responds with the new ToDo that was stored in the database and nil for the request error. If it was not successful it responds with the Request error and nil for the ToDo.
+     The updatePutHandler function tells the server how to handle an HTTP PUT request.
+     It takes a ToDo id as the parameter and a ToDo object which will replace your existing ToDo.
+     A new ToDo is then created with the given id using the received values.
+     This new ToDo is then sent to the database using an SQL update query which replaces the old row with the new row.
+     If this is successful, the server responds with the new ToDo that was stored in the database and nil for the request error.
+     If it was not successful it responds with the Request error and nil for the ToDo.
      */
     func updatePutHandler(id: Int, new: ToDo, completion: @escaping (ToDo?, RequestError?) -> Void ) {
         // Connect to the database. If this fails return an internalServerError.
@@ -327,7 +355,9 @@ public class Application {
     }
     
     /**
-     id is used as the primary key for the database and therefore, must be unique. When the server receives a ToDo it assigns an id and this function getNextId is used to find the next available id to assign. It does this by using a SQL select query to get the max id in the database and then returning the number 1 larger than that.
+     id is used as the primary key for the database and therefore, must be unique.
+     When the server receives a ToDo it assigns an id and this function getNextId is used to find the next available id to assign.
+     It does this by using a SQL select query to get the max id in the database and then returning the number 1 larger than that.
      
      This method is not safe across multiple clients as it creates race conditions. An abstraction for swift kuery is currently being developed to implement returning next available id and this will be updated once that is complete.
      */
