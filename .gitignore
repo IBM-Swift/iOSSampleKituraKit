@@ -5,6 +5,5 @@ ToDoServer/.build-ubuntu/*
 ToDoServer/ToDoServer.xcodeproj/*
 KituraiOS/iOSKituraKitSample.xcodeproj/xcuserdata/*
 KituraiOS/iOSKituraKitSample.xcodeproj/project.xcworkspace/xcuserdata/*
-KituraiOS/iOSKituraKitSample.xcworkspace
-KituraiOS/Podfile.lock
-KituraiOS/Pods
+KituraiOS/Pods/Pods.xcodeproj/xcuserdata/andrewlees.xcuserdatad/*
+KituraiOS/iOSKituraKitSample.xcworkspace/xcuserdata/andrewlees.xcuserdatad/*
