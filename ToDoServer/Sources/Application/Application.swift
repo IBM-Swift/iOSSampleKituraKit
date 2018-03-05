@@ -22,6 +22,7 @@ import LoggerAPI
 import Configuration
 import CloudEnvironment
 import Health
+import Dispatch
 
 public let projectPath = ConfigurationManager.BasePath.project.path
 public let health = Health()
@@ -33,6 +34,7 @@ public class Application {
     let cloudEnv = CloudEnv()
     var todoStore = [ToDo]()
     var nextId :Int = 0
+    private let workerQueue = DispatchQueue(label: "worker")
     
     func postInit() throws{
         // Capabilities
@@ -70,14 +72,13 @@ public class Application {
     
     func createHandler(todo: ToDo, completion: (ToDo?, RequestError?) -> Void ) -> Void {
         var todo = todo
-        if todo.completed == nil {
-            todo.completed = false
-        }
-        let id = nextId
+        todo.completed = todo.completed ?? false
+        todo.id = nextId
+        todo.url = "http://localhost:8080/\(nextId)"
         nextId += 1
-        todo.id = id
-        todo.url = "http://localhost:8080/\(id)"
-        todoStore.append(todo)
+        execute {
+            todoStore.append(todo)
+        }
         completion(todo, nil)
     }
     
@@ -94,7 +95,9 @@ public class Application {
     }
     
     func deleteAllHandler(completion: (RequestError?) -> Void ) -> Void {
-        todoStore = [ToDo]()
+        execute {
+            todoStore = [ToDo]()
+        }
         completion(nil)
     }
     
@@ -103,7 +106,9 @@ public class Application {
             completion(.notFound)
             return
         }
-        todoStore.remove(at: idPosition)
+        execute {
+            todoStore.remove(at: idPosition)
+        }
         completion(nil)
     }
     
@@ -117,7 +122,9 @@ public class Application {
         current.order = new.order ?? current.order
         current.title = new.title ?? current.title
         current.completed = new.completed ?? current.completed
-        todoStore[idPosition] = current
+        execute {
+            todoStore[idPosition] = current
+        }
         completion(todoStore[idPosition], nil)
     }
     
@@ -131,8 +138,16 @@ public class Application {
         current.order = new.order
         current.title = new.title
         current.completed = new.completed
-        todoStore[idPosition] = current
+        execute {
+            todoStore[idPosition] = current
+        }
         completion(todoStore[idPosition], nil)
+    }
+    
+    func execute(_ block: (() -> Void)) {
+        workerQueue.sync {
+            block()
+        }
     }
     
 }

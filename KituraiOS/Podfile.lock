@@ -6,7 +6,9 @@ PODS:
   - KituraKit/CircuitBreaker (0.0.1):
     - KituraKit/CircuitBreaker/LoggerAPI (= 0.0.1)
   - KituraKit/CircuitBreaker/LoggerAPI (0.0.1)
-  - KituraKit/KituraContracts (0.0.1)
+  - KituraKit/KituraContracts (0.0.1):
+    - KituraKit/KituraContracts/LoggerAPI (= 0.0.1)
+  - KituraKit/KituraContracts/LoggerAPI (0.0.1)
   - KituraKit/SwiftyRequest (0.0.1):
     - KituraKit/SwiftyRequest/CircuitBreaker (= 0.0.1)
   - KituraKit/SwiftyRequest/CircuitBreaker (0.0.1):
@@ -23,12 +25,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   KituraKit:
-    :commit: 8171a371cb34302e50d6daf376a0a43318b04728
+    :commit: 7eaebb86d51ebf3d53307bc88d2f767f19edcf91
     :git: https://github.com/IBM-Swift/KituraKit.git
 
 SPEC CHECKSUMS:
-  KituraKit: 6a98bcab62e6703cfb490cfe5c1b05645c9aad20
+  KituraKit: 6fac253244ad92e900766cabf74a36857fba5463
 
-PODFILE CHECKSUM: 8caafc2d349ab7db74de4fe5ca27b6c12e5576d4
+PODFILE CHECKSUM: 88faa130614b0f484e9e41c8acee57abd2fbfe04
 
 COCOAPODS: 1.3.1
