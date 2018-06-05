@@ -7,7 +7,7 @@ target 'iOSKituraKitSample' do
 
   # Pods for iOSKituraKitSample
 
-pod 'KituraKit', :git => 'https://github.com/IBM-Swift/KituraKit.git', :branch => 'pod'
+pod 'KituraKit', :git => 'https://github.com/IBM-Swift/KituraKit.git', :branch => 'pod-test'
 
   target 'iOSKituraKitSampleTests' do
     inherit! :search_paths
